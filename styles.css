@@ -1,0 +1,419 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+/* Hover Navigation Pane Styling */
+.hover-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 60px; /* Initial collapsed width */
+  height: 100%;
+  background-color: #333;
+  overflow-x: hidden;
+  transition: width 0.3s ease; /* Smooth expand transition */
+  z-index: 1000;
+}
+
+.hover-nav:hover {
+  width: 200px; /* Expanded width */
+}
+
+.hover-nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.hover-nav ul li {
+  padding: 15px;
+}
+
+.hover-nav ul li a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.3s ease;
+}
+
+.hover-nav ul li a:hover {
+  color: #ff6347;
+}
+
+.hover-nav ul li a::before {
+  content: "• ";
+  color: #ff6347;
+}
+
+/* Ensures text fades in when nav is expanded */
+.hover-nav ul li a span {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  margin-left: 10px;
+}
+
+.hover-nav:hover ul li a span {
+  opacity: 1;
+}
+
+/* Container offset to prevent overlap */
+.container {
+  margin-left: 80px; /* Adjust based on collapsed width of nav */
+  transition: margin-left 0.3s ease;
+}
+
+.hover-nav:hover + .container {
+  margin-left: 220px; /* Adjust based on expanded width of nav */
+}
+
+/* Hover effects for text visibility */
+.hover-nav ul li a span {
+  opacity: 0;
+  transition: opacity 0.3s;
+  margin-left: 10px;
+}
+
+.hover-nav:hover ul li a span {
+  opacity: 1;
+}
+
+/* Add padding to the container to prevent content from overlapping with the nav */
+.container {
+  margin-left: 70px; /* Adjust based on the collapsed width of nav */
+  transition: margin-left 0.3s;
+}
+
+.hover-nav:hover + .container {
+  margin-left: 210px; /* Adjust based on the expanded width of nav */
+}
+
+
+/* Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #f4f4f9;
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Navigation Styling */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  background-color: #333;
+  padding: 1em;
+}
+
+nav ul li {
+  padding: 0.5em;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: #ff6347;
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 0.5em;
+  border-bottom: 2px solid #ff6347;
+  padding-bottom: 0.3em;
+}
+
+/* Dropdown Styling */
+.dropdown {
+  margin: 1em 0;
+}
+
+.dropdown-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+}
+
+.dropdown-btn:hover {
+  background-color: #ff6347;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  z-index: 1;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* List Styling */
+.hanging-indent {
+  list-style: none;
+  padding-left: 0;
+}
+
+.hanging-indent li {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  align-items: start;
+  gap: 10px;
+  margin-bottom: 1em;
+}
+
+.label {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.description {
+  text-align: justify;
+}
+
+.justified-text {
+  text-align: justify;
+}
+
+/* Section Styling */
+section {
+  margin: 2em 0;
+}
+
+/* Experience and Projects Section */
+#experience p, #projects p, #skills p, #education p, #contact p {
+  margin-bottom: 1em;
+}
+
+/* Skills Section */
+#skills {
+  padding: 20px;
+  background-color: #f4f4f9;
+  color: #333;
+  max-width: 800px;
+  margin: auto;
+}
+
+#skills h2 {
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.skills-group {
+  margin-bottom: 30px;
+  padding: 15px;
+}
+
+.skills-group h4 {
+  font-size: 1.5em;
+  color: #444;
+  margin-bottom: 10px;
+  border-left: 4px solid #ff6347;
+  padding-left: 10px;
+}
+
+.skills-intro {
+  font-style: italic;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.skills-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.skills-list li {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.skills-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.skills-list li strong {
+  color: #ff6347;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Education Section */
+#education {
+  padding: 20px;
+  background-color: #f4f4f9;
+  color: #333;
+  max-width: 800px;
+  margin: auto;
+}
+
+#education h2 {
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.degree-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.degree-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.degree-card h4 {
+  font-size: 1.5em;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.institution {
+  font-weight: bold;
+  color: #555;
+}
+
+.dates {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.program {
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+.modules {
+  font-style: italic;
+  color: #777;
+}
+
+/* Contact Information */
+#contact p {
+  margin-top: 1em;
+}
+
+/* Italic Text */
+.italic-text {
+  font-style: italic;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  nav ul {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .dropdown-btn {
+      text-align: left;
+  }
+}
+
+/* Experience List Styling */
+.experience-list {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.experience-item {
+  position: relative;
+  width: 200px;
+}
+
+/* Style for Ordered and Unordered Lists */
+#projects ol,
+#projects ul {
+    padding-left: 20px; /* Indent for top-level lists */
+    margin-top: 10px;
+}
+
+#projects ol li {
+    margin-bottom: 10px; /* Spacing between main list items */
+}
+
+/* Increase padding for nested lists */
+#projects ol li ul,
+#projects ol li ol {
+    padding-left: 20px; /* Indent nested lists */
+    margin-top: 5px;
+}
+
+#projects h3 {
+    margin-top: 20px; /* Space before each heading */
+    font-weight: bold;
+    color: #333;
+}
+
+/* Style for nested list items */
+#projects ul li,
+#projects ol li ul li {
+    list-style-type: disc;
+    margin-left: 10px;
+    color: #555;
+}
