@@ -417,3 +417,10 @@ section {
     margin-left: 10px;
     color: #555;
 }
+
+.skill-logo {
+  width: 30px;  /* Set width */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 10px; /* Space between logo and text */
+  vertical-align: middle; /* Align logo with text */
+}
