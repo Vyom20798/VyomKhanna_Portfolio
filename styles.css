@@ -5,18 +5,149 @@
   box-sizing: border-box;
 }
 
+.nav-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1100; /* Above the navigation drawer */
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-toggle:hover {
+  background-color: #ff6347;
+}
+
+/* Navigation Drawer */
+.nav-drawer {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Hidden by default */
+  width: 250px;
+  height: 100vh;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  overflow-y: auto;
+  transition: left 0.3s ease; /* Smooth slide-in/out */
+  z-index: 1000;
+}
+
+.nav-drawer h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #ff6347; /* Accent color */
+}
+
+.nav-drawer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-drawer ul li {
+  margin: 10px 0;
+}
+
+.nav-drawer ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-drawer ul li a:hover {
+  background-color: #ff6347; /* Highlight color on hover */
+}
+
+/* When Drawer is Active */
+.nav-drawer.open {
+  left: 0; /* Slide in the drawer */
+}
+
+/* Adjust Main Content */
+.container {
+  margin: 20px;
+  padding: 20px;
+  transition: margin-left 0.3s ease; /* Smooth adjustment */
+}
+
+/* Sticky Navigation Pane */
+.sticky-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  /* Set a fixed width for the navigation */
+  height: 100vh;
+  /* Full height */
+  background-color: #333;
+  /* Dark background */
+  color: white;
+  padding: 20px;
+  overflow-y: auto;
+  /* Enable scrolling if the menu overflows */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  /* Ensures it stays on top */
+}
+
+.sticky-nav h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #ff6347;
+  /* Accent color for the header */
+}
+
+.sticky-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sticky-nav ul li {
+  margin: 10px 0;
+}
+
+.sticky-nav ul li a {
+  color: #fff;
+  /* White text */
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sticky-nav ul li a:hover {
+  background-color: #ff6347;
+  /* Highlight color on hover */
+  color: #fff;
+}
+
+/* Adjust Main Content to Avoid Overlap */
+.container {
+  margin-left: 270px;
+  /* Matches the width of the sticky-nav plus padding */
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+}
+
 /* Base Styling */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-}
-
-/* General reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  line-height: 1.6;
 }
 
 /* Body Styling */
@@ -31,16 +162,19 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 60px; /* Initial collapsed width */
+  width: 60px;
+  /* Initial collapsed width */
   height: 100%;
   background-color: #333;
   overflow-x: hidden;
-  transition: width 0.3s ease; /* Smooth expand transition */
+  transition: width 0.3s ease;
+  /* Smooth expand transition */
   z-index: 1000;
 }
 
 .hover-nav:hover {
-  width: 200px; /* Expanded width */
+  width: 200px;
+  /* Expanded width */
 }
 
 .hover-nav ul {
@@ -87,12 +221,14 @@ body {
 
 /* Container offset to prevent overlap */
 .container {
-  margin-left: 80px; /* Adjust based on collapsed width of nav */
+  margin-left: 80px;
+  /* Adjust based on collapsed width of nav */
   transition: margin-left 0.3s ease;
 }
 
-.hover-nav:hover + .container {
-  margin-left: 220px; /* Adjust based on expanded width of nav */
+.hover-nav:hover+.container {
+  margin-left: 220px;
+  /* Adjust based on expanded width of nav */
 }
 
 /* Hover effects for text visibility */
@@ -108,12 +244,14 @@ body {
 
 /* Add padding to the container to prevent content from overlapping with the nav */
 .container {
-  margin-left: 70px; /* Adjust based on the collapsed width of nav */
+  margin-left: 70px;
+  /* Adjust based on the collapsed width of nav */
   transition: margin-left 0.3s;
 }
 
-.hover-nav:hover + .container {
-  margin-left: 210px; /* Adjust based on the expanded width of nav */
+.hover-nav:hover+.container {
+  margin-left: 210px;
+  /* Adjust based on the expanded width of nav */
 }
 
 
@@ -230,8 +368,12 @@ section {
 }
 
 /* Experience and Projects Section */
-#experience p, #projects p, #skills p, #education p, #contact p {
-  margin-bottom: 1em;
+#experience p,
+#projects p,
+#skills p,
+#education p,
+#contact p {
+  margin-bottom: 1em
 }
 
 /* Skills Section */
@@ -298,7 +440,6 @@ section {
 #education {
   padding: 20px;
   background-color: #f4f4f9;
-  color: #333;
   max-width: 800px;
   margin: auto;
 }
@@ -365,12 +506,12 @@ section {
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   nav ul {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   .dropdown-btn {
-      text-align: left;
+    text-align: left;
   }
 }
 
@@ -389,38 +530,92 @@ section {
 /* Style for Ordered and Unordered Lists */
 #projects ol,
 #projects ul {
-    padding-left: 20px; /* Indent for top-level lists */
-    margin-top: 10px;
+  padding-left: 20px;
+  /* Indent for top-level lists */
+  margin-top: 10px;
 }
 
 #projects ol li {
-    margin-bottom: 10px; /* Spacing between main list items */
+  margin-bottom: 10px;
+  /* Spacing between main list items */
 }
 
 /* Increase padding for nested lists */
 #projects ol li ul,
 #projects ol li ol {
-    padding-left: 20px; /* Indent nested lists */
-    margin-top: 5px;
+  padding-left: 20px;
+  /* Indent nested lists */
+  margin-top: 5px;
 }
 
 #projects h3 {
-    margin-top: 20px; /* Space before each heading */
-    font-weight: bold;
-    color: #333;
+  margin-top: 20px;
+  /* Space before each heading */
+  font-weight: bold;
+  color: #333;
 }
 
 /* Style for nested list items */
 #projects ul li,
 #projects ol li ul li {
-    list-style-type: disc;
-    margin-left: 10px;
-    color: #555;
+  list-style-type: disc;
+  margin-left: 10px;
+  color: #555;
 }
 
 .skill-logo {
-  width: 30px;  /* Set width */
-  height: auto; /* Maintain aspect ratio */
-  margin-right: 10px; /* Space between logo and text */
-  vertical-align: middle; /* Align logo with text */
+  width: 30px;
+  /* Set width */
+  height: auto;
+  /* Maintain aspect ratio */
+  margin-right: 10px;
+  /* Space between logo and text */
+  vertical-align: middle;
+  /* Align logo with text */
+}
+
+.box {
+  border: 2px solid #f4f4f9;
+  /* Box border */
+  padding: 15px;
+  /* Space inside the box */
+  margin: 20px;
+  /* Space outside the box */
+  border-radius: 10px;
+  /* Rounded corners */
+  background-color: #f9f9f9;
+  /* Light background color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* Subtle shadow */
+}
+
+.box h3 {
+  color: #ff6347;
+}
+
+.box h3 u {
+  margin: 0 0 10px;
+  color: #ff6347;
+  /* Space below the heading */
+  font-family: Arial, sans-serif;
+}
+
+.box p {
+  margin: 0 0 10px;
+  ;
+  /* Space below the paragraph */
+  font-family: 'Georgia', serif;
+}
+
+.box a {
+  color: #007BFF;
+  /* Link color */
+  text-decoration: none;
+  /* Remove underline */
+  font-weight: bold;
+}
+
+.box a:hover {
+  text-decoration: underline;
+  /* Underline on hover */
 }
