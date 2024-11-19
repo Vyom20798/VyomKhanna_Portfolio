@@ -73,18 +73,18 @@
 }
 
 /* Navigation List */
-.nav-drawer ul {
+.nav-drawer li {
   list-style: none;
   padding: 0;
 }
 
-.nav-drawer ul li {
+.nav-drawer li {
   margin: 15px 0;
   /* Add space between links */
 }
 
 /* Navigation Links */
-.nav-drawer ul li a {
+.nav-drawer li a {
   color: #ecf0f1;
   /* Light gray for links */
   text-decoration: none;
@@ -97,7 +97,7 @@
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
-.nav-drawer ul li a:hover {
+.nav-drawer li a:hover {
   background-color: #ff6347;
   /* Highlight background */
   color: white;
@@ -107,7 +107,7 @@
 }
 
 /* Custom Bullets or Indicators (Optional) */
-.nav-drawer ul li a::before {
+.nav-drawer li a::before {
   content: "• ";
   /* Custom bullet */
   color: #ff6347;

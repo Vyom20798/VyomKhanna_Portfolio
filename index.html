@@ -53,15 +53,20 @@
                 <li><a href="#More">More</a></li>
             </ul>
         </nav> -->
-
-        <p><strong>Dear HR / Talent Acquisition / Recruiting Manager,</strong></p>
-        <p>Thank you for taking the time to explore my profile! I hope you’ll discover the skills, qualifications, and
-            (fingers crossed) Right to Work details you’re looking for right here. I’ve packed this page with everything
-            you might need to know—and perhaps a little extra to keep things interesting.</p>
-        <p>And if you're searching not only for someone who can deliver data-driven insights and strategic solutions but
-            also a teammate who’s up for sharing dog or cat shenanigans, planning a Sunday BBQ, swapping life advice, or
-            grabbing a Friday evening drink to debate football highlights, then you’re in the right place.</p>
-        <p>Scroll down, and let’s see if we’re a match!</p>
+        <section id="home">
+            <p><strong>Dear HR / Talent Acquisition / Recruiting Manager,</strong></p>
+            <p>Thank you for taking the time to explore my profile! I hope you’ll discover the skills, qualifications,
+                and
+                (fingers crossed) Right to Work details you’re looking for right here. I’ve packed this page with
+                everything
+                you might need to know—and perhaps a little extra to keep things interesting.</p>
+            <p>And if you're searching not only for someone who can deliver data-driven insights and strategic solutions
+                but
+                also a teammate who’s up for sharing dog or cat shenanigans, planning a Sunday BBQ, swapping life
+                advice, or
+                grabbing a Friday evening drink to debate football highlights, then you’re in the right place.</p>
+            <p>Scroll down, and let’s see if we’re a match!</p>
+        </section>
         <section id="about">
             <h2 class="section-title">About Me</h2>
             <!-- Professional Summary Dropdown -->
@@ -1559,26 +1564,39 @@
             });
         </script> -->
         <script>
-            // Select the toggle button and navigation drawer
-            const navToggle = document.getElementById("nav-toggle");
-            const navDrawer = document.getElementById("nav-drawer");
+        // Select the toggle button, navigation drawer, and main container
+        const navToggle = document.getElementById("nav-toggle");
+        const navDrawer = document.getElementById("nav-drawer");
+        
+        // Open/close the navigation drawer on toggle button click
+        navToggle.addEventListener("click", () => {
+          navDrawer.classList.toggle("open");
+        });
+        
+        // Close the drawer when a link is clicked
+        const navLinks = document.querySelectorAll(".nav-drawer ul li a");
+        navLinks.forEach(link => {
+          link.addEventListener("click", () => {
+            navDrawer.classList.remove("open");
+          });
+        });
+        
+        // Close the drawer when clicking outside of it
+        document.addEventListener("click", event => {
+          const isClickInside = navDrawer.contains(event.target) || navToggle.contains(event.target);
+          if (!isClickInside) {
+            navDrawer.classList.remove("open");
+          }
+        });
+        
+        // Close the drawer when scrolling to a section
+        document.addEventListener("scroll", () => {
+          if (navDrawer.classList.contains("open")) {
+            navDrawer.classList.remove("open");
+          }
+        });
+    </script>        
 
-            // Add click event to the toggle button to open/close the drawer
-            navToggle.addEventListener("click", () => {
-                navDrawer.classList.toggle("open");
-            });
-
-            // Select all links inside the navigation drawer
-            const navLinks = document.querySelectorAll("#nav-drawer a");
-
-            // Add click event to each link
-            navLinks.forEach(link => {
-                link.addEventListener("click", () => {
-                    // Close the drawer when a link is clicked
-                    navDrawer.classList.remove("open");
-                });
-            });
-        </script>
     </div>
 </body>
 
