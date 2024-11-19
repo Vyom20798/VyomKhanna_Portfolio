@@ -21,18 +21,18 @@
     <button id="nav-toggle" class="nav-toggle">☰ Menu</button>
     <div id="nav-drawer" class="nav-drawer">
         <h2>Navigation</h2>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#resume">Resume</a></li>
-            <li><a href="#certificates">Certificates</a></li>
-            <li><a href="#mobility">Mobility</a></li>
-            <li><a href="#right_to_work">Right To Work</a></li>
-            <li><a href="#More">More</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#mobility">Mobility</a></li>
+        <li><a href="#right_to_work">Right To Work</a></li>
+        <li><a href="#More">More</a></li>
         </ul>
     </div>
 
@@ -1562,14 +1562,23 @@
             // Select the toggle button and navigation drawer
             const navToggle = document.getElementById("nav-toggle");
             const navDrawer = document.getElementById("nav-drawer");
-          
-            // Add click event to the toggle button
+
+            // Add click event to the toggle button to open/close the drawer
             navToggle.addEventListener("click", () => {
-              // Toggle the "open" class on the drawer
-              navDrawer.classList.toggle("open");
+                navDrawer.classList.toggle("open");
             });
-          </script>
-          
+
+            // Select all links inside the navigation drawer
+            const navLinks = document.querySelectorAll("#nav-drawer a");
+
+            // Add click event to each link
+            navLinks.forEach(link => {
+                link.addEventListener("click", () => {
+                    // Close the drawer when a link is clicked
+                    navDrawer.classList.remove("open");
+                });
+            });
+        </script>
     </div>
 </body>
 
