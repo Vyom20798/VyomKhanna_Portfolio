@@ -767,6 +767,11 @@ section {
   color: #ff6347;
 }
 
+.box h3 a {
+  color: inherit; /* Inherit color from h3 */
+  text-decoration: none; /* Remove underline */
+}
+
 .box h3 u {
   margin: 0 0 10px;
   color: #ff6347;
