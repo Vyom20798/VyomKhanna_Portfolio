@@ -587,16 +587,21 @@ section {
 .skills-list {
   list-style: none;
   padding-left: 0;
+  display: flex;           /* Enables flexbox */
+  flex-wrap: wrap;         /* Allows items to wrap to the next row if needed */
+  gap: 15px;               /* Adds space between items */
+  justify-content: center; /* Centers items horizontally */
 }
 
 .skills-list li {
   background-color: #fff;
   border: 1px solid #ddd;
   padding: 15px;
-  margin-bottom: 10px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
+  flex: 1 1 calc(50% - 20px); /* 50% width for two columns, considering gap */
+  max-width: 400px;          /* Prevents items from becoming too large */
 }
 
 .skills-list li:hover {
@@ -604,11 +609,10 @@ section {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.skills-list li strong {
+.skills-list strong {
   color: #ff6347;
-  display: block;
-  margin-bottom: 5px;
 }
+
 
 /* Education Section */
 #education {
