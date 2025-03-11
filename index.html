@@ -537,6 +537,10 @@
             </p>
 
             <div class="project-navigation">
+                <a href="#company_project1" class="project-nav-box">Company Project 1: Claims Pendency Report for
+                    Healthcare Insurance Client</a>
+                <a href="#company_project1" class="project-nav-box">Company Project 2: Monthly Travel Insurance
+                    Dashboard for Stakeholders</a>
                 <a href="#project1" class="project-nav-box">Project 1: Bike Usage Prediction</a>
                 <a href="#project2" class="project-nav-box">Project 2: Retail Analytics</a>
                 <a href="#project3" class="project-nav-box">Project 3: Healthcare Analytics</a>
@@ -551,6 +555,196 @@
             <!--<div class="dropdown" style="position: relative;">
             <button class="dropdown-btn">Predicting London Bike Usage Using Machine Learning</button>
             <div class="dropdown-content"> -->
+
+            <div id="company_project1" class="box">
+                <h3><u>Company Project 1: Claims Pendency Report for Healthcare Insurance Client</u></h3>
+                <h3>Objective</h3>
+                <p class="justified-text">The project aimed to improve claims processing efficiency by developing a
+                    Claims Pendency Report to track and analyse unresolved claims. The goal was to provide data-driven
+                    insights into pending claims, aging trends, and department-wise case distribution, ultimately
+                    helping the organisation reduce backlog and enhance productivity.</p>
+                <ol class="hanging-indent">
+                    <li><strong>Exploratory Data Analytics:</strong>Identified bottlenecks in claims processing by
+                        analysing pendency trends, aging, and outstanding claim amounts.</li>
+                    <li><strong>Business Intelligence Model:</strong>Created a daily claims pendency report with
+                        automated tracking, productivity metrics, and department-wise breakdowns, supporting data-driven
+                        decision-making.</li>
+                </ol>
+
+                <h3>Methodology</h3>
+                <ol>
+                    <li><strong>Data Collection and Processing</strong>
+                        <ul>
+                            <li>Extracted claims data from the healthcare insurance system using SQL, filtering out
+                                cases with:
+                                <ol>Net amount = 0, reversal amounts, or already paid cases still appearing as
+                                    pending.</ol>
+                            </li>
+                            <li>Segmented claims based on departments:
+                                <ol>Third-Party Administrators (TPA)</ol>
+                                <ol>Cashless</ol>
+                                <ol>Reimbursement</ol>
+                                <ol>Pending at Medical</ol>
+                                <ol>Travel</ol>
+                                <ol>Critical Illness</ol>
+                                <ol>Health Checkups</ol>
+                            </li>
+                            <li>Calculated aging metrics:
+                                Defined aging as (Month-end of current month - Last document received date).</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Data Preprocessing and Feature Engineering</strong>
+                        <ul>
+                            <li>Transformed raw data into structured business insights aligned with agile methodology.
+                            </li>
+                            <li>Created data dumps, summaries, and visualisation dashboards to provide decision-makers
+                                with clear insights.</li>
+                            <li>Developed a monthly productivity report showcasing team performance.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Report Development and Insights</strong>
+                        <ul>
+                            <li>Designed daily claims pendency reports, summarising:
+                                <ol>Total Department wise cases and pending amounts</ol>
+                                <ol>Aging trends to identify long-pending claims</ol>
+                                <ol>Department-wise claims distribution for
+                                    targeted resolution.</ol>
+                            </li>
+                            <li>Implemented a monthly productivity dashboard, tracking:
+                                <ol>Resolved vs pending claims</ol>
+                                <ol>Claims processed per team and efficiency improvements.</ol>
+                            </li>
+                            <li>Delivered reports to Claims HOD, Medical Head, TPA Head, Cashless Head, Reimbursement
+                                Head, and their respective teams.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Conclusion</h3>
+                <ol>
+                    <li><strong>Impact on Claims Processing</strong>
+                        <ul>
+                            <li>Average Daily Pending claims reduced from 80,000 to 38,000 over 18 months (including new
+                                cases).</li>
+                            <li>Productivity increased by approximately 52%, improving claims resolution speed.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Business Insights and Optimisation</strong>
+                        <ul>
+                            <li>The dashboard enabled Aging analysis, helping identify bottlenecks in long-pending
+                                cases. Departmental performance tracking, facilitating resource allocation and backlog
+                                reduction.</li>
+                            <li>The report became a critical tool for tracking claims efficiency and ensuring faster
+                                settlements.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <div id="company_project2" class="box">
+                <h3><u>Company Project 2: Monthly Travel Insurance Dashboard for Stakeholders</u></h3>
+                <h3>Objective</h3>
+                <p class="justified-text">The project aimed to provide travel insurance stakeholders with a monthly
+                    dashboard summarising sales performance, premium trends, policy renewals, and claims processing
+                    insights. The goal was to track key business metrics, identify trends, and optimise operational
+                    strategies to improve sales, renewal rates, and claims resolution efficiency.</p>
+                <ol class="hanging-indent">
+                    <li><strong>Exploratory Data Analytics:</strong>Analysed travel insurance sales trends, premium
+                        revenue, policy renewal patterns, and claims efficiency.</li>
+                    <li><strong>Business Intelligence Model:</strong>Developed an interactive dashboard to visualise
+                        sales channels, premium per product, customer retention, and claims turnaround time, aiding in
+                        data-driven decision-making.</li>
+                </ol>
+
+                <h3>Methodology</h3>
+                <ol>
+                    <li><strong>Data Collection and Processing</strong>
+                        <ul>
+                            <li>Extracted sales, renewal, premium, and claims data using SQL from multiple sources.</li>
+                            <li>Segmented data into key categories:
+                                <ol>Sales Breakdown: Online vs. Agent vs. Corporate policies.</ol>
+                                <ol>Premium Revenue: Total premium collected, premium per product, and revenue trends.
+                                </ol>
+                                <ol>Policy Renewals: First-time renewals vs. Repeat renewals, renewal rates.</ol>
+                                <ol>New vs. Renewal Policies: Comparison of new policy sales vs. renewed policies.</ol>
+                                <ol>Claims Processing: Approved, rejected, and pending claims with financial impact
+                                    analysis.</ol>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Data Preprocessing and Feature Engineering</strong>
+                        <ul>
+                            <li>Created derived metrics for trend analysis:
+                                <ol>Premium per policy type = (Total premium collected / Number of policies sold).</ol>
+                                <ol>Renewal rate = (Number of renewed policies / Total expiring policies).</ol>
+                                <ol>New Policy Rate = (New policies sold / Total policies issued).</ol>
+                                <ol>Claim settlement time = (Approval date - Claim initiation date).</ol>
+                                <ol>Outstanding claim ratio = (Pending claims / Total claims).</ol>
+                            </li>
+                            <li>Implemented automated data normalisation and visualisation updates for real-time
+                                tracking.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Dashboard Development and Insights</strong>
+                        <ul>
+                            <li>Sales Performance:
+                                <ol>Total policies sold, categorised by Online, Agent, Corporate.</ol>
+                                <ol>Region-wise policy distribution and trends.</ol>
+                                <ol>New vs. Renewal Policies to track business growth.</ol>
+                            </li>
+                            <li>Premium Revenue Analysis:
+                                <ol>Total premium collected from sales and renewals.</ol>
+                                <ol>Premium per product category, comparing different policy types.</ol>
+                                <ol>Renewal premium vs. New policy premium to assess retention performance.</ol>
+                            </li>
+                            <li>Policy Renewal Analysis:
+                                <ol>Monthly renewal percentage vs. policy lapse rates.</ol>
+                                <ol>Trends in repeat renewals vs. first-time renewals.</ol>
+                            </li>
+                            <li>Claims Processing Insights:
+                                <ol>Number of claims filed, approved, rejected, and pending.</ol>
+                                <ol>Approval vs. Rejection Rates with financial impact analysis.</ol>
+                                <ol>Average Claim Settlement Time and department-wise backlog insights.</ol>
+                            </li>
+                            <li>Trend Analysis:
+                                <ol>Month-over-month growth in policies sold, premium revenue, and claims.</ol>
+                                <ol>Seasonality insights (e.g., peak travel months leading to higher policy sales and
+                                    claims).</ol>
+                            </li>
+                            <li>Financial Insights:
+                                <ol>Claim payouts vs. premium revenue to assess profitability and risk exposure.</ol>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Conclusion</h3>
+                <ol>
+                    <li><strong>Business Performance Insights</strong>
+                        <ul>
+                            <li>Provided a consolidated view of travel insurance operations, eliminating reliance on
+                                multiple disconnected reports.</li>
+                            <li>Identified sales peaks and renewal trends, leading to a 15% increase in customer
+                                retention.</li>
+                            <li>Enabled tracking of premium revenue growth per product, helping in strategic pricing
+                                decisions.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Claims Processing Optimisation</strong>
+                        <ul>
+                            <li>Reduced claim settlement time by 20%, improving customer satisfaction.</li>
+                            <li>Highlighted pending claims backlog, leading to better resource allocation and faster
+                                resolutions.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
             <div id="project1" class="box">
                 <h3><u>Project 1: Predicting London Bike Usage Using Machine Learning - Python</u></h3>
                 <h3>Objective</h3>
@@ -558,23 +752,27 @@
                     scheme by analysing and
                     forecasting bike usage patterns. Specifically, it seeks to:</p>
                 <ol class="hanging-indent">
-                    <li><strong>Exploratory Data Analytics:</strong>Analyse urban mobility and cycling preferences among
+                    <li><strong>Exploratory Data Analytics:</strong>Analyse urban mobility and cycling preferences
+                        among
                         London's diverse population.</li>
                     <li><strong>Machine Learning Model:</strong>Develop predictive models to forecast bike usage,
                         utilising
-                        weather and bike trip data to optimise bike availability and distribution, thus enhancing user
+                        weather and bike trip data to optimise bike availability and distribution, thus enhancing
+                        user
                         satisfaction and operational efficiency.</li>
                 </ol>
                 <p class="justified-text">The overarching goal is to support the data-driven management of London's
                     bike-sharing scheme by
-                    understanding user behavior patterns and accurately predicting demand to improve service allocation.
+                    understanding user behavior patterns and accurately predicting demand to improve service
+                    allocation.
                 </p>
 
                 <h3>Methodology</h3>
                 <ol>
                     <li><strong>Data Collection and Processing</strong>
                         <ul>
-                            <li>Urban Mobility Patterns: Data from Transport for London (TfL), detailing trip start/end
+                            <li>Urban Mobility Patterns: Data from Transport for London (TfL), detailing trip
+                                start/end
                                 times, duration, and station locations for June 2023.</li>
                             <li>Predictive Modeling: Weather data (July to September 2023) from Visual Crossing,
                                 incorporating temperature, humidity, wind speed, and precipitation.</li>
@@ -589,17 +787,20 @@
                             <li>Feature Engineering: Added columns for day of the week, time of day, routes, trip
                                 durations,
                                 and weather conditions.</li>
-                            <li>Normalisation: Used MinMaxScaler to normalise features and enhance model performance.
+                            <li>Normalisation: Used MinMaxScaler to normalise features and enhance model
+                                performance.
                             </li>
                         </ul>
                     </li>
 
                     <li><strong>Machine Learning Models</strong>
                         <ul>
-                            <li>Tested algorithms: Linear Regression, Decision Trees, Random Forest, Neural Networks,
+                            <li>Tested algorithms: Linear Regression, Decision Trees, Random Forest, Neural
+                                Networks,
                                 SVM,
                                 and XGBoost.</li>
-                            <li>Evaluation metrics: Mean Squared Error (MSE), R-Squared (R²), and Mean Absolute Error
+                            <li>Evaluation metrics: Mean Squared Error (MSE), R-Squared (R²), and Mean Absolute
+                                Error
                                 (MAE).
                             </li>
                             <li>Results: Linear Regression showed the best accuracy for temperature-bicycle usage
@@ -623,10 +824,12 @@
 
                     <li><strong>Predictive Model Findings</strong>
                         <ul>
-                            <li>Linear Regression had the highest accuracy, showing temperature as a key predictor of
+                            <li>Linear Regression had the highest accuracy, showing temperature as a key predictor
+                                of
                                 bike
                                 rentals.</li>
-                            <li>Future improvements: Adding more non-linear models (e.g., SVM with non-linear kernels)
+                            <li>Future improvements: Adding more non-linear models (e.g., SVM with non-linear
+                                kernels)
                                 and
                                 more features (humidity, day of the week) to capture additional factors affecting
                                 demand.
@@ -673,7 +876,8 @@
                 <h3><u>Project 2: Examining the Role of Data Analytics in Banking Decision-Making - Power BI</u>
                 </h3>
                 <h3>Objective</h3>
-                <p class="justified-text">The report's primary objective is to examine how data analytics (DA) impacts
+                <p class="justified-text">The report's primary objective is to examine how data analytics (DA)
+                    impacts
                     decision-making
                     processes within financial institutions, specifically in a banking context. Key aims include:
                 </p>
@@ -689,7 +893,8 @@
                         analyse sales, profit trends, and product performance across regions and customer segments.
                     </li>
                 </ol>
-                <p class="justified-text">The overarching objective is to analyse DA's role in improving organisational
+                <p class="justified-text">The overarching objective is to analyse DA's role in improving
+                    organisational
                     decision-making and
                     operational efficiency within financial institutions.</p>
 
@@ -795,7 +1000,8 @@
             <div id="project3" class="box">
                 <h3><u>Project 3: SQL Coursework Report on Healthcare Data Analytics</u></h3>
                 <h3>Objective</h3>
-                <p class="justified-text">The report aims to solve a series of SQL-based data analytics tasks within a
+                <p class="justified-text">The report aims to solve a series of SQL-based data analytics tasks within
+                    a
                     healthcare context, focusing on various aspects of staff management and operations.
                     Key objectives include:</p>
                 <ol class="hanging-indent">
@@ -811,7 +1017,8 @@
                         implications of staffing across various hospital specialties within a defined
                         timeframe.</li>
                 </ol>
-                <p class="justified-text">Overall, the objective is to apply SQL data manipulation techniques to extract
+                <p class="justified-text">Overall, the objective is to apply SQL data manipulation techniques to
+                    extract
                     actionable insights from hospital data for resource optimisation, staffing analysis,
                     and cost management.</p>
 
@@ -893,7 +1100,8 @@
                         </ul>
                     </li>
                 </ol>
-                <p class="justified-text">In summary, the report demonstrates how SQL can be leveraged for comprehensive
+                <p class="justified-text">In summary, the report demonstrates how SQL can be leveraged for
+                    comprehensive
                     data
                     analysis in healthcare, providing actionable insights into staffing, cost
                     management, and security for efficient hospital operations.</p>
@@ -910,7 +1118,8 @@
                                 Preview</a></p>
                     </li>
                     <li><strong>Database</strong>
-                        <p class="justified-text"><a href="Documents/Projects/SQL/hospital.db" target="_blank">Click to
+                        <p class="justified-text"><a href="Documents/Projects/SQL/hospital.db" target="_blank">Click
+                                to
                                 Preview</a></p>
             </div>
             <!-- </div>
@@ -923,7 +1132,8 @@
             <div id="project4" class="box">
                 <h3><u>Project 4: Managing the Transition to Electric Vehicles</u></h3>
                 <h3>Objective</h3>
-                <p class="justified-text">The report's primary objective is to examine strategic decisions essential for
+                <p class="justified-text">The report's primary objective is to examine strategic decisions essential
+                    for
                     transitioning from internal combustion engine (ICE) vehicles to electric
                     vehicles
                     (EVs) within the automotive sector, particularly in Southampton. The objectives
@@ -946,7 +1156,8 @@
                         a mathematical model to decide which petrol stations to maintain for optimal
                         coverage during the shift from ICE vehicles to EVs.</li>
                 </ol>
-                <p class="justified-text">Overall, the goal is to provide a comprehensive analysis and a mathematical
+                <p class="justified-text">Overall, the goal is to provide a comprehensive analysis and a
+                    mathematical
                     framework
                     to support sustainable and strategic decisions during the transition to EVs,
                     optimising infrastructure and maximising accessibility for remaining ICE
@@ -1057,7 +1268,8 @@
                     </li>
                 </ol>
 
-                <p class="justified-text">In summary, the report emphasises that transitioning to EVs is achievable with
+                <p class="justified-text">In summary, the report emphasises that transitioning to EVs is achievable
+                    with
                     operational research and mathematical modeling, supported by AI/ML for
                     adaptable,
                     data-driven strategies in sustainable transportation.</p>
@@ -1090,7 +1302,8 @@
             <div id="project5" class="box">
                 <h3><u>Project 5: Python Report - Application of Dijkstra's Algorithm</u></h3>
                 <h3>Objective</h3>
-                <p class="justified-text">The report primarily aims to explore and apply Dijkstra’s Algorithm within a
+                <p class="justified-text">The report primarily aims to explore and apply Dijkstra’s Algorithm within
+                    a
                     network
                     setting, focusing on
                     finding the shortest path in a transportation network. The objectives include:
@@ -1119,7 +1332,8 @@
                         applications in real-world transit systems like Transport for London (TFL).
                     </li>
                 </ol>
-                <p class="justified-text">The report emphasises both the academic exploration of Dijkstra’s Algorithm
+                <p class="justified-text">The report emphasises both the academic exploration of Dijkstra’s
+                    Algorithm
                     and
                     its
                     practical
@@ -1265,7 +1479,8 @@
                     </li>
                 </ol>
 
-                <p class="justified-text">In summary, the report affirms Dijkstra’s Algorithm as an effective solution
+                <p class="justified-text">In summary, the report affirms Dijkstra’s Algorithm as an effective
+                    solution
                     for
                     shortest path problems
                     in transportation networks, with a robust, reusable code implementation
