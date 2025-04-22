@@ -122,17 +122,18 @@
                 <!-- <p class="justified-text">April 2024 - Present</p>
                 <p class="justified-text">Industry - FMCG</p> -->
                 <p class="justified-text">
-                    Currently working part-time at this fast-paced FMCG retailer, which I joined during my
-                    post-graduation degree, while searching for a full-time role.
-                    <!-- I
-                    initially joined as a Sales Assistant, but after proactively approaching my manager multiple times,
-                    I was given the opportunity to assist with insight-related reports and dashboards, further enhancing
-                    my UK experience. During weekdays, I operate as a cashier, while on weekends,
-                    I contribute to creating insights reports in Excel and dashboards in Tableau. -->
+                    <!-- Currently working part-time at this fast-paced FMCG retailer, which I joined during my
+                    post-graduation degree, while searching for a full-time role. -->
+                    I
+                    initially joined as a Sales Assistant, but after proactively approaching my Line Manager and even
+                    Area Manager multiple times,
+                    I was given the opportunity to assist with insight-related reports and dashboards, to start my UK
+                    experience. During weekdays, I operate as a cashier, while on weekends,
+                    I contribute to creating insights reports in Excel and dashboards in Tableau.
                 </p>
                 <p class="justified-text"><b>Key Achievements and Responsibilities:</b></p>
                 <ul class="hanging-indent">
-                    <!-- <li>
+                    <li>
                         <span><strong>Prepared and Monitored Reports:</strong></span>
                         <span>Prepared and monitored weekly and monthly sales, SKU and customer reports, identifying
                             underperforming products and recommending actionable solutions.</span>
@@ -148,7 +149,7 @@
                         <span><strong>Performance and Customer Insights:</strong></span>
                         <span>Participated in weekly meetings to discuss store performance and customer preferences,
                             providing input based on observations at checkout.</span>
-                    </li> -->
+                    </li>
 
                     <li>
                         <span><strong>Exceeded Sales Targets:</strong></span>
@@ -172,11 +173,12 @@
                         <span>Ensured timely stock replenishment and accurate pricing for optimal customer
                             experience.</span>
                     </li>
-                    <!-- <li>
+                    <li>
                         <span><strong>Inventory Support:</strong></span>
                         <span>Reduced stock discrepancies by 10% through precise inventory management and protocol
                             adherence.</span>
-                    </li> -->
+                    </li>
+
                     <li>
                         <span><strong>Food and Product Waste Control:</strong></span>
                         <span>Implemented effective waste management practices, reducing food and product wastage by 60%
@@ -184,6 +186,9 @@
                             overstocking.</span>
                     </li>
                 </ul>
+
+                <!-- <p class="justified-text"><b>KPIs Presented:</b></p>
+                <ul class="hanging-indent"> -->
             </div>
             <!--- </div>
             </div> -->
@@ -219,7 +224,8 @@
 
                     <li>
                         <span><strong>Dashboards:</strong></span>
-                        <span>Created Power BI and Qlik dashboards to present actionable customer insights to the management team,
+                        <span>Created Power BI and Qlik dashboards to present actionable customer insights to the
+                            management team,
                             improving strategic decision-making.</span>
                     </li>
 
@@ -553,8 +559,10 @@
             <div class="project-navigation">
                 <a href="#company_project1" class="project-nav-box">Company Project 1: Claims Pendency Report for
                     Healthcare Insurance Client</a>
-                <a href="#company_project1" class="project-nav-box">Company Project 2: Monthly Travel Insurance
+                <a href="#company_project2" class="project-nav-box">Company Project 2: Monthly Travel Insurance
                     Dashboard for Stakeholders</a>
+                <a href="#company_project3" class="project-nav-box">Company Project 3: Claims Summary & Compliance
+                    Reporting for B2B Partners and Brokers</a>
                 <a href="#project1" class="project-nav-box">Project 1: Bike Usage Prediction</a>
                 <a href="#project2" class="project-nav-box">Project 2: Retail Analytics</a>
                 <a href="#project3" class="project-nav-box">Project 3: Healthcare Analytics</a>
@@ -758,6 +766,157 @@
                     </li>
                 </ol>
             </div>
+
+            <div id="company_project3" class="box">
+                <h3><u>Company Project 3: Claims Summary & Compliance Reporting for B2B Partners and Brokers</u></h3>
+                <h3>Objective</h3>
+                <p class="justified-text">The objective of this project was to develop a privacy-compliant, automated
+                    reporting solution that provided group policy claims data to external B2B partners and insurance
+                    brokers. The solution ensured transparency in claims processing while strictly adhering to IRDAI
+                    regulations by eliminating personal health information (PHI) and enabling informed decision-making
+                    through key performance metrics and workflow insights.</p>
+
+                <h3>Methodology</h3>
+                <ol>
+                    <li><strong>Data Filtering and Compliance</strong></li>
+                    <ul>
+                        <li>To ensure regulatory compliance, the project involved filtering the active group policy
+                            dataset from the ITD claims register with the following actions:
+                            Excluded all personally identifiable information (PII) including:
+                            <ol>Insured names</ol>
+                            <ol>Contact details</ol>
+                            <ol>Residential addresses</ol>
+                            <ol>Disease or diagnosis-related data</ol>
+                        </li>
+                        <li>Retained only a unique anonymised Insured Member ID, fully compliant with IRDAI guidelines.
+                            This step was critical in balancing stakeholder transparency with data privacy and security
+                            regulations.
+                        </li>
+                    </ul>
+                    <li>
+                        <strong>Report Generation and Metrics</strong>
+                        <ul>
+                            <li>
+                                The processed dataset was used to generate a structured PDF report that included both
+                                summary-level insights and raw data. The report consisted of:
+                                <ul>
+                                    <li>
+                                        Claims Volume Overview
+                                        <ul>
+                                            <ol>Number of claims Paid</ol>
+                                            <ol>Number of claims Rejected</ol>
+                                            <ol>Number of claims Outstanding</ol>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Outstanding Claim Status Breakdown
+                                        <ul>
+                                            <ol>Claims pending at Data Entry</ol>
+                                            <ol>Claims pending with Medical Team</ol>
+                                            <ol>Payment Made pending at Bank</ol>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Claim Type Analysis
+                                        <ul>
+                                            <ol>Cashless vs Reimbursement claims</ol>
+                                            <ol>Total claim count and amounts under each type</ol>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Financial Overview
+                                        <ul>
+                                            <ol>Aggregate financials for each claim type and status</ol>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Key Performance Indicators (KPIs)
+                                        <ul>
+                                            <ol>Claim Settlement Ratio (%) = (Number of Claims Settled / Total Claims
+                                                Received) × 100</ol>
+                                            <ol>Average Claim Processing Time (Days) = Total Time Taken to Settle Claims
+                                                / Number of Claims Settled</ol>
+                                            <ol>Claim Rejection Rate (%) = (Number of Claims Rejected / Total Claims
+                                                Processed) × 100</ol>
+                                            <ol>Fraudulent Claims Identified (%) = (Fraudulent Claims / Total Claims
+                                                Processed) × 100</ol>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Pending Claims Ageing Analysis
+                                        <ul>
+                                            <ol>0–7 days</ol>
+                                            <ol>8–15 days</ol>
+                                            <ol>16–30 days</ol>
+                                            <ol>30+ days</ol>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        Raw Data Dump
+                                        <ul>
+                                            <ol>An Excel file accompanied the PDF, intended for
+                                                internal validation, audits, and deeper analysis by stakeholders.</ol>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Data Processing & Transformation</strong>
+                        <ul>
+                            <li>Parsed and filtered claim-level data using scripting and logic-based rules to format it
+                                into business-ready tables and summaries.</li>
+                            <li>Applied aggregation logic to compute KPIs and classification logic for ageing analysis.
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <strong>Automation</strong>
+                        <ul><li>Developed a batch file-based automation pipeline to:</li>
+                            <ol>Parsed and filtered claim-level data using scripting and logic-based rules to format it
+                                into business-ready tables and summaries.</ol>
+                            <ol>Applied aggregation logic to compute KPIs and classification logic for ageing analysis.
+                            </ol>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <strong>Secure Distribution</strong>
+                        <ul>
+                            Reports were made available on an external portal accessed by B2B partners and brokers.
+                            Controlled access ensured data confidentiality and stakeholder-specific access rights.
+                        </ul>
+                    </li>
+                </ol>
+
+                    <h3>Conclusion</h3>
+                    <ol>
+                        <li><strong>Compliance and Trust</strong>
+                            <ul>
+                                <li>The reports helped external partners gain operational visibility into claims performance without compromising on personal data, fully aligning with IRDAI compliance standards.</li>
+                            </ul>
+                        </li>
+
+                        <li><strong>Operational Efficiency</strong>
+                            <ul>
+                                <li>By automating the data processing and delivery mechanism, the initiative eliminated manual reporting overhead, reduced turnaround time, and increased reporting accuracy.</li>
+                            </ul>
+                        </li>
+
+                        <li><strong>Strategic Impact</strong>
+                            <ul>
+                                <li>Provided stakeholders with real-time claim health dashboards and ageing analysis.</li>
+                                <li>Enabled brokers and partners to track claim settlements, address delays, and proactively coordinate on pending cases.</li>
+                                <li>Strengthened client relationships through transparency and consistent communication.</li>
+                            </ul>
+                            The reporting framework became a key part of the claims ecosystem, supporting both regulatory needs and business performance tracking.  
+                        </li>
+                    </ol>
+            </div>
+
 
             <div id="project1" class="box">
                 <h3><u>Project 1: Predicting London Bike Usage Using Machine Learning - Python</u></h3>
