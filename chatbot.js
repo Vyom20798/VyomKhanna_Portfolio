@@ -25,11 +25,11 @@ sendButton.addEventListener('click', async () => {
     userInput.value = '';
 
     // Call backend API
-    const response = await fetch('https://https://chatbot-qp2nh9a1b-vyom-khannas-projects.vercel.app/api/chat', {
+    const response = await fetch('https://chatbot-qp2nh9a1b-vyom-khannas-projects.vercel.app/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: message })
-    });
+      body: JSON.stringify({ message: userInput })
+    });    
 
     const data = await response.json();
     addMessage('bot', data.reply);
