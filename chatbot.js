@@ -28,7 +28,7 @@ sendButton.addEventListener('click', async () => {
     const response = await fetch('https://chatbot-theta-dun.vercel.app/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: userInput })
+      body: JSON.stringify({ message: message })
     });     
 
     const data = await response.json();
