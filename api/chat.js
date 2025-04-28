@@ -1,6 +1,7 @@
 import { Configuration, OpenAIApi } from 'openai';
 import { config } from 'dotenv';
 
+// Load your environment variables (like your OPENAI_API_KEY)
 config();
 
 const configuration = new Configuration({
@@ -9,23 +10,21 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
+// Serverless function for Vercel
 export default async function handler(req, res) {
   // Set CORS Headers manually
   res.setHeader('Access-Control-Allow-Credentials', true);
-  res.setHeader('Access-Control-Allow-Origin', '*'); // You can replace * with your domain later for security
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Allow all origins for now
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
-  );
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Authorization,X-Requested-With,Accept,Origin');
 
+  // Handle preflight OPTIONS request
   if (req.method === 'OPTIONS') {
-    res.status(200).end();
-    return;
+    return res.status(200).end();
   }
 
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
+    return res.status(405).json({ error: 'Method Not Allowed' });
   }
 
   const { message } = req.body;
@@ -39,7 +38,7 @@ export default async function handler(req, res) {
     const reply = completion.data.choices[0].message.content;
     res.status(200).json({ reply });
   } catch (error) {
-    console.error('OpenAI API error:', error.response ? error.response.data : error.message);
+    console.error('OpenAI API Error:', error.response ? error.response.data : error.message);
     res.status(500).json({ error: 'Failed to get response from OpenAI' });
   }
 }
