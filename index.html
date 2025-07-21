@@ -227,7 +227,7 @@
             <div class="box" and id="Team_Computers">
                 <a href="#Team_Computers" target="_blank"></a>
                 <h3><u>Team Computers, Gurgaon, India</u></h3>
-                <p class="justified-text"><i>Business Intelligence Engineer | September 2021 - May 2023 | Industry -
+                <p class="justified-text"><i>Business Intelligence Engineer | September 2021 - August 2023 | Industry -
                         Insurance</i></p>
                 <!-- <p class="justified-text">September 2021 - May 2023</p>
                 <p class="justified-text">Industry - Insurance</p> -->
@@ -655,6 +655,7 @@
                     Compliance
                     Reporting for B2B Partners and Brokers</a>
                 <a href="#MD_Reports" class="project-nav-box">Company Project 4: Daily Business Reporting</a>
+                <a href="#Automated_Extraction" class="project-nav-box">Self Project 1: Kaggle Extractor</a>
                 <a href="#Predictive_Model" class="project-nav-box">Project 1: Bike Usage Prediction</a>
                 <a href="#Power_BI" class="project-nav-box">Project 2: Retail Analytics</a>
                 <a href="#project3" class="project-nav-box">Project 3: Healthcare Analytics</a>
@@ -1146,67 +1147,130 @@
                 </ol>
             </div>
 
+            <div id="Automated_Extraction" class="box">
+                <h3><u>Self Project 1: Automated Data Pipeline for Kaggle Datasets - Python</u></h3>
+
+                <h3>Objective</h3>
+                <p class="justified-text">
+                    The project aimed to build a reusable, lightweight data pipeline that automates the process of
+                    downloading datasets from Kaggle, performing exploratory data analysis (EDA), and exporting clean,
+                    analysis-ready CSV files for Power BI, Tableau, or machine learning use. The goal was to streamline
+                    data workflows, save manual effort, and improve reproducibility.
+                </p>
+
+                <h3>Methodology</h3>
+                <ol>
+                    <li><strong>Kaggle Extractor Module</strong>
+                        <ul>
+                            <li>A custom Python module <code>Kaggle_Extractor.py</code> was created to handle automated
+                                data ingestion.</li>
+                            <li><strong>Key Features:</strong></li>
+                            <ul>
+                                <li><strong>Automated Data Downloading:</strong> Authenticates using the Kaggle API and
+                                    fetches the dataset ZIP using the dataset path (e.g.,
+                                    <code>"sebastianwillmann/beverage-sales"</code>).
+                                </li>
+                                <li><strong>ZIP Extraction & File Management:</strong> Automatically extracts downloaded
+                                    ZIP files and organizes them in structured folders.</li>
+                                <li><strong>Dynamic DataFrame Loading:</strong> Reads all extracted CSV files into
+                                    pandas DataFrames for further processing.</li>
+                            </ul>
+                            <p>This component forms the data ingestion layer, a foundational step in modern data
+                                engineering pipelines.</p>
+                        </ul>
+                    </li>
+
+                    <li><strong>EDA and Transformation Script</strong>
+                        <ul>
+                            <li>The <code>EDA_Script.py</code> builds on the extracted dataset to handle profiling,
+                                cleaning, and exporting.</li>
+                            <li><strong>Key EDA Steps:</strong></li>
+                            <ul>
+                                <li>Data shape, column summary, null checks, and descriptive statistics</li>
+                                <li>Visualizations: histograms for distributions, correlation heatmaps using Seaborn
+                                </li>
+                                <li>Simple data cleaning: dropping nulls, selecting numeric columns</li>
+                            </ul>
+                            <li>Optional ML-ready transformation with standardization using <code>StandardScaler</code>
+                            </li>
+                            <li>Final dataset exported as <code>.csv</code> for BI tools</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Prototype Machine Learning (Optional)</strong>
+                        <ul>
+                            <li>Implemented a simple Linear Regression model as a demonstration.</li>
+                            <li>Steps included: train-test split, scaling, fitting the model, and evaluating MSE.</li>
+                            <li>This setup forms the basis for future extensions into model training and validation.
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Conclusion</h3>
+                <ul>
+                    <li>Built a fully automated, modular Python pipeline for data extraction, EDA, and delivery.</li>
+                    <li>Streamlined the process from raw Kaggle data to BI-ready datasets in minutes.</li>
+                    <li>Encourages reproducible and scalable workflows suitable for data analytics and engineering
+                        tasks.</li>
+                    <li>Next steps include enhancing feature engineering, integrating visual dashboards (e.g.,
+                        Streamlit), and extending support for larger datasets and non-CSV formats.</li>
+                </ul>
+
+                <h3>Relevant Files</h3>
+                <ol>
+                    <li><strong>EDA Script</strong>
+                        <p class="justified-text"><a href="Documents/Projects/Kaggle/EDA_Script.py"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+                    <li><strong>Kaggle Extractor</strong>
+                        <p class="justified-text"><a href="Documents/Projects/Kaggle/Kaggle_Extractor.py"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+            </div>
+
             <div id="Predictive_Model" class="box">
                 <h3><u>Project 1: Predicting London Bike Usage Using Machine Learning - Python</u></h3>
+
                 <h3>Objective</h3>
-                <p class="justified-text">The report aims to address operational challenges in London's bike-sharing
-                    scheme by analysing and
-                    forecasting bike usage patterns. Specifically, it seeks to:</p>
-                <ol class="hanging-indent">
-                    <li><strong>Exploratory Data Analytics:</strong>Analyse urban mobility and cycling preferences
-                        among
-                        London's diverse population.</li>
-                    <li><strong>Machine Learning Model:</strong>Develop predictive models to forecast bike usage,
-                        utilising
-                        weather and bike trip data to optimise bike availability and distribution, thus enhancing
-                        user
-                        satisfaction and operational efficiency.</li>
-                </ol>
-                <p class="justified-text">The overarching goal is to support the data-driven management of London's
-                    bike-sharing scheme by
-                    understanding user behavior patterns and accurately predicting demand to improve service
-                    allocation.
+                <p class="justified-text">
+                    This project aimed to address operational challenges in London's bike-sharing scheme by analysing
+                    and forecasting bike usage patterns. By leveraging machine learning models and combining trip data
+                    with weather insights, the goal was to optimise bike availability and improve service distribution
+                    across the city.
                 </p>
 
                 <h3>Methodology</h3>
                 <ol>
                     <li><strong>Data Collection and Processing</strong>
                         <ul>
-                            <li>Urban Mobility Patterns: Data from Transport for London (TfL), detailing trip
-                                start/end
-                                times, duration, and station locations for June 2023.</li>
-                            <li>Predictive Modeling: Weather data (July to September 2023) from Visual Crossing,
+                            <li><strong>Urban Mobility Data:</strong> Sourced from Transport for London (TfL), including
+                                trip start/end times, durations, and station information for June 2023.</li>
+                            <li><strong>Weather Data:</strong> Collected from Visual Crossing for July–September 2023,
                                 incorporating temperature, humidity, wind speed, and precipitation.</li>
                         </ul>
                     </li>
 
                     <li><strong>Data Preprocessing and Feature Engineering</strong>
                         <ul>
-                            <li>Data Cleaning: Removed outliers and filtered irrelevant entries (e.g., trips under a
-                                minute
-                                or over a day).</li>
-                            <li>Feature Engineering: Added columns for day of the week, time of day, routes, trip
-                                durations,
-                                and weather conditions.</li>
-                            <li>Normalisation: Used MinMaxScaler to normalise features and enhance model
-                                performance.
+                            <li>Removed outliers and filtered trips shorter than 1 minute or longer than 24 hours.</li>
+                            <li>Engineered new features: Day of the week, Hour of day / time bins, Trip duration and
+                                routes, Weather-related columns merged by date
                             </li>
+                            <li>Used <code>MinMaxScaler</code> to normalise numerical features before training.</li>
                         </ul>
                     </li>
 
                     <li><strong>Machine Learning Models</strong>
                         <ul>
-                            <li>Tested algorithms: Linear Regression, Decision Trees, Random Forest, Neural
-                                Networks,
-                                SVM,
-                                and XGBoost.</li>
-                            <li>Evaluation metrics: Mean Squared Error (MSE), R-Squared (R²), and Mean Absolute
-                                Error
-                                (MAE).
+                            <li>Tested multiple algorithms: Linear Regression, Decision Trees, Random Forest, Neural
+                                Networks, Support Vector Machines (SVM), XGBoost</li>
+                            <li>Evaluation metrics: Mean Squared Error (MSE), Mean Absolute Error (MAE), R-Squared (R²)
                             </li>
-                            <li>Results: Linear Regression showed the best accuracy for temperature-bicycle usage
-                                prediction, followed by Decision Trees and Random Forest.</li>
-                        </ul>
+                    </li>
+                    <li><strong>Outcome:</strong> Linear Regression performed best for predicting bike usage based on
+                        temperature, followed by Decision Trees and Random Forest.</li>
+                    </ul>
                     </li>
                 </ol>
 
@@ -1214,35 +1278,33 @@
                 <ol>
                     <li><strong>Urban Mobility Insights</strong>
                         <ul>
-                            <li>Peak usage was in the afternoon, with the highest rental day on June 21, 2023.</li>
-                            <li>Hyde Park Corner was the most popular station, indicating a preference for central
-                                London
-                                routes.</li>
-                            <li>Highest rentals occurred on weekday afternoons, particularly Thursdays and Fridays,
-                                suggesting an after-work trend.</li>
+                            <li>Peak usage occurred in the afternoon, with the highest rental day being June 21, 2023.
+                            </li>
+                            <li>Hyde Park Corner emerged as the most active station, reflecting high central London
+                                traffic.</li>
+                            <li>Weekday afternoons, especially Thursdays and Fridays, saw the highest rental
+                                volumes—suggesting a post-work travel pattern.</li>
                         </ul>
                     </li>
 
                     <li><strong>Predictive Model Findings</strong>
                         <ul>
-                            <li>Linear Regression had the highest accuracy, showing temperature as a key predictor
-                                of
-                                bike
-                                rentals.</li>
-                            <li>Future improvements: Adding more non-linear models (e.g., SVM with non-linear
-                                kernels)
-                                and
-                                more features (humidity, day of the week) to capture additional factors affecting
-                                demand.
+                            <li>Temperature was the strongest predictor of ride volume, with Linear Regression giving
+                                the most consistent performance.</li>
+                            <li>Future improvements:
+                                <ul>
+                                    <li>Introduce non-linear models (e.g., SVM with RBF kernels)</li>
+                                    <li>Include additional features like humidity, event data, and station capacity</li>
+                                </ul>
                             </li>
-                            <li>Recommendations: Adjust bike distribution based on weather forecasts, stocking more
-                                bikes in
-                                high-demand areas on warm days.</li>
+                            <li><strong>Operational Recommendation:</strong> Use weather forecasts to plan bike
+                                distribution—stock more bikes at key stations on warm days.</li>
                         </ul>
                     </li>
                 </ol>
 
                 <h3>Relevant Files</h3>
+
                 <ol>
                     <li><strong>Questionnaire</strong>
                         <p class="justified-text"><a
@@ -1510,7 +1572,8 @@
                 <ol>
                     <li><strong>Questionnaire</strong>
                         <p class="justified-text"><a href="Documents/Projects/SQL/SQL%20Questionnaire.pdf"
-                                target="_blank">Click to
+                                target="_blank">Click
+                                to
                                 Preview</a></p>
                     </li>
                     <li><strong>Report</strong>
