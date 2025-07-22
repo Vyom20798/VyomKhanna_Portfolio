@@ -1152,10 +1152,11 @@
 
                 <h3>Objective</h3>
                 <p class="justified-text">
-                    The project aimed to build a reusable, lightweight data pipeline that automates the process of
-                    downloading datasets from Kaggle, performing exploratory data analysis (EDA), and exporting clean,
-                    analysis-ready CSV files for Power BI, Tableau, or machine learning use. The goal was to streamline
-                    data workflows, save manual effort, and improve reproducibility.
+                    This project focuses on building a modular and reusable Python pipeline that automates the ingestion
+                    of datasets from Kaggle, performs exploratory data analysis (EDA), and exports cleaned datasets for
+                    use in BI tools (e.g., Power BI, Tableau) or machine learning models. The goal was to streamline
+                    repetitive steps, promote reproducibility, and apply practical data engineering principles to
+                    real-world datasets.
                 </p>
 
                 <h3>Methodology</h3>
@@ -1166,67 +1167,78 @@
                                 data ingestion.</li>
                             <li><strong>Key Features:</strong></li>
                             <ul>
-                                <li><strong>Automated Data Downloading:</strong> Authenticates using the Kaggle API and
-                                    fetches the dataset ZIP using the dataset path (e.g.,
-                                    <code>"sebastianwillmann/beverage-sales"</code>).
-                                </li>
-                                <li><strong>ZIP Extraction & File Management:</strong> Automatically extracts downloaded
-                                    ZIP files and organizes them in structured folders.</li>
-                                <li><strong>Dynamic DataFrame Loading:</strong> Reads all extracted CSV files into
-                                    pandas DataFrames for further processing.</li>
+                                <li><strong>Automated Data Downloading:</strong> Uses Kaggle API to download ZIP files
+                                    directly from a given dataset path (e.g.,
+                                    <code>"sakshigoyal7/credit-card-customers"</code>).</li>
+                                <li><strong>ZIP Extraction & File Management:</strong> Automatically extracts ZIP files
+                                    and stores them in project-specific folders.</li>
+                                <li><strong>Dynamic DataFrame Loading:</strong> Loads all extracted CSVs into pandas
+                                    DataFrames without manual naming or inspection.</li>
                             </ul>
-                            <p>This component forms the data ingestion layer, a foundational step in modern data
-                                engineering pipelines.</p>
+                            <p>This acts as the data ingestion layer — a key component in a scalable data engineering
+                                workflow.</p>
                         </ul>
                     </li>
 
                     <li><strong>EDA and Transformation Script</strong>
                         <ul>
-                            <li>The <code>EDA_Script.py</code> builds on the extracted dataset to handle profiling,
-                                cleaning, and exporting.</li>
+                            <li>The <code>EDA_Script.py</code> is built to run on any dataset retrieved via the
+                                extractor.</li>
                             <li><strong>Key EDA Steps:</strong></li>
                             <ul>
-                                <li>Data shape, column summary, null checks, and descriptive statistics</li>
-                                <li>Visualizations: histograms for distributions, correlation heatmaps using Seaborn
+                                <li>Displays shape, column names, data types, descriptive statistics, and missing values
                                 </li>
-                                <li>Simple data cleaning: dropping nulls, selecting numeric columns</li>
+                                <li>Visualizes distributions using histograms and identifies correlations with heatmaps
+                                </li>
+                                <li>Drops rows with missing values and isolates numeric columns for modeling</li>
+                                <li>Auto-selects a numeric target column (last one by default) for regression modeling
+                                </li>
                             </ul>
-                            <li>Optional ML-ready transformation with standardization using <code>StandardScaler</code>
+                            <li>Applies standardisation via <code>StandardScaler</code> to prepare data for ML workflows
                             </li>
-                            <li>Final dataset exported as <code>.csv</code> for BI tools</li>
+                            <li>Saves the cleaned dataset with a dynamic filename based on the dataset, file name, and
+                                timestamp</li>
                         </ul>
                     </li>
 
                     <li><strong>Prototype Machine Learning (Optional)</strong>
                         <ul>
-                            <li>Implemented a simple Linear Regression model as a demonstration.</li>
-                            <li>Steps included: train-test split, scaling, fitting the model, and evaluating MSE.</li>
-                            <li>This setup forms the basis for future extensions into model training and validation.
-                            </li>
+                            <li>Fits a basic Linear Regression model if a valid numeric target is found</li>
+                            <li>Includes data splitting, scaling, model training, prediction, and MSE evaluation</li>
+                            <li>Designed to demonstrate plug-and-play modeling on newly ingested data</li>
                         </ul>
                     </li>
                 </ol>
 
                 <h3>Conclusion</h3>
                 <ul>
-                    <li>Built a fully automated, modular Python pipeline for data extraction, EDA, and delivery.</li>
-                    <li>Streamlined the process from raw Kaggle data to BI-ready datasets in minutes.</li>
-                    <li>Encourages reproducible and scalable workflows suitable for data analytics and engineering
-                        tasks.</li>
-                    <li>Next steps include enhancing feature engineering, integrating visual dashboards (e.g.,
-                        Streamlit), and extending support for larger datasets and non-CSV formats.</li>
+                    <li>Successfully built a modular and automated data pipeline using Python</li>
+                    <li>Eliminated repetitive manual tasks like dataset downloads, inspection, and setup</li>
+                    <li>Enabled quick turnaround from raw data to BI-ready files</li>
+                    <li>Established a strong foundation for future integration with dashboards or more advanced modeling
+                    </li>
+                </ul>
+
+                <h3>Next Steps</h3>
+                <ul>
+                    <li>Support for categorical encoding and missing value imputation</li>
+                    <li>Integration with Streamlit or Dash for real-time dashboarding</li>
+                    <li>Enhanced model selection and evaluation via automated reporting</li>
                 </ul>
 
                 <h3>Relevant Files</h3>
                 <ol>
                     <li><strong>EDA Script</strong>
-                        <p class="justified-text"><a href="Documents/Projects/Kaggle/EDA_Script.py"
-                                target="_blank">Click to Preview</a></p>
+                        <p class="justified-text">
+                            <a href="Documents/Projects/Kaggle/EDA_Script.py" target="_blank">Click to Preview</a>
+                        </p>
                     </li>
                     <li><strong>Kaggle Extractor</strong>
-                        <p class="justified-text"><a href="Documents/Projects/Kaggle/Kaggle_Extractor.py"
-                                target="_blank">Click to Preview</a></p>
+                        <p class="justified-text">
+                            <a href="Documents/Projects/Kaggle/Kaggle_Extractor.py" target="_blank">Click to Preview</a>
+                        </p>
                     </li>
+                </ol>
             </div>
 
             <div id="Predictive_Model" class="box">
