@@ -656,6 +656,7 @@
                     Reporting for B2B Partners and Brokers</a>
                 <a href="#MD_Reports" class="project-nav-box">Company Project 4: Daily Business Reporting</a>
                 <a href="#Automated_Extraction" class="project-nav-box">Self Project 1: Kaggle Extractor</a>
+                <a href="#Python_ETL_PBI_Visualisation_ML" class="project-nav-box">Self Project 2: Monthly Beverage Sales Dashboard – Power BI + Python</a>
                 <a href="#Predictive_Model" class="project-nav-box">Project 1: Bike Usage Prediction</a>
                 <a href="#Power_BI" class="project-nav-box">Project 2: Retail Analytics</a>
                 <a href="#project3" class="project-nav-box">Project 3: Healthcare Analytics</a>
@@ -1169,7 +1170,8 @@
                             <ul>
                                 <li><strong>Automated Data Downloading:</strong> Uses Kaggle API to download ZIP files
                                     directly from a given dataset path (e.g.,
-                                    <code>"sakshigoyal7/credit-card-customers"</code>).</li>
+                                    <code>"sakshigoyal7/credit-card-customers"</code>).
+                                </li>
                                 <li><strong>ZIP Extraction & File Management:</strong> Automatically extracts ZIP files
                                     and stores them in project-specific folders.</li>
                                 <li><strong>Dynamic DataFrame Loading:</strong> Loads all extracted CSVs into pandas
@@ -1188,7 +1190,7 @@
                             <ul>
                                 <li>Displays shape, column names, data types, descriptive statistics, and missing values
                                 </li>
-                                <li>Visualizes distributions using histograms and identifies correlations with heatmaps
+                                <li>Visualises distributions using histograms and identifies correlations with heatmaps
                                 </li>
                                 <li>Drops rows with missing values and isolates numeric columns for modeling</li>
                                 <li>Auto-selects a numeric target column (last one by default) for regression modeling
@@ -1240,6 +1242,132 @@
                     </li>
                 </ol>
             </div>
+
+            <div id="Python_ETL_PBI_Visualisation_ML" class="box">
+                <h3><u>Self Project 2: Monthly Beverage Sales Dashboard – Power BI + Python</u></h3>
+
+                <h3>Objective</h3>
+                <p class="justified-text">
+                    This project aimed to create an end-to-end sales dashboard solution using Power BI and Python,
+                    driven by a
+                    Kaggle dataset on synthetic beverage sales. The dashboard provides a rich, interactive analysis of
+                    sales KPIs,
+                    customer behavior, product trends, and regional insights. It also integrates a reusable Python data
+                    pipeline
+                    to automate data ingestion, cleaning, and transformation.
+                </p>
+
+                <h3>Methodology</h3>
+                <ol>
+                    <li><strong>Kaggle Extractor Module</strong>
+                        <ul>
+                            <li>Developed a custom Python module <code>Kaggle_Extractor.py</code> to automate data
+                                ingestion.</li>
+                            <li><strong>Key Features:</strong></li>
+                            <ul>
+                                <li><strong>Automated Data Downloading:</strong> Uses the Kaggle API to download ZIP
+                                    datasets via
+                                    dataset path (e.g., <code>"sebastianwillmann/beverage-sales"</code>).</li>
+                                <li><strong>ZIP Extraction & File Management:</strong> Extracts and stores datasets in
+                                    structured
+                                    folders.</li>
+                                <li><strong>Dynamic DataFrame Loading:</strong> Loads CSV files into pandas DataFrames
+                                    automatically.</li>
+                            </ul>
+                            <p>This serves as the data ingestion layer of the project and is easily reusable across
+                                different datasets.</p>
+                        </ul>
+                    </li>
+
+                    <li><strong>Data Cleaning and Preparation (Python)</strong>
+                        <ul>
+                            <li>CSV merging, null handling, and feature engineering in <code>EDA_Script.py</code>.</li>
+                            <li><strong>Engineered Features:</strong></li>
+                            <ul>
+                                <li>Date columns: <code>Year</code>, <code>Month</code>, <code>MonthYear</code></li>
+                                <li><code>Is_Weekend</code> flag based on order day</li>
+                            </ul>
+                            <li><strong>Data Volume Handling:</strong> Reduced original dataset from <b>8.9 million rows
+                                    to 1 million</b>
+                                to improve performance and allow sanity checks within system memory limits.</li>
+                            <li>Exports cleaned CSV with a timestamped filename for Power BI use</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Power BI Modeling and DAX</strong>
+                        <ul>
+                            <li>Loaded cleaned data into Power BI using Power Query</li>
+                            <li>Created calculated columns and DAX measures for KPIs and trends</li>
+                            <li><strong>Core DAX KPIs:</strong></li>
+                            <ul>
+                                <li><code>Total_Sales</code>, <code>Total_Customers</code>, <code>Total_Orders</code>,
+                                    <code>Avg_Order_Value</code></li>
+                                <li>Advanced: <code>Customer_Lifetime_Value</code>, <code>Customer_Recency</code>,
+                                    <code>Product_Popularity</code>, <code>Revenue_per_Unit</code>,
+                                    <code>YoY_Growth</code></li>
+                            </ul>
+                        </ul>
+                    </li>
+
+                    <li><strong>Dashboard Pages and Visuals</strong>
+                        <ul>
+                            <li><b>Overview:</b> KPI Cards, Top Product/Customer/Region</li>
+                            <li><b>Top 10s:</b> Products, Customers, Categories, Regions</li>
+                            <li><b>Customer Trends:</b> Lifetime Value, Frequency Trend</li>
+                            <li><b>RFM & Returns:</b> Customer Segments, Returns, Recency Distribution</li>
+                            <li><b>Product Analysis:</b> Popularity, Revenue per Unit, Category Bar Chart</li>
+                            <li><b>Geospatial:</b> Filled and bubble maps of region-wise sales</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Conclusion</h3>
+                <ul>
+                    <li>Automated pipeline from Kaggle to Power BI using Python and DAX</li>
+                    <li>Improved reproducibility and reduced development time</li>
+                    <li>Enabled deeper business analysis with custom KPIs and segmentation</li>
+                    <li>Scalable design—pipeline can be adapted for other datasets with minimal effort</li>
+                </ul>
+
+                <h3>Next Steps</h3>
+                <ul>
+                    <li>Add forecasting visuals using Power BI’s analytics pane</li>
+                    <li>Integrate data refresh automation via Power BI Service</li>
+                    <li>Introduce custom themes and trendlines for better UX</li>
+                    <li>Parameterise top-N filters and drill-through charts for advanced interactivity</li>
+                </ul>
+
+                <h3>Opportunities for Predictive Insights</h3>
+                <ul>
+                    <li><b>Customer Churn Prediction:</b> Identify customers with declining engagement</li>
+                    <li><b>RFM Scoring:</b> Implement numerical scoring for Recency, Frequency, and Monetary value</li>
+                    <li><b>Basket Analysis:</b> Discover frequently bought product combinations</li>
+                    <li><b>Discount Elasticity:</b> Analyse how discount levels affect product sales and revenue</li>
+                </ul>
+
+                <p class="justified-text">
+                    All data was extracted, processed, and cleaned using my custom-built
+                    <code>Kaggle_Extractor.py</code> module, ensuring a repeatable and modular pipeline across multiple
+                    Kaggle datasets.
+                </p>
+
+                                <h3>Relevant Files</h3>
+
+                <ol>
+                    <li><strong>.pbix Dashboard</strong>
+                        <p class="justified-text"><a
+                                href="Documents/Projects/Monthly Beverage_Sales_Dashboard/Beverages_Sales.pbix"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+                    <li><strong>Readme</strong>
+                        <p class="justified-text"><a
+                                href="Documents/Projects/Monthly Beverage_Sales_Dashboard/PowerBI_Sales_Dashboard_Report.docx"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+            </div>
+
+
+
 
             <div id="Predictive_Model" class="box">
                 <h3><u>Project 1: Predicting London Bike Usage Using Machine Learning - Python</u></h3>
