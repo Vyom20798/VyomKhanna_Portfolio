@@ -227,7 +227,8 @@
             <div class="box" and id="Team_Computers">
                 <a href="#Team_Computers" target="_blank"></a>
                 <h3><u>Team Computers, Gurgaon, India</u></h3>
-                <p class="justified-text"><i>Business Intelligence Engineer & Analyst | September 2021 - August 2023 | Industry -
+                <p class="justified-text"><i>Business Intelligence Engineer & Analyst | September 2021 - August 2023 |
+                        Industry -
                         Insurance</i></p>
                 <!-- <p class="justified-text">September 2021 - May 2023</p>
                 <p class="justified-text">Industry - Insurance</p> -->
@@ -655,11 +656,18 @@
                     Compliance
                     Reporting for B2B Partners and Brokers</a>
                 <a href="#MD_Reports" class="project-nav-box">Company Project 4: Daily Business Reporting</a>
+                <a href="#CRM_Dashboard" class="project-nav-box">Company Project 5: CRM Dashboard – Customer
+                    Satisfaction & Service KPIs</a>
+                <a href="#Repeated_Claims_Detection" class="project-nav-box">Company Project 6: Repeated Claims
+                    Detection – Fraud Prevention</a>
+                <a href="#Sales_Incentive_Targets" class="project-nav-box">Company Project 7: Sales Incentive
+                    Dashboard</a>
                 <a href="#Automated_Extraction" class="project-nav-box">Self Project 1: Kaggle Extractor</a>
-                <a href="#Python_ETL_PBI_Visualisation_ML" class="project-nav-box">Self Project 2: Monthly Beverage Sales Dashboard – Power BI + Python</a>
+                <a href="#Python_ETL_PBI_Visualisation_ML" class="project-nav-box">Self Project 2: Monthly Beverage
+                    Sales Dashboard – Power BI + Python</a>
                 <a href="#Predictive_Model" class="project-nav-box">Project 1: Bike Usage Prediction</a>
                 <a href="#Power_BI" class="project-nav-box">Project 2: Retail Analytics</a>
-                <a href="#project3" class="project-nav-box">Project 3: Healthcare Analytics</a>
+                <a href="#project3" class="project-nav-box">Project 3: NHS Staff Scheduling</a>
                 <a href="#project4" class="project-nav-box">Project 4: EV Transition</a>
                 <a href="#project5" class="project-nav-box">Project 5: Path Optimisation</a>
                 <a href="#project6" class="project-nav-box">Project 6: PCB Assembly Optimisation</a>
@@ -1148,6 +1156,285 @@
                 </ol>
             </div>
 
+            <div id="CRM_Dashboard" class="box">
+                <h3><u>Company Project 5: CRM Dashboard – Customer Satisfaction & Service KPIs</u></h3>
+                <h3>Objective</h3>
+                <p class="justified-text">
+                    The project aimed to design and deliver an interactive CRM dashboard for Care Health Insurance
+                    to
+                    monitor customer satisfaction (NPS), service performance, and retention trends. The goal was to
+                    provide
+                    leadership and operational teams with actionable insights to improve customer experience, reduce
+                    churn,
+                    and enhance service efficiency.
+                </p>
+                <ol class="hanging-indent">
+                    <li><strong>Customer Insights:</strong> Analysed churn drivers, NPS trends, and service
+                        performance gaps
+                        impacting customer satisfaction and renewals.</li>
+                    <li><strong>Business Intelligence Model:</strong> Developed an interactive dashboard in Power
+                        BI/Qlik Sense
+                        to visualise NPS distribution, service KPIs, churn vs. renewals, and agent-level sales
+                        conversion.</li>
+                </ol>
+
+                <h3>Methodology</h3>
+                <ol>
+                    <li><strong>Data Collection and Processing</strong>
+                        <ul>
+                            <li>Extracted customer, claims, and service records using SQL, Alteryx, and Qlik ETL.
+                            </li>
+                            <li>Integrated multiple sources into a unified data model covering:
+                                <ol>Customer Feedback: Net Promoter Score (Promoters, Passives, Detractors).</ol>
+                                <ol>Service KPIs: Resolution Time, Escalation Rate, First Contact Resolution.</ol>
+                                <ol>Renewal vs. Churn: Active vs. lapsed customers, policy renewals, retention
+                                    rates.</ol>
+                                <ol>Sales Engagement: Lead response time, conversion rate, and upsell/cross-sell
+                                    metrics.</ol>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Data Preprocessing and Feature Engineering</strong>
+                        <ul>
+                            <li>Derived key metrics for service and retention analysis:
+                                <ol>Churn Rate = (Cancelled Policies / Total Active Policies).</ol>
+                                <ol>Customer Retention % = (Renewed Policies / Expiring Policies).</ol>
+                                <ol>Average Resolution Time = (Total Time to Resolve Queries / Number of Queries).
+                                </ol>
+                                <ol>Escalation % = (Escalated Cases / Total Cases).</ol>
+                            </li>
+                            <li>Implemented automated refreshes and applied role-based access for secure stakeholder
+                                usage.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Dashboard Development and Insights</strong>
+                        <ul>
+                            <li>Customer Satisfaction:
+                                <ol>NPS distribution (Promoters, Passives, Detractors).</ol>
+                                <ol>NPS trend line over time by region and policy type.</ol>
+                            </li>
+                            <li>Service KPIs:
+                                <ol>Resolution time, escalation trends, and first contact resolution rates.</ol>
+                                <ol>Complaint categorisation and backlog monitoring.</ol>
+                            </li>
+                            <li>Retention Analysis:
+                                <ol>Renewal vs churn rates by product and region.</ol>
+                                <ol>Customer segment-level retention insights.</ol>
+                            </li>
+                            <li>Sales & Engagement:
+                                <ol>Lead response time by channel.</ol>
+                                <ol>Conversion rate and cross-sell/upsell performance.</ol>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Conclusion</h3>
+                <ol>
+                    <li><strong>Customer Experience Enhancement</strong>
+                        <ul>
+                            <li>Revealed churn drivers: 40% premium hikes, 30% poor renewal reminders, 20%
+                                unresolved claims.</li>
+                            <li>Introduced automated renewal reminders and improved claim communication processes.
+                            </li>
+                            <li>Led to a <strong>15–20% increase in customer retention</strong> within three months.
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Operational Efficiency Gains</strong>
+                        <ul>
+                            <li>Improved visibility into service KPIs and escalations, enabling faster issue
+                                resolution.</li>
+                            <li>Empowered leadership with real-time actionable insights for CRM strategy and
+                                customer engagement.</li>
+                            <li>Standardised KPIs across departments, reducing ad-hoc reporting by 25%.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <div id="Repeated_Claims_Detection" class="box">
+                <h3><u>Company Project 6: Repeated Claims Detection – Fraud Prevention</u></h3>
+                <h3>Objective</h3>
+                <p class="justified-text">
+                    The project aimed to detect and prevent fraudulent health insurance claims by identifying repeated
+                    claims submitted by the same insured member on the same date of admission. Using Snowflake as the
+                    data source,
+                    the initiative focused on building automated checks, integrating outputs with medical and payments
+                    teams,
+                    and developing a predictive model to proactively flag high-risk claims.
+                </p>
+                <ol class="hanging-indent">
+                    <li><strong>Fraud Identification:</strong> Identified duplicate/repeated claims at source (MTD
+                        claims data from Snowflake).</li>
+                    <li><strong>Process Integration:</strong> Shared flagged cases with Medical and Payment teams to
+                        prevent approval of fraudulent claims.</li>
+                    <li><strong>Predictive Model:</strong> Built a fraud detection model to proactively identify
+                        suspicious claims for investigation.</li>
+                </ol>
+
+                <h3>Methodology</h3>
+                <ol>
+                    <li><strong>Data Collection and Processing</strong>
+                        <ul>
+                            <li>Extracted Month-to-Date (MTD) claims data from Snowflake covering claim details, insured
+                                member IDs, admission dates, and claim statuses.</li>
+                            <li>Defined claim status priority order: <strong>Paid → Outstanding →
+                                    Cancelled/Rejected</strong> to ensure correct handling of duplicates.</li>
+                            <li>Created a composite key = <strong>Insured Member ID + Date of Admission</strong> to
+                                detect repeated claims.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Duplicate Detection Logic</strong>
+                        <ul>
+                            <li>Used SQL queries in Qlik to identify multiple claims with the same insured member
+                                and admission date.</li>
+                            <li>Applied prioritisation logic to retain only the valid claim record (Paid/Outstanding)
+                                and flag duplicates (Cancelled/Rejected).</li>
+                            <li>Generated exception reports highlighting repeated claims for daily review by medical and
+                                payment teams.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Predictive Model Development</strong>
+                        <ul>
+                            <li>Performed Exploratory Data Analysis (EDA) using Python and Pandas to identify fraud
+                                indicators such as:
+                                <ol>High frequency of claims by the same member in short time windows.</ol>
+                                <ol>Unusual admission-discharge patterns or same-day readmissions.</ol>
+                                <ol>High-value claims repeated with minor variations.</ol>
+                            </li>
+                            <li>Engineered fraud-related features:
+                                <ol>Duplicate_Claim_Flag, Frequency_in_30Days, Avg_Claim_Amount_by_Member,
+                                    Hospital_Risk_Score.</ol>
+                            </li>
+                            <li>Built classification models (Logistic Regression, Random Forest, XGBoost) to predict
+                                probability of fraud.</li>
+                            <li>Selected Random Forest based on performance metrics (AUC = 0.87, Precision = 82%, Recall
+                                = 78%).</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Process Implementation</strong>
+                        <ul>
+                            <li>Deployed SQL checks in Snowflake for automated duplicate detection.</li>
+                            <li>Integrated predictive model outputs into dashboard view for Medical and Payments teams.
+                            </li>
+                            <li>Created a daily fraud risk report with high-probability cases flagged for manual
+                                investigation.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Conclusion</h3>
+                <ol>
+                    <li><strong>Fraud Prevention</strong>
+                        <ul>
+                            <li>Prevented repeated claims from being processed by creating a unique composite key
+                                system.</li>
+                            <li>Blocked suspicious claims at source, saving significant costs in potential fraudulent
+                                payouts.</li>
+                            <li>Improved regulatory compliance by maintaining accurate and validated claim records.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Business Impact</strong>
+                        <ul>
+                            <li>Medical and Payments teams reduced manual duplicate checks by over 60%.</li>
+                            <li>The predictive fraud model helped proactively flag <strong>high-risk claims with ~80%
+                                    accuracy</strong>.</li>
+                            <li>Strengthened client trust by ensuring tighter fraud controls and improved audit
+                                readiness.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <div id="Sales_Incentive_Targets" class="box">
+                <h3><u>Company Project 7: Sales Incentive Dashboard — Fixed Monthly/Quarterly Targets</u></h3>
+
+                <h3>Objective</h3>
+                <p class="justified-text">
+                    Build an automated, role-aware incentive dashboard for Frontline Sales Officers (FSOs),
+                    Area Managers, and Zonal Managers, where <strong>targets were fixed for every month and
+                        quarter</strong>.
+                    The goal was to give real-time visibility of <em>Target vs Actual</em>, remove payout errors,
+                    and enable mid-cycle course correction so teams could consistently exceed targets.
+                </p>
+                <ol class="hanging-indent">
+                    <li><strong>Transparency:</strong> Show each role exactly where they stood against
+                        fixed monthly/quarterly targets, updated daily.</li>
+                    <li><strong>Accuracy:</strong> Automate tiered payout logic to eliminate manual errors and disputes.
+                    </li>
+                </ol>
+
+                <h3>Methodology</h3>
+                <ol>
+                    <li><strong>Data Collection & Processing</strong>
+                        <ul>
+                            <li>Integrated daily sales and renewals into Snowflake via SQL/Alteryx; aligned with HR
+                                payroll data.</li>
+                            <li>Loaded <strong>fixed targets</strong> (monthly/quarterly) by role: FSO, Area, Zone.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Rules & Feature Engineering</strong>
+                        <ul>
+                            <li>Defined KPIs and payout tiers per role:
+                                <ol>FSO: Policies sold, Conversion rate, Cross-sell/Upsell.</ol>
+                                <ol>Area Manager: Aggregated FSO performance vs area targets.</ol>
+                                <ol>Zonal Manager: Regional revenue growth, Retention KPIs.</ol>
+                            </li>
+                            <li>Created DAX measures for <em>Target vs Actual</em>, % Achievement, Tier
+                                (Bronze/Silver/Gold).</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Dashboard Development</strong>
+                        <ul>
+                            <li><strong>Target vs Actual Gauges</strong> for Month and Quarter at FSO → Area → Zone
+                                levels.</li>
+                            <li><strong>Leaderboards</strong> to rank FSOs and teams; drilldowns from Zone → Area → FSO.
+                            </li>
+                            <li><strong>Role-based access</strong>: FSOs saw self; managers saw aggregates; HR saw
+                                payout validation.</li>
+                            <li>Automated refresh; PDF snapshots for monthly/quarterly reviews.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Adoption & Governance</strong>
+                        <ul>
+                            <li>Ran training with Sales & HR; published usage SOP; logged payout audit trails.</li>
+                            <li>Embedded dashboard in weekly huddles and month-end target war-rooms.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Conclusion</h3>
+                <ol>
+                    <li><strong>Operational Impact</strong>
+                        <ul>
+                            <li>100% payout accuracy; payroll preparation time reduced from weeks to days.</li>
+                            <li>Managers coached mid-cycle using live <em>% Achievement</em> and pipeline visibility.
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Business Outcome</strong>
+                        <ul>
+                            <li>With fixed targets set every month and quarter, teams consistently
+                                <strong>crossed targets by ~20%</strong> in the next quarter and maintained
+                                double-digit uplift over six months.
+                            </li>
+                            <li>Drivers: real-time target tracking for FSOs, focused coaching by Area/Zonal leaders,
+                                and clear tiered incentives tied to strategic KPIs (renewals, cross-sell).</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
             <div id="Automated_Extraction" class="box">
                 <h3><u>Self Project 1: Automated Data Pipeline for Kaggle Datasets - Python</u></h3>
 
@@ -1301,10 +1588,12 @@
                             <li><strong>Core DAX KPIs:</strong></li>
                             <ul>
                                 <li><code>Total_Sales</code>, <code>Total_Customers</code>, <code>Total_Orders</code>,
-                                    <code>Avg_Order_Value</code></li>
+                                    <code>Avg_Order_Value</code>
+                                </li>
                                 <li>Advanced: <code>Customer_Lifetime_Value</code>, <code>Customer_Recency</code>,
                                     <code>Product_Popularity</code>, <code>Revenue_per_Unit</code>,
-                                    <code>YoY_Growth</code></li>
+                                    <code>YoY_Growth</code>
+                                </li>
                             </ul>
                         </ul>
                     </li>
@@ -1351,7 +1640,7 @@
                     Kaggle datasets.
                 </p>
 
-                                <h3>Relevant Files</h3>
+                <h3>Relevant Files</h3>
 
                 <ol>
                     <li><strong>.pbix Dashboard</strong>
@@ -1365,9 +1654,6 @@
                                 target="_blank">Click to Preview</a></p>
                     </li>
             </div>
-
-
-
 
             <div id="Predictive_Model" class="box">
                 <h3><u>Project 1: Predicting London Bike Usage Using Machine Learning - Python</u></h3>
@@ -1601,7 +1887,7 @@
                             <button class="dropdown-btn">SQL Coursework Report on Healthcare Data Analytics</button>
                             <div class="dropdown-content"> -->
             <div id="project3" class="box">
-                <h3><u>Project 3: SQL Coursework Report on Healthcare Data Analytics</u></h3>
+                <h3><u>Project 3: NHS Staff Scheduling</u></h3>
                 <h3>Objective</h3>
                 <p class="justified-text">The report aims to solve a series of SQL-based data analytics tasks within
                     a
