@@ -662,6 +662,8 @@
                     Detection – Fraud Prevention</a>
                 <a href="#Sales_Incentive_Targets" class="project-nav-box">Company Project 7: Sales Incentive
                     Dashboard</a>
+                <a href="#Snowflake_to_Star_Schema" class="project-nav-box">Company Project 8: Data Warehouse
+                    Optimisation — Snowflake to Star Schema Migration</a>
                 <a href="#Automated_Extraction" class="project-nav-box">Self Project 1: Kaggle Extractor</a>
                 <a href="#Python_ETL_PBI_Visualisation_ML" class="project-nav-box">Self Project 2: Monthly Beverage
                     Sales Dashboard – Power BI + Python</a>
@@ -1435,15 +1437,167 @@
                 </ol>
             </div>
 
-            <div id="Automated_Extraction" class="box">
-                <h3><u>Self Project 1: Automated Data Pipeline for Kaggle Datasets - Python</u></h3>
+            <div id="Snowflake_to_Star_Schema" class="box">
+                <h3><u>Company Project 8: Data Warehouse Optimisation — Snowflake to Star Schema Migration</u></h3>
 
                 <h3>Objective</h3>
                 <p class="justified-text">
-                    This project focuses on building a modular and reusable Python pipeline that automates the ingestion
-                    of datasets from Kaggle, performs exploratory data analysis (EDA), and exports cleaned datasets for
-                    use in BI tools (e.g., Power BI, Tableau) or machine learning models. The goal was to streamline
-                    repetitive steps, promote reproducibility, and apply practical data engineering principles to
+                    Redesign and optimise the enterprise data warehouse by migrating from a
+                    <strong>Snowflake Schema</strong> to a <strong>Star Schema</strong> to simplify joins,
+                    improve dashboard refresh performance, and <strong>reduce ETL runtime from 8 hours to under 5
+                        hours</strong>.
+                    The initiative ensured <strong>95%+ data accuracy on T-1 logic (Today – 1)</strong>
+                    while improving cross-pipeline consistency and report reliability.
+                </p>
+
+                <ol class="hanging-indent">
+                    <li><strong>Transparency:</strong> Provide a unified, conformed data model across Claims, Sales,
+                        Finance, and Product departments.</li>
+                    <li><strong>Performance:</strong> Optimise ETL and query logic to accelerate refresh cycles, reduce
+                        compute costs, and enhance stability.</li>
+                </ol>
+
+                <h3>Methodology</h3>
+                <ol>
+                    <li><strong>Data Collection & Processing</strong>
+                        <ul>
+                            <li>Profiled 40+ fact and dimension tables using SQL and Qlik ETL logs to identify redundant
+                                hierarchies and joins.</li>
+                            <li>Extracted and staged data via <strong>SQL, Alteryx, and Qlik ETL</strong> workflows with
+                                incremental loads using watermark control tables.</li>
+                            <li>Built modular ETL pipelines (staging → dimension → fact → publish) to enable parallel
+                                processing and improve orchestration efficiency.</li>
+                            <li>Collaborated with IT to create a <strong>replica environment</strong> for testing and
+                                validation before production deployment.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Rules & Feature Engineering</strong>
+                        <ul>
+                            <li>Defined clear fact-level grain (e.g., one row per claim transaction or policy sale).
+                            </li>
+                            <li>Collapsed snowflaked dimensions into <strong>denormalised conformed dimensions</strong>
+                                such as <em>dim_customer</em> and <em>dim_product</em> with surrogate keys.</li>
+                            <li>Implemented <strong>SCD Type 2</strong> for historical attributes (region, segment) and
+                                <strong>Type 1</strong> for static fields (names, IDs).
+                            </li>
+                            <li>Shifted some <strong>front-end calculations</strong> (KPIs, derived measures)
+                                into <strong>backend Python and Qlik scripts</strong> for better performance and reduced
+                                DAX load time.</li>
+                            <li>Reviewed and commented out <strong>unused or redundant dashboards</strong> to reduce
+                                refresh overhead and focus on high-value reports.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>ETL Optimisation & File-Based Trigger Mechanism</strong>
+                        <p class="justified-text">
+                            In my previous organisation, we were dealing with multiple ETL jobs pulling data from
+                            various
+                            sources, often on overlapping schedules. To ensure data accuracy and consistency across
+                            pipelines, I implemented a <strong>file-based trigger mechanism</strong>.
+                        </p>
+                        <ul>
+                            <li><strong>What I Did:</strong> Introduced a “file variable” check in the ETL workflow.
+                                Each job only started once a
+                                specific control file was updated, ensuring data freshness and dependency integrity.
+                            </li>
+                            <li><strong>Why It Worked:</strong>
+                                <ol>
+                                    <li>Prevented race conditions where one job could start before upstream data was
+                                        ready.</li>
+                                    <li>Ensured consistent data across multi-source pipelines (claims, sales, HR,
+                                        finance).</li>
+                                    <li>Acted as a lightweight but reliable <strong>validation gate</strong> before
+                                        transformation began.</li>
+                                </ol>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Orchestration & Testing</strong>
+                        <ul>
+                            <li>Replaced nested SQL joins with <strong>materialised staging tables</strong> to reduce
+                                I/O load and runtime.</li>
+                            <li>Implemented <strong>parallel dimension builds</strong> via Qlik QMC and Alteryx task
+                                scheduling.</li>
+                            <li>Introduced <strong>T-1 logic (Today – 1)</strong> to ensure all daily reports used
+                                validated, complete data.</li>
+                            <li>Analysed ETL logs, identified bottlenecks, and re-sequenced heavy joins for faster
+                                throughput.</li>
+                            <li>Cross-checked report numbers and KPIs between <strong>Production vs Replica</strong>
+                                environments
+                                to verify consistency and accuracy.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Dashboard & BI Integration</strong>
+                        <ul>
+                            <li>Re-mapped Power BI and Qlik dashboards to the new <strong>Star Schema views</strong>,
+                                cutting visual load time from 45 min to 15 min.</li>
+                            <li>Rebuilt DAX and Qlik expressions to leverage backend-calculated KPIs.</li>
+                            <li>Used Snowflake and Alteryx outputs to drive refreshed Power BI datasets and
+                                auto-distributed snapshots.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Adoption & Governance</strong>
+                        <ul>
+                            <li>Documented schema mappings, ETL lineage, and KPI logic for version control.</li>
+                            <li>Trained BI and data engineering teams on the new data model, dependencies, and load
+                                monitoring.</li>
+                            <li>Introduced <strong>automated data validation scripts</strong> (row count, totals, null
+                                checks) with run-time logs.</li>
+                            <li>Set up audit dashboards to monitor ETL status, refresh duration, and data freshness
+                                KPIs.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Conclusion</h3>
+                <ol>
+                    <li><strong>Operational Impact</strong>
+                        <ul>
+                            <li>ETL runtime reduced from <strong>8 hours → 4 hours 45 minutes</strong> (~40% faster).
+                            </li>
+                            <li>All published reports achieved <strong>95%+ accuracy</strong> on <em>T-1 logic</em>.
+                            </li>
+                            <li>Dashboard refresh times improved by 66% (45 min → 15 min).</li>
+                            <li>Log file analysis enabled early detection and prevention of pipeline failures.</li>
+                            <li>Manual restarts eliminated through fully automated job sequencing.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Business Outcome</strong>
+                        <ul>
+                            <li>Leadership teams gained <strong>real-time KPI visibility by 6 AM</strong>, improving
+                                decision-making agility.</li>
+                            <li>Compute cost reduced via schema simplification and incremental loading.</li>
+                            <li>Enabled consistent data across departments, strengthening collaboration between IT, BI,
+                                and Operations.</li>
+                            <li>High scalability achieved for future integrations and additional product lines.</li>
+                            <li><strong>Drivers:</strong> Schema simplification, file-based trigger automation, backend
+                                KPI computation, and proactive QA validation.</li>
+                        </ul>
+                    </li>
+            </div>
+
+            <div id="Automated_Extraction" class="box">
+                <h3><u>Self Project 1: Automated Data Pipeline for Kaggle Datasets - Python</u>
+                </h3>
+
+                <h3>Objective</h3>
+                <p class="justified-text">
+                    This project focuses on building a modular and reusable Python pipeline that
+                    automates the ingestion
+                    of datasets from Kaggle, performs exploratory data analysis (EDA), and
+                    exports
+                    cleaned datasets for
+                    use in BI tools (e.g., Power BI, Tableau) or machine learning models. The
+                    goal
+                    was to streamline
+                    repetitive steps, promote reproducibility, and apply practical data
+                    engineering
+                    principles to
                     real-world datasets.
                 </p>
 
@@ -1451,60 +1605,90 @@
                 <ol>
                     <li><strong>Kaggle Extractor Module</strong>
                         <ul>
-                            <li>A custom Python module <code>Kaggle_Extractor.py</code> was created to handle automated
+                            <li>A custom Python module <code>Kaggle_Extractor.py</code> was
+                                created
+                                to handle automated
                                 data ingestion.</li>
                             <li><strong>Key Features:</strong></li>
                             <ul>
-                                <li><strong>Automated Data Downloading:</strong> Uses Kaggle API to download ZIP files
+                                <li><strong>Automated Data Downloading:</strong> Uses Kaggle API
+                                    to
+                                    download ZIP files
                                     directly from a given dataset path (e.g.,
                                     <code>"sakshigoyal7/credit-card-customers"</code>).
                                 </li>
-                                <li><strong>ZIP Extraction & File Management:</strong> Automatically extracts ZIP files
+                                <li><strong>ZIP Extraction & File Management:</strong>
+                                    Automatically
+                                    extracts ZIP files
                                     and stores them in project-specific folders.</li>
-                                <li><strong>Dynamic DataFrame Loading:</strong> Loads all extracted CSVs into pandas
+                                <li><strong>Dynamic DataFrame Loading:</strong> Loads all
+                                    extracted
+                                    CSVs into pandas
                                     DataFrames without manual naming or inspection.</li>
                             </ul>
-                            <p>This acts as the data ingestion layer, a key component in a scalable data engineering
+                            <p>This acts as the data ingestion layer, a key component in a
+                                scalable
+                                data engineering
                                 workflow.</p>
                         </ul>
                     </li>
 
                     <li><strong>EDA and Transformation Script</strong>
                         <ul>
-                            <li>The <code>EDA_Script.py</code> is built to run on any dataset retrieved via the
+                            <li>The <code>EDA_Script.py</code> is built to run on any dataset
+                                retrieved via the
                                 extractor.</li>
                             <li><strong>Key EDA Steps:</strong></li>
                             <ul>
-                                <li>Displays shape, column names, data types, descriptive statistics, and missing values
+                                <li>Displays shape, column names, data types, descriptive
+                                    statistics, and missing values
                                 </li>
-                                <li>Visualises distributions using histograms and identifies correlations with heatmaps
+                                <li>Visualises distributions using histograms and identifies
+                                    correlations with heatmaps
                                 </li>
-                                <li>Drops rows with missing values and isolates numeric columns for modeling</li>
-                                <li>Auto-selects a numeric target column (last one by default) for regression modeling
+                                <li>Drops rows with missing values and isolates numeric columns
+                                    for
+                                    modeling</li>
+                                <li>Auto-selects a numeric target column (last one by default)
+                                    for
+                                    regression modeling
                                 </li>
                             </ul>
-                            <li>Applies standardisation via <code>StandardScaler</code> to prepare data for ML workflows
+                            <li>Applies standardisation via <code>StandardScaler</code> to
+                                prepare
+                                data for ML workflows
                             </li>
-                            <li>Saves the cleaned dataset with a dynamic filename based on the dataset, file name, and
+                            <li>Saves the cleaned dataset with a dynamic filename based on the
+                                dataset, file name, and
                                 timestamp</li>
                         </ul>
                     </li>
 
                     <li><strong>Prototype Machine Learning (Optional)</strong>
                         <ul>
-                            <li>Fits a basic Linear Regression model if a valid numeric target is found</li>
-                            <li>Includes data splitting, scaling, model training, prediction, and MSE evaluation</li>
-                            <li>Designed to demonstrate plug-and-play modeling on newly ingested data</li>
+                            <li>Fits a basic Linear Regression model if a valid numeric target
+                                is
+                                found</li>
+                            <li>Includes data splitting, scaling, model training, prediction,
+                                and
+                                MSE evaluation</li>
+                            <li>Designed to demonstrate plug-and-play modeling on newly ingested
+                                data</li>
                         </ul>
                     </li>
                 </ol>
 
                 <h3>Conclusion</h3>
                 <ul>
-                    <li>Successfully built a modular and automated data pipeline using Python</li>
-                    <li>Eliminated repetitive manual tasks like dataset downloads, inspection, and setup</li>
+                    <li>Successfully built a modular and automated data pipeline using Python
+                    </li>
+                    <li>Eliminated repetitive manual tasks like dataset downloads, inspection,
+                        and
+                        setup</li>
                     <li>Enabled quick turnaround from raw data to BI-ready files</li>
-                    <li>Established a strong foundation for future integration with dashboards or more advanced modeling
+                    <li>Established a strong foundation for future integration with dashboards
+                        or
+                        more advanced modeling
                     </li>
                 </ul>
 
@@ -1519,27 +1703,35 @@
                 <ol>
                     <li><strong>EDA Script</strong>
                         <p class="justified-text">
-                            <a href="Documents/Projects/Kaggle/EDA_Script.py" target="_blank">Click to Preview</a>
+                            <a href="Documents/Projects/Kaggle/EDA_Script.py" target="_blank">Click
+                                to Preview</a>
                         </p>
                     </li>
                     <li><strong>Kaggle Extractor</strong>
                         <p class="justified-text">
-                            <a href="Documents/Projects/Kaggle/Kaggle_Extractor.py" target="_blank">Click to Preview</a>
+                            <a href="Documents/Projects/Kaggle/Kaggle_Extractor.py" target="_blank">Click to
+                                Preview</a>
                         </p>
                     </li>
                 </ol>
             </div>
 
             <div id="Python_ETL_PBI_Visualisation_ML" class="box">
-                <h3><u>Self Project 2: Monthly Beverage Sales Dashboard – Power BI + Python</u></h3>
+                <h3><u>Self Project 2: Monthly Beverage Sales Dashboard – Power BI + Python</u>
+                </h3>
 
                 <h3>Objective</h3>
                 <p class="justified-text">
-                    This project aimed to create an end-to-end sales dashboard solution using Power BI and Python,
+                    This project aimed to create an end-to-end sales dashboard solution using
+                    Power
+                    BI and Python,
                     driven by a
-                    Kaggle dataset on synthetic beverage sales. The dashboard provides a rich, interactive analysis of
+                    Kaggle dataset on synthetic beverage sales. The dashboard provides a rich,
+                    interactive analysis of
                     sales KPIs,
-                    customer behavior, product trends, and regional insights. It also integrates a reusable Python data
+                    customer behavior, product trends, and regional insights. It also integrates
+                    a
+                    reusable Python data
                     pipeline
                     to automate data ingestion, cleaning, and transformation.
                 </p>
@@ -1548,50 +1740,77 @@
                 <ol>
                     <li><strong>Kaggle Extractor Module</strong>
                         <ul>
-                            <li>Developed a custom Python module <code>Kaggle_Extractor.py</code> to automate data
-                                ingestion.</li>
+                            <li>Developed a custom Python module
+                                <code>Kaggle_Extractor.py</code> to
+                                automate data
+                                ingestion.
+                            </li>
                             <li><strong>Key Features:</strong></li>
                             <ul>
-                                <li><strong>Automated Data Downloading:</strong> Uses the Kaggle API to download ZIP
+                                <li><strong>Automated Data Downloading:</strong> Uses the Kaggle
+                                    API
+                                    to download ZIP
                                     datasets via
-                                    dataset path (e.g., <code>"sebastianwillmann/beverage-sales"</code>).</li>
-                                <li><strong>ZIP Extraction & File Management:</strong> Extracts and stores datasets in
+                                    dataset path (e.g.,
+                                    <code>"sebastianwillmann/beverage-sales"</code>).
+                                </li>
+                                <li><strong>ZIP Extraction & File Management:</strong> Extracts
+                                    and
+                                    stores datasets in
                                     structured
                                     folders.</li>
-                                <li><strong>Dynamic DataFrame Loading:</strong> Loads CSV files into pandas DataFrames
+                                <li><strong>Dynamic DataFrame Loading:</strong> Loads CSV files
+                                    into
+                                    pandas DataFrames
                                     automatically.</li>
                             </ul>
-                            <p>This serves as the data ingestion layer of the project and is easily reusable across
+                            <p>This serves as the data ingestion layer of the project and is
+                                easily
+                                reusable across
                                 different datasets.</p>
                         </ul>
                     </li>
 
                     <li><strong>Data Cleaning and Preparation (Python)</strong>
                         <ul>
-                            <li>CSV merging, null handling, and feature engineering in <code>EDA_Script.py</code>.</li>
+                            <li>CSV merging, null handling, and feature engineering in
+                                <code>EDA_Script.py</code>.
+                            </li>
                             <li><strong>Engineered Features:</strong></li>
                             <ul>
-                                <li>Date columns: <code>Year</code>, <code>Month</code>, <code>MonthYear</code></li>
+                                <li>Date columns: <code>Year</code>, <code>Month</code>,
+                                    <code>MonthYear</code>
+                                </li>
                                 <li><code>Is_Weekend</code> flag based on order day</li>
                             </ul>
-                            <li><strong>Data Volume Handling:</strong> Reduced original dataset from <b>8.9 million rows
+                            <li><strong>Data Volume Handling:</strong> Reduced original dataset
+                                from
+                                <b>8.9 million rows
                                     to 1 million</b>
-                                to improve performance and allow sanity checks within system memory limits.</li>
-                            <li>Exports cleaned CSV with a timestamped filename for Power BI use</li>
+                                to improve performance and allow sanity checks within system
+                                memory
+                                limits.
+                            </li>
+                            <li>Exports cleaned CSV with a timestamped filename for Power BI use
+                            </li>
                         </ul>
                     </li>
 
                     <li><strong>Power BI Modeling and DAX</strong>
                         <ul>
                             <li>Loaded cleaned data into Power BI using Power Query</li>
-                            <li>Created calculated columns and DAX measures for KPIs and trends</li>
+                            <li>Created calculated columns and DAX measures for KPIs and trends
+                            </li>
                             <li><strong>Core DAX KPIs:</strong></li>
                             <ul>
-                                <li><code>Total_Sales</code>, <code>Total_Customers</code>, <code>Total_Orders</code>,
+                                <li><code>Total_Sales</code>, <code>Total_Customers</code>,
+                                    <code>Total_Orders</code>,
                                     <code>Avg_Order_Value</code>
                                 </li>
-                                <li>Advanced: <code>Customer_Lifetime_Value</code>, <code>Customer_Recency</code>,
-                                    <code>Product_Popularity</code>, <code>Revenue_per_Unit</code>,
+                                <li>Advanced: <code>Customer_Lifetime_Value</code>,
+                                    <code>Customer_Recency</code>,
+                                    <code>Product_Popularity</code>,
+                                    <code>Revenue_per_Unit</code>,
                                     <code>YoY_Growth</code>
                                 </li>
                             </ul>
@@ -1603,9 +1822,13 @@
                             <li><b>Overview:</b> KPI Cards, Top Product/Customer/Region</li>
                             <li><b>Top 10s:</b> Products, Customers, Categories, Regions</li>
                             <li><b>Customer Trends:</b> Lifetime Value, Frequency Trend</li>
-                            <li><b>RFM & Returns:</b> Customer Segments, Returns, Recency Distribution</li>
-                            <li><b>Product Analysis:</b> Popularity, Revenue per Unit, Category Bar Chart</li>
-                            <li><b>Geospatial:</b> Filled and bubble maps of region-wise sales</li>
+                            <li><b>RFM & Returns:</b> Customer Segments, Returns, Recency
+                                Distribution</li>
+                            <li><b>Product Analysis:</b> Popularity, Revenue per Unit, Category
+                                Bar
+                                Chart</li>
+                            <li><b>Geospatial:</b> Filled and bubble maps of region-wise sales
+                            </li>
                         </ul>
                     </li>
                 </ol>
@@ -1615,7 +1838,8 @@
                     <li>Automated pipeline from Kaggle to Power BI using Python and DAX</li>
                     <li>Improved reproducibility and reduced development time</li>
                     <li>Enabled deeper business analysis with custom KPIs and segmentation</li>
-                    <li>Scalable design, pipeline can be adapted for other datasets with minimal effort</li>
+                    <li>Scalable design, pipeline can be adapted for other datasets with minimal
+                        effort</li>
                 </ul>
 
                 <h3>Next Steps</h3>
@@ -1623,20 +1847,28 @@
                     <li>Add forecasting visuals using Power BI’s analytics pane</li>
                     <li>Integrate data refresh automation via Power BI Service</li>
                     <li>Introduce custom themes and trendlines for better UX</li>
-                    <li>Parameterise top-N filters and drill-through charts for advanced interactivity</li>
+                    <li>Parameterise top-N filters and drill-through charts for advanced
+                        interactivity</li>
                 </ul>
 
                 <h3>Opportunities for Predictive Insights</h3>
                 <ul>
-                    <li><b>Customer Churn Prediction:</b> Identify customers with declining engagement</li>
-                    <li><b>RFM Scoring:</b> Implement numerical scoring for Recency, Frequency, and Monetary value</li>
-                    <li><b>Basket Analysis:</b> Discover frequently bought product combinations</li>
-                    <li><b>Discount Elasticity:</b> Analyse how discount levels affect product sales and revenue</li>
+                    <li><b>Customer Churn Prediction:</b> Identify customers with declining
+                        engagement</li>
+                    <li><b>RFM Scoring:</b> Implement numerical scoring for Recency, Frequency,
+                        and
+                        Monetary value</li>
+                    <li><b>Basket Analysis:</b> Discover frequently bought product combinations
+                    </li>
+                    <li><b>Discount Elasticity:</b> Analyse how discount levels affect product
+                        sales
+                        and revenue</li>
                 </ul>
 
                 <p class="justified-text">
                     All data was extracted, processed, and cleaned using my custom-built
-                    <code>Kaggle_Extractor.py</code> module, ensuring a repeatable and modular pipeline across multiple
+                    <code>Kaggle_Extractor.py</code> module, ensuring a repeatable and modular
+                    pipeline across multiple
                     Kaggle datasets.
                 </p>
 
@@ -1656,13 +1888,21 @@
             </div>
 
             <div id="Predictive_Model" class="box">
-                <h3><u>Project 1: Predicting London Bike Usage Using Machine Learning - Python</u></h3>
+                <h3><u>Project 1: Predicting London Bike Usage Using Machine Learning -
+                        Python</u>
+                </h3>
 
                 <h3>Objective</h3>
                 <p class="justified-text">
-                    This project aimed to address operational challenges in London's bike-sharing scheme by analysing
-                    and forecasting bike usage patterns. By leveraging machine learning models and combining trip data
-                    with weather insights, the goal was to optimise bike availability and improve service distribution
+                    This project aimed to address operational challenges in London's
+                    bike-sharing
+                    scheme by analysing
+                    and forecasting bike usage patterns. By leveraging machine learning models
+                    and
+                    combining trip data
+                    with weather insights, the goal was to optimise bike availability and
+                    improve
+                    service distribution
                     across the city.
                 </p>
 
@@ -1670,31 +1910,48 @@
                 <ol>
                     <li><strong>Data Collection and Processing</strong>
                         <ul>
-                            <li><strong>Urban Mobility Data:</strong> Sourced from Transport for London (TfL), including
-                                trip start/end times, durations, and station information for June 2023.</li>
-                            <li><strong>Weather Data:</strong> Collected from Visual Crossing for July–September 2023,
-                                incorporating temperature, humidity, wind speed, and precipitation.</li>
+                            <li><strong>Urban Mobility Data:</strong> Sourced from Transport for
+                                London (TfL), including
+                                trip start/end times, durations, and station information for
+                                June
+                                2023.</li>
+                            <li><strong>Weather Data:</strong> Collected from Visual Crossing
+                                for
+                                July–September 2023,
+                                incorporating temperature, humidity, wind speed, and
+                                precipitation.
+                            </li>
                         </ul>
                     </li>
 
                     <li><strong>Data Preprocessing and Feature Engineering</strong>
                         <ul>
-                            <li>Removed outliers and filtered trips shorter than 1 minute or longer than 24 hours.</li>
-                            <li>Engineered new features: Day of the week, Hour of day / time bins, Trip duration and
+                            <li>Removed outliers and filtered trips shorter than 1 minute or
+                                longer
+                                than 24 hours.</li>
+                            <li>Engineered new features: Day of the week, Hour of day / time
+                                bins,
+                                Trip duration and
                                 routes, Weather-related columns merged by date
                             </li>
-                            <li>Used <code>MinMaxScaler</code> to normalise numerical features before training.</li>
+                            <li>Used <code>MinMaxScaler</code> to normalise numerical features
+                                before training.</li>
                         </ul>
                     </li>
 
                     <li><strong>Machine Learning Models</strong>
                         <ul>
-                            <li>Tested multiple algorithms: Linear Regression, Decision Trees, Random Forest, Neural
+                            <li>Tested multiple algorithms: Linear Regression, Decision Trees,
+                                Random Forest, Neural
                                 Networks, Support Vector Machines (SVM), XGBoost</li>
-                            <li>Evaluation metrics: Mean Squared Error (MSE), Mean Absolute Error (MAE), R-Squared (R²)
+                            <li>Evaluation metrics: Mean Squared Error (MSE), Mean Absolute
+                                Error
+                                (MAE), R-Squared (R²)
                             </li>
                     </li>
-                    <li><strong>Outcome:</strong> Linear Regression performed best for predicting bike usage based on
+                    <li><strong>Outcome:</strong> Linear Regression performed best for
+                        predicting
+                        bike usage based on
                         temperature, followed by Decision Trees and Random Forest.</li>
                     </ul>
                     </li>
@@ -1704,9 +1961,11 @@
                 <ol>
                     <li><strong>Urban Mobility Insights</strong>
                         <ul>
-                            <li>Peak usage occurred in the afternoon, with the highest rental day being June 21, 2023.
+                            <li>Peak usage occurred in the afternoon, with the highest rental day being June
+                                21, 2023.
                             </li>
-                            <li>Hyde Park Corner emerged as the most active station, reflecting high central London
+                            <li>Hyde Park Corner emerged as the most active station, reflecting high central
+                                London
                                 traffic.</li>
                             <li>Weekday afternoons, especially Thursdays and Fridays, saw the highest rental
                                 volumes, suggesting a post-work travel pattern.</li>
@@ -1715,15 +1974,18 @@
 
                     <li><strong>Predictive Model Findings</strong>
                         <ul>
-                            <li>Temperature was the strongest predictor of ride volume, with Linear Regression giving
+                            <li>Temperature was the strongest predictor of ride volume, with Linear
+                                Regression giving
                                 the most consistent performance.</li>
                             <li>Future improvements:
                                 <ul>
                                     <li>Introduce non-linear models (e.g., SVM with RBF kernels)</li>
-                                    <li>Include additional features like humidity, event data, and station capacity</li>
+                                    <li>Include additional features like humidity, event data, and station
+                                        capacity</li>
                                 </ul>
                             </li>
-                            <li><strong>Operational Recommendation:</strong> Use weather forecasts to plan bike
+                            <li><strong>Operational Recommendation:</strong> Use weather forecasts to plan
+                                bike
                                 distribution—stock more bikes at key stations on warm days.</li>
                         </ul>
                     </li>
@@ -1762,24 +2024,32 @@
       <button class="dropdown-btn">Examining the Role of Data Analytics in Banking Decision-Making</button>
       <div class="dropdown-content"> -->
             <div id="Power_BI" class="box">
-                <h3><u>Project 2: Examining the Role of Data Analytics in Banking Decision-Making - Power BI</u>
+                <h3><u>Project 2: Examining the Role of Data Analytics in Banking Decision-Making - Power
+                        BI</u>
                 </h3>
                 <h3>Objective</h3>
-                <p class="justified-text">The report's primary objective is to examine how data analytics (DA)
+                <p class="justified-text">The report's primary objective is to examine how data analytics
+                    (DA)
                     impacts
                     decision-making
-                    processes within financial institutions, specifically in a banking context. Key aims include:
+                    processes within financial institutions, specifically in a banking context. Key aims
+                    include:
                 </p>
                 <ol class="hanging-indent">
-                    <li><strong>Evaluating the Benefits of Data Analytics:</strong>Enhancing decision-making,
+                    <li><strong>Evaluating the Benefits of Data Analytics:</strong>Enhancing
+                        decision-making,
                         customer
                         service, risk management, and competitive advantages in the banking industry.</li>
-                    <li><strong>Identifying Challenges in DA Implementation:</strong>Highlighting barriers such as
+                    <li><strong>Identifying Challenges in DA Implementation:</strong>Highlighting barriers
+                        such as
                         technological, social, and cognitive challenges.</li>
-                    <li><strong>Assessing Data Quality:</strong>Examining data quality’s importance for effective
+                    <li><strong>Assessing Data Quality:</strong>Examining data quality’s importance for
+                        effective
                         decision-making and strategies to improve it.</li>
-                    <li><strong>Providing Visualisation and Insights:</strong>Using data visualisation techniques to
-                        analyse sales, profit trends, and product performance across regions and customer segments.
+                    <li><strong>Providing Visualisation and Insights:</strong>Using data visualisation
+                        techniques to
+                        analyse sales, profit trends, and product performance across regions and customer
+                        segments.
                     </li>
                 </ol>
                 <p class="justified-text">The overarching objective is to analyse DA's role in improving
@@ -1791,26 +2061,31 @@
                 <ol>
                     <li><strong>Theoretical Framework and Challenges (Part A)</strong>
                         <ul>
-                            <li>Literature Review: Theories such as PSI, dual theory, and critical skepticism
+                            <li>Literature Review: Theories such as PSI, dual theory, and critical
+                                skepticism
                                 explore DA
                                 adoption barriers.</li>
                             <li>Data Quality Assessment: Evaluates metrics like accuracy, consistency, and
                                 reliability,
                                 critical in regulated environments.</li>
-                            <li>Strategies for Improving Data Quality: Recommends data governance frameworks, data
+                            <li>Strategies for Improving Data Quality: Recommends data governance
+                                frameworks, data
                                 cleaning tools, centralised repositories, and training.</li>
                         </ul>
                     </li>
 
                     <li><strong>Data Visualisation and Analysis (Part B)</strong>
                         <ul>
-                            <li>Visualisation Tools: Power BI charts, such as stacked columns, pie charts, and
+                            <li>Visualisation Tools: Power BI charts, such as stacked columns, pie charts,
+                                and
                                 clustered
                                 columns.</li>
-                            <li>Sales and Profit Analysis: Examines product performance across regions and time
+                            <li>Sales and Profit Analysis: Examines product performance across regions and
+                                time
                                 trends
                                 (2014-2017).</li>
-                            <li>Customer Segment Analysis: Analyses sales and profit by customer segment (consumer,
+                            <li>Customer Segment Analysis: Analyses sales and profit by customer segment
+                                (consumer,
                                 corporate, home office).</li>
                             <li>Return Analysis: Identifies regions and categories with high return rates,
                                 suggesting
@@ -1823,19 +2098,23 @@
                 <ol>
                     <li><strong>Key Findings</strong>
                         <ul>
-                            <li>Data Analytics Benefits: Enhances decision-making accuracy, segmentation, and risk
+                            <li>Data Analytics Benefits: Enhances decision-making accuracy, segmentation,
+                                and risk
                                 management.</li>
                             <li>Challenges in DA Implementation: Barriers include integration issues, staff
                                 resistance,
                                 and data quality problems.</li>
-                            <li>Data Quality Importance: Essential for accurate DA outcomes, regulatory compliance,
+                            <li>Data Quality Importance: Essential for accurate DA outcomes, regulatory
+                                compliance,
                                 and
                                 customer satisfaction.</li>
                             <li>Insights from Data Visualisation:
                                 <ul>
-                                    <li>East and West regions show highest sales; Central and South lag behind.</li>
+                                    <li>East and West regions show highest sales; Central and South lag
+                                        behind.</li>
                                     <li>Office supplies have low profit margins despite high sales.</li>
-                                    <li>High sales regions correlate with high return rates, especially for tech
+                                    <li>High sales regions correlate with high return rates, especially for
+                                        tech
                                         products.</li>
                                 </ul>
                             </li>
@@ -1844,15 +2123,19 @@
 
                     <li><strong>Recommendations</strong>
                         <ul>
-                            <li>Data Quality Improvements: Implement data governance, audits, and centralised
+                            <li>Data Quality Improvements: Implement data governance, audits, and
+                                centralised
                                 repositories.</li>
-                            <li>Targeted Regional Strategies: Improve sales in underperforming regions through
+                            <li>Targeted Regional Strategies: Improve sales in underperforming regions
+                                through
                                 localised
                                 marketing.</li>
-                            <li>Product Portfolio Optimisation: Replace low-performing items with high-demand
+                            <li>Product Portfolio Optimisation: Replace low-performing items with
+                                high-demand
                                 products.
                             </li>
-                            <li>Enhanced Customer Support and Return Policies: Improve customer support and manage
+                            <li>Enhanced Customer Support and Return Policies: Improve customer support and
+                                manage
                                 return volumes with stricter policies.</li>
                         </ul>
                     </li>
@@ -1889,7 +2172,8 @@
             <div id="project3" class="box">
                 <h3><u>Project 3: NHS Staff Scheduling</u></h3>
                 <h3>Objective</h3>
-                <p class="justified-text">The report aims to solve a series of SQL-based data analytics tasks within
+                <p class="justified-text">The report aims to solve a series of SQL-based data analytics
+                    tasks within
                     a
                     healthcare context, focusing on various aspects of staff management and operations.
                     Key objectives include:</p>
@@ -1906,7 +2190,8 @@
                         implications of staffing across various hospital specialties within a defined
                         timeframe.</li>
                 </ol>
-                <p class="justified-text">Overall, the objective is to apply SQL data manipulation techniques to
+                <p class="justified-text">Overall, the objective is to apply SQL data manipulation
+                    techniques to
                     extract
                     actionable insights from hospital data for resource optimisation, staffing analysis,
                     and cost management.</p>
@@ -2022,7 +2307,8 @@
             <div id="project4" class="box">
                 <h3><u>Project 4: Managing the Transition to Electric Vehicles</u></h3>
                 <h3>Objective</h3>
-                <p class="justified-text">The report's primary objective is to examine strategic decisions essential
+                <p class="justified-text">The report's primary objective is to examine strategic decisions
+                    essential
                     for
                     transitioning from internal combustion engine (ICE) vehicles to electric
                     vehicles
@@ -2158,7 +2444,8 @@
                     </li>
                 </ol>
 
-                <p class="justified-text">In summary, the report emphasises that transitioning to EVs is achievable
+                <p class="justified-text">In summary, the report emphasises that transitioning to EVs is
+                    achievable
                     with
                     operational research and mathematical modeling, supported by AI/ML for
                     adaptable,
@@ -2192,7 +2479,8 @@
             <div id="project5" class="box">
                 <h3><u>Project 5: Python Report - Application of Dijkstra's Algorithm</u></h3>
                 <h3>Objective</h3>
-                <p class="justified-text">The report primarily aims to explore and apply Dijkstra’s Algorithm within
+                <p class="justified-text">The report primarily aims to explore and apply Dijkstra’s
+                    Algorithm within
                     a
                     network
                     setting, focusing on
@@ -2369,7 +2657,8 @@
                     </li>
                 </ol>
 
-                <p class="justified-text">In summary, the report affirms Dijkstra’s Algorithm as an effective
+                <p class="justified-text">In summary, the report affirms Dijkstra’s Algorithm as an
+                    effective
                     solution
                     for
                     shortest path problems
