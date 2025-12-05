@@ -633,7 +633,7 @@
                 <a href="#Sales_Incentive_Targets" class="project-nav-box">Company Project 7: Sales Incentive
                     Dashboard</a>
                 <a href="#Snowflake_to_Star_Schema" class="project-nav-box">Company Project 8: Data Warehouse
-                    Optimisation — Snowflake to Star Schema Migration</a>
+                    Optimisation - Snowflake to Star Schema Migration</a>
                 <a href="#Policy_Renewal" class="project-nav-box">Company Project 9: Communication with Non-Technical
                     Stakeholder and Audience</a>
                 <a href="#Saying_no_to_stakeholder" class="project-nav-box">Company Project 10: Suggesting alternative
@@ -1415,7 +1415,7 @@
             </div>
 
             <div id="Snowflake_to_Star_Schema" class="box">
-                <h3><u>Company Project 8: Data Warehouse Optimisation — Snowflake to Star Schema Migration</u></h3>
+                <h3><u>Company Project 8: Data Warehouse Optimisation - Snowflake to Star Schema Migration</u></h3>
 
                 <h3>Objective</h3>
                 <p class="justified-text">
@@ -2017,8 +2017,9 @@
                 </ol>
             </div>
 
+
             <div id="Python_ETL_PBI_Visualisation_ML" class="box">
-                <h3><u>Self Project 2: Monthly Beverage Sales Dashboard – Power BI + Python</u>
+                <h3><u>Self Project 2: Beverage Sales Dashboard – Power BI + Python</u>
                 </h3>
 
                 <h3>Objective</h3>
@@ -2188,6 +2189,119 @@
                     </li>
             </div>
 
+            <div id="Retail_Sales_Performance" class="box">
+                <h3><u>Self Project 3: Retail Sales Performance Dashboard – Power BI (Star Schema)</u></h3>
+
+                <h3>Objective</h3>
+                <p class="justified-text">
+                    Build an end-to-end retail analytics dashboard answering key commercial questions across time,
+                    product, and geography.
+                    I first explored public sources (ONS, GOV.UK, World Bank), but datasets were short and held in
+                    single flat CSVs with no
+                    reliable keys - so relationships couldn’t be modeled. I therefore used a multi-table Kaggle dataset
+                    (synthetic IDs,
+                    GDPR-compliant) to design a clean semantic model and actionable visuals. Accent color:
+                    <b>#9C26C1</b>.
+                </p>
+
+                <ol class="hanging-indent">
+                    <li><strong>Exploratory Data Analytics:</strong> Profiled sales mix, seasonality, and margin
+                        behaviour across brands, countries, and stores.</li>
+                    <li><strong>Business Intelligence Model:</strong> Delivered a star-schema Power BI model with time
+                        intelligence and a slicer-driven UX for decision-making.</li>
+                </ol>
+
+                <h3>Methodology</h3>
+                <ol>
+                    <li><strong>Data Selection & Processing</strong>
+                        <ul>
+                            <li>Sources attempted: ONS, GOV.UK, World Bank (too short/flat; single-sheet CSVs, no keys).
+                            </li>
+                            <li>Chosen source: Kaggle retail dataset with 8 related tables (GDPR-compliant synthetic
+                                IDs).</li>
+                            <li>FX treatment: converted line amounts to a single base currency using
+                                <code>ExchangeRate</code>.
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Data Modeling (Star Schema)</strong>
+                        <ul>
+                            <li>Fact: <b>Sales</b> (order-line grain: OrderDate, Quantity, NetPrice, UnitCost,
+                                CurrencyCode, ExchangeRate).</li>
+                            <li>Dimensions: <b>Date</b> (marked), <b>Product</b>, <b>Customer</b>, <b>Store</b>.</li>
+                            <li>Relationship choices: some fields/tables (e.g., parts of Orders/OrderRows) were <b>not
+                                    connected</b> because the same fields already existed in <b>Sales</b>; connecting
+                                would create duplicate filter paths/ambiguity.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Report Development and Insights</strong>
+                        <ul>
+                            <li>Color scheme: <b>#9C26C1</b> for consistent, accessible styling.</li>
+                            <li>Slicer panel for intuitive exploration (Year, Fiscal Year-Quarter,
+                                Brand/Category/Product, Country, Continent).</li>
+                            <li>Seven key questions (chosen because they cover most business needs):
+                                <ol>
+                                    <li>Create a filter menu which will allow end users to slice through the data</li>
+                                    <li>Top performing stores by revenue</li>
+                                    <li>Brand, Category &amp; Product by revenue</li>
+                                    <li>Total sales revenue from 2022–2024 including a monthly and yearly breakdown</li>
+                                    <li>Continent &amp; Country breakdown by revenue and year</li>
+                                    <li>Quarterly revenue breakdown from FY22 Q1 to FY24 Q1 (using existing fiscal
+                                        fields - no new columns)</li>
+                                    <li>Margin &amp; Margin % breakdown for Product and Store</li>
+                                </ol>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Dataset Provided (8 Worksheets)</h3>
+                <ul>
+                    <ol><b>Customer</b> – Customer demographic and account information.</ol>
+                    <ol><b>Date</b> – Date dimension table with calendar details.</ol>
+                    <ol><b>Product</b> – Product master data.</ol>
+                    <ol><b>Sales</b> – Sales summary data.</ol>
+                    <ol><b>Store</b> – Store information including location and region.</ol>
+                </ul>
+
+                <h3>Conclusion</h3>
+                <ol>
+                    <li><strong>Outcome</strong>
+                        <ul>
+                            <li>Delivered a clean, performant star schema with clear visuals answering the seven core
+                                questions.</li>
+                            <li>Used Kaggle’s multi-table data after public sources proved too flat; ensured GDPR
+                                compliance.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Next Steps</strong>
+                        <ul>
+                            <li>Add forecasting lines (Analytics pane) and parameterised Top-N with drill-through.</li>
+                            <li>Publish to Power BI Service, enable scheduled refresh and usage metrics.</li>
+                            <li>Optional: dynamic currency formatting and rolling trend pages using the prepared R12M
+                                measure.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Relevant Files</h3>
+
+                <ol>
+                    <li><strong>.pbix Dashboard</strong>
+                        <p class="justified-text"><a
+                                href="Documents/Projects/Big_Picture/Vyom_Khanna_Dashboard.pbix"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+                    <li><strong>Report</strong>
+                        <p class="justified-text"><a
+                                href="Documents/Projects/Big_Picture/Vyom_Khanna_Report.pdf"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+            </div>
+
+
             <div id="Predictive_Model" class="box">
                 <h3><u>Academic Project 1: Predicting London Bike Usage Using Machine Learning -
                         Python</u>
@@ -2287,7 +2401,7 @@
                             </li>
                             <li><strong>Operational Recommendation:</strong> Use weather forecasts to plan
                                 bike
-                                distribution—stock more bikes at key stations on warm days.</li>
+                                distribution stock more bikes at key stations on warm days.</li>
                         </ul>
                     </li>
                 </ol>
