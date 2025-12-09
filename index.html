@@ -602,7 +602,6 @@
                         while contributing my best.</li>
                     <li><strong>The Precision Experts:</strong> Attention to Detail & Analytical Thinking – Masters of
                         spotting the small stuff and making sense of the big picture.</li>
-
                 </ul>
             </div>
         </section>
@@ -638,8 +637,12 @@
                     Stakeholder and Audience</a>
                 <a href="#Saying_no_to_stakeholder" class="project-nav-box">Company Project 10: Suggesting alternative
                     to Stakeholders Demands</a>
-                <a href="#Multi_Project" class="project-nav-box">Company Project 11: Multi-Project Management</a>
-                <a href="#Poundland_Loss_Prevention" class="project-nav-box">Company Project 12: Loss-Prevention &
+                <a href="#PBI_Adoption" class="project-nav-box">Company Project 11: Power BI Adoption & Stakeholder
+                    Enablement</a>
+                <a href="#Dashboard_Redesign" class="project-nav-box">Company Project 12: Power BI Dashboard Redesign
+                    Based on User Feedback</a>
+                <a href="#Multi_Project" class="project-nav-box">Company Project 13: Multi-Project Management</a>
+                <a href="#Poundland_Loss_Prevention" class="project-nav-box">Company Project 14: Loss-Prevention &
                     Operational Insights</a>
                 <a href="#Automated_Extraction" class="project-nav-box">Self Project 1: Kaggle Extractor</a>
                 <a href="#Python_ETL_PBI_Visualisation_ML" class="project-nav-box">Self Project 2: Monthly Beverage
@@ -661,68 +664,96 @@
             <div class="dropdown-content"> -->
 
             <div id="Claim_Pendency" class="box">
-                <h3><u>Company Project 1: Claims Pendency Report for Healthcare Insurance Client</u></h3>
+                <h3><u>Company Project 1: Claims Pendency Report</u></h3>
+
                 <h3>Objective</h3>
-                <p class="justified-text">The project aimed to improve claims processing efficiency by developing a
-                    Claims Pendency Report to track and analyse unresolved claims. The goal was to provide data-driven
-                    insights into pending claims, aging trends, and department-wise case distribution, ultimately
-                    helping the organisation reduce backlog and enhance productivity.</p>
+                <p class="justified-text">
+                    The project aimed to transform a fragmented, manual claims pendency process into a unified,
+                    automated
+                    reporting system. The focus was on consolidating data from multiple claims functions, correcting
+                    ageing logic,
+                    and providing reliable insights to reduce backlog and improve operational efficiency.
+                </p>
                 <ol class="hanging-indent">
-                    <li><strong>Exploratory Data Analytics:</strong>Identified bottlenecks in claims processing by
-                        analysing pendency trends, aging, and outstanding claim amounts.</li>
-                    <li><strong>Business Intelligence Model:</strong>Created a daily claims pendency report with
-                        automated tracking, productivity metrics, and department-wise breakdowns, supporting data-driven
-                        decision-making.</li>
+                    <li><strong>Data Consolidation Across Departments:</strong> Integrate pendency data from TPA,
+                        Cashless,
+                        Reimbursement, Medical, Travel, and Critical Illness units into a single, consistent dataset.
+                    </li>
+                    <li><strong>Accurate Ageing and Pendency Measurement:</strong> Standardise ageing calculations and
+                        define
+                        business-aligned ageing buckets for high-risk claim identification.</li>
+                    <li><strong>Automation of Daily Reporting:</strong> Replace manual Excel-based compilation with
+                        automated SQL
+                        and reporting outputs for claims teams and leadership.</li>
+                    <li><strong>Productivity and Performance Tracking:</strong> Provide department-wise views of pending
+                        cases,
+                        processed volumes, and turnaround trends to support resource allocation and performance
+                        management.</li>
                 </ol>
+                <p class="justified-text">
+                    Overall, the objective was to engineer a robust data pipeline and reporting framework that improved
+                    data
+                    quality, accelerated claim processing, and created transparency across all claims sub-departments.
+                </p>
 
                 <h3>Methodology</h3>
                 <ol>
-                    <li><strong>Data Collection and Processing</strong>
+                    <li><strong>Data Collection and Integration</strong>
                         <ul>
-                            <li>Extracted claims pendency register data from warehouse using SQL, filtering out
-                                cases with:
-                                <ol>Net amount = 0, reversal amounts, or already paid cases still appearing as
-                                    pending.</ol>
-                            </li>
-                            <li>Segmented claims based on departments:
-                                <ol>Third-Party Administrators (TPA)</ol>
-                                <ol>Cashless</ol>
-                                <ol>Reimbursement</ol>
-                                <ol>Pending at Medical</ol>
-                                <ol>Travel</ol>
-                                <ol>Critical Illness</ol>
-                                <ol>Health Checkups</ol>
-                            </li>
-                            <li>Calculated aging metrics:
-                                Defined aging as (Month-end of current month - Last document received date).</li>
+                            <li>Extracted claims pendency registers from the data warehouse using SQL for all claims
+                                units
+                                (TPA, Cashless, Reimbursement, Medical, Travel, Critical Illness, Health Checkups).</li>
+                            <li>Standardised claim identifiers using <em>Claim Number</em> and <em>Policy Number</em> as
+                                composite
+                                keys to join disparate datasets.</li>
+                            <li>Filtered out invalid records, including cases with net amount = 0, reversal entries, and
+                                already-paid claims incorrectly marked as pending.</li>
                         </ul>
                     </li>
 
-                    <li><strong>Data Preprocessing and Feature Engineering</strong>
+                    <li><strong>Data Cleaning and Feature Engineering</strong>
                         <ul>
-                            <li>Transformed raw data into structured business insights aligned with agile methodology.
+                            <li>Removed duplicate rows using window functions (e.g. <code>ROW_NUMBER()</code>) applied
+                                over key
+                                fields.</li>
+                            <li>Resolved missing values (such as city, product type, provider) by mapping from master
+                                tables and
+                                validating with departmental inputs.</li>
+                            <li>Redefined ageing using the formula <em>Month-end Date − Last Document Received Date</em>
+                                and grouped
+                                claims into standard buckets (0–15, 15–30, 30–60, 60–90, 90–180, 180–365, &gt;365 days).
                             </li>
-                            <li>Created data dumps, summaries showing number of pending cases and total amount pending,
-                                and visualisation dashboards to provide decision-makers
-                                with clear insights.</li>
-                            <li>Developed a monthly productivity report showcasing team performance.</li>
+                            <li>Created summarised features showing number of pending cases and total pending amount by
+                                department,
+                                ageing bucket, and claim type.</li>
                         </ul>
                     </li>
 
-                    <li><strong>Report Development and Insights</strong>
+                    <li><strong>Report Development and Automation</strong>
                         <ul>
-                            <li>Designed daily claims pendency reports, summarising:
-                                <ol>Total Department wise cases and pending amounts</ol>
-                                <ol>Aging trends to identify long-pending claims</ol>
-                                <ol>Department-wise claims distribution for
-                                    targeted resolution.</ol>
-                            </li>
-                            <li>Implemented a monthly productivity dashboard, tracking:
-                                <ol>Resolved vs pending claims</ol>
-                                <ol>Claims processed per team and efficiency improvements.</ol>
-                            </li>
-                            <li>Delivered reports to Claims HOD, Medical Head, TPA Head, Cashless Head, Reimbursement
-                                Head, and their respective teams.</li>
+                            <li>Built daily claims pendency summaries and detailed data dumps for each department, ready
+                                for use in
+                                Excel or Power BI.</li>
+                            <li>Designed monthly productivity views highlighting claims processed vs. pending and
+                                team-level
+                                throughput.</li>
+                            <li>Automated refresh and export routines so that up-to-date pendency and productivity
+                                reports were
+                                generated without manual intervention.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Validation, Collaboration, and Iteration</strong>
+                        <ul>
+                            <li>Worked with the IT team to correct system-level ageing rules so future data followed the
+                                new
+                                standard definition.</li>
+                            <li>Conducted UAT sessions with Claims HOD, Medical Head, and TPA/Cashless managers to
+                                verify counts,
+                                amounts, and ageing distribution.</li>
+                            <li>Iteratively refined logic and layouts based on user feedback to ensure alignment with
+                                business
+                                terminology and decision-making needs.</li>
                         </ul>
                     </li>
                 </ol>
@@ -731,23 +762,142 @@
                 <ol>
                     <li><strong>Impact on Claims Processing</strong>
                         <ul>
-                            <li>Average Daily Pending claims reduced from 80,000 to 38,000 over 18 months (including new
-                                cases).</li>
-                            <li>Productivity increased by approximately 52%, improving claims resolution speed.</li>
+                            <li>Average daily pending claims reduced from approximately 80,000 to 38,000 over 18 months,
+                                including
+                                newly registered cases.</li>
+                            <li>Created visibility into long-pending claims, enabling teams to prioritise high-risk and
+                                aged
+                                cases.</li>
                         </ul>
                     </li>
 
-                    <li><strong>Business Insights and Optimisation</strong>
+                    <li><strong>Productivity and Operational Efficiency</strong>
                         <ul>
-                            <li>The dashboard enabled Aging analysis, helping identify bottlenecks in long-pending
-                                cases. Departmental performance tracking, facilitating resource allocation and backlog
-                                reduction.</li>
-                            <li>The report became a critical tool for tracking claims efficiency and ensuring faster
-                                settlements.</li>
+                            <li>Productivity improved by around 52%, with clearer tracking of claims processed per team
+                                and
+                                department.</li>
+                            <li>Manual report preparation time was significantly reduced through automation of daily and
+                                monthly
+                                reports.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Business Insights and Strategic Value</strong>
+                        <ul>
+                            <li>Department-wise performance insights supported better staffing and backlog management.
+                            </li>
+                            <li>Clean, consolidated claims history provided valuable input for renewal and risk
+                                assessment
+                                processes.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Data Quality and BI Enablement</strong>
+                        <ul>
+                            <li>Established a trusted, single source of truth for claims pendency metrics across the
+                                organisation.</li>
+                            <li>Prepared the foundation for migrating claims reporting from Excel to Power BI
+                                dashboards.</li>
                         </ul>
                     </li>
                 </ol>
+
+                <h3>Competency Shown:</h3>
+                <ol>
+                    <li><strong> Time When I had to work with ambigous data </strong></li>
+                    <li><strong> Transforming messy data, approach I took and Outcome </strong></li>
+                    <li><strong> Lead a Complete Project End-to-End </strong></li>
+                    <li><strong> Working with Different Departments </strong></li>
+                </ol>
             </div>
+
+            <!-- <h3><u>Company Project 1: Claims Pendency Report for Healthcare Insurance Client</u></h3>
+            <h3>Objective</h3>
+            <p class="justified-text">The project aimed to improve claims processing efficiency by developing a
+                Claims Pendency Report to track and analyse unresolved claims. The goal was to provide data-driven
+                insights into pending claims, aging trends, and department-wise case distribution, ultimately
+                helping the organisation reduce backlog and enhance productivity.</p>
+            <ol class="hanging-indent">
+                <li><strong>Exploratory Data Analytics:</strong>Identified bottlenecks in claims processing by
+                    analysing pendency trends, aging, and outstanding claim amounts.</li>
+                <li><strong>Business Intelligence Model:</strong>Created a daily claims pendency report with
+                    automated tracking, productivity metrics, and department-wise breakdowns, supporting data-driven
+                    decision-making.</li>
+            </ol>
+
+            <h3>Methodology</h3>
+            <ol>
+                <li><strong>Data Collection and Processing</strong>
+                    <ul>
+                        <li>Extracted claims pendency register data from warehouse using SQL, filtering out
+                            cases with:
+                            <ol>Net amount = 0, reversal amounts, or already paid cases still appearing as
+                                pending.</ol>
+                        </li>
+                        <li>Segmented claims based on departments:
+                            <ol>Third-Party Administrators (TPA)</ol>
+                            <ol>Cashless</ol>
+                            <ol>Reimbursement</ol>
+                            <ol>Pending at Medical</ol>
+                            <ol>Travel</ol>
+                            <ol>Critical Illness</ol>
+                            <ol>Health Checkups</ol>
+                        </li>
+                        <li>Calculated aging metrics:
+                            Defined aging as (Month-end of current month - Last document received date).</li>
+                    </ul>
+                </li>
+
+                <li><strong>Data Preprocessing and Feature Engineering</strong>
+                    <ul>
+                        <li>Transformed raw data into structured business insights aligned with agile methodology.
+                        </li>
+                        <li>Created data dumps, summaries showing number of pending cases and total amount pending,
+                            and visualisation dashboards to provide decision-makers
+                            with clear insights.</li>
+                        <li>Developed a monthly productivity report showcasing team performance.</li>
+                    </ul>
+                </li>
+
+                <li><strong>Report Development and Insights</strong>
+                    <ul>
+                        <li>Designed daily claims pendency reports, summarising:
+                            <ol>Total Department wise cases and pending amounts</ol>
+                            <ol>Aging trends to identify long-pending claims</ol>
+                            <ol>Department-wise claims distribution for
+                                targeted resolution.</ol>
+                        </li>
+                        <li>Implemented a monthly productivity dashboard, tracking:
+                            <ol>Resolved vs pending claims</ol>
+                            <ol>Claims processed per team and efficiency improvements.</ol>
+                        </li>
+                        <li>Delivered reports to Claims HOD, Medical Head, TPA Head, Cashless Head, Reimbursement
+                            Head, and their respective teams.</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>Conclusion</h3>
+            <ol>
+                <li><strong>Impact on Claims Processing</strong>
+                    <ul>
+                        <li>Average Daily Pending claims reduced from 80,000 to 38,000 over 18 months (including new
+                            cases).</li>
+                        <li>Productivity increased by approximately 52%, improving claims resolution speed.</li>
+                    </ul>
+                </li>
+
+                <li><strong>Business Insights and Optimisation</strong>
+                    <ul>
+                        <li>The dashboard enabled Aging analysis, helping identify bottlenecks in long-pending
+                            cases. Departmental performance tracking, facilitating resource allocation and backlog
+                            reduction.</li>
+                        <li>The report became a critical tool for tracking claims efficiency and ensuring faster
+                            settlements.</li>
+                    </ul>
+                </li>
+            </ol>
+    </div> -->
 
             <div id="Travel_Dashboard" class="box">
                 <h3><u>Company Project 2: Monthly Travel Insurance Dashboard for Stakeholders</u></h3>
@@ -1009,132 +1159,343 @@
             </div>
 
             <div id="MD_Reports" class="box">
-                <h3><u>Company Project 4: Daily Business Reporting</u></h3>
+                <h3><u>Company Project 4: Daily Business Performance Reporting System</u></h3>
+
                 <h3>Objective</h3>
-                <p class="justified-text">The goal of this project was to create a comprehensive daily reporting system
-                    for the Managing Director and Heads of Departments (Claims, Finance, Sales, and Actuarial). The
-                    report provided real-time visibility into Daily and Month-To-Date (MTD) performance across key
-                    verticals, supporting agile decision-making and deeper accountability.
+                <p class="justified-text">
+                    The objective of this project was to design and implement an enterprise-wide Daily and Month-To-Date
+                    (MTD)
+                    reporting system that provided the Managing Director and Heads of Claims, Finance, Sales, and
+                    Actuarial with
+                    unified, real-time visibility of business performance. The project addressed the need for accurate,
+                    consistent,
+                    and actionable cross-departmental insights to support agile decision-making and strategic planning.
                 </p>
 
-                <h3>Scope and Stakeholders</h3>
-                <p class="justified-text">The reporting system catered to the following departments and stakeholder:</p>
-                <ol>
-                    <li>Managing Director (MD)</li>
-                    <li>Department Heads of Claims, Finance, Sales, and Actuarial</li>
+                <ol class="hanging-indent">
+                    <li><strong>Unifying Departmental Reporting:</strong>
+                        Consolidate fragmented reports from Claims, Finance, Sales, and Actuarial into a single coherent
+                        reporting framework, ensuring all departments operate on a shared data foundation.</li>
+
+                    <li><strong>Standardising KPIs Across the Organisation:</strong>
+                        Define and calculate consistent KPIs such as Claim Ratio, Loss Ratio, Sales Conversion,
+                        Persistency,
+                        Lapse Rate, Expense Ratio, and Profitability to eliminate discrepancies in executive
+                        communication.</li>
+
+                    <li><strong>Providing Real-Time Daily & MTD Business Insights:</strong>
+                        Build interactive dashboards and printable summaries that enable senior leadership to identify
+                        trends,
+                        monitor performance gaps, and act on emerging issues immediately.</li>
+
+                    <li><strong>Creating Scalable, Automated Reporting Processes:</strong>
+                        Replace manual data compilation with automated SQL-backed pipelines, reusable data dumps, and
+                        dashboard modules that are easy to maintain and extend.</li>
                 </ol>
-                <p>All reports were designed with data integrity, KPI alignment, and executive usability in mind. All
-                    data sources were linked using Policy Number + Policy Start Date as a composite identifier across
-                    modules.
+
+                <p class="justified-text">
+                    Ultimately, the goal was to build a high-impact, executive-ready reporting ecosystem that improved
+                    transparency,
+                    strengthened cross-departmental accountability, and supported forward-looking decisions.
                 </p>
-
-                <h3>Module 1: Claims Performance Dashboard</h3>
-                <ol>
-                    <li><strong>KPIs tracked</strong></li>
-                    <ul>
-                        <li>Claim Ratio (%) = (Total Claims Paid / Total Premium Received) × 100</li>
-                        <li>Number of Claims Settled (Daily & MTD)</li>
-                        <li>Pending Claims Count</li>
-                        <li>High-Value Claims: Flagged all claims > ₹1,000,000</li>
-                        <li>New Claims Registered (Daily)</li>
-                    </ul>
-                    <li>
-                        <strong>Insights Delivered:</strong>
-                        <ul>
-                            <li>Claims backlog trend</li>
-                            <li>Daily progress on high-value cases</li>
-                            <li>Monitoring claim approval efficiency</li>
-                        </ul>
-                    </li>
-                </ol>
-
-                <h3>Module 2: Financial Overview</h3>
-                <ol>
-                    <li><strong>KPIs tracked</strong></li>
-                    <ul>
-                        <li>Revenue vs Claims Paid</li>
-                        <li>Product-wise Policy Profitability</li>
-                        <li>Expense Ratio (%) = (Total Operating Expenses / Net Premium Earned) × 100</li>
-                        <li>Broker Commission Payouts</li>
-                    </ul>
-                    <li>
-                        <strong>Insights Delivered:</strong>
-                        <ul>
-                            <li>Net profitability per product line</li>
-                            <li>Financial leakage identification</li>
-                            <li>Broker payout tracking vs revenue generated</li>
-                        </ul>
-                    </li>
-                </ol>
-
-                <h3>Module 3: Sales Performance Snapshot</h3>
-                <ol>
-                    <li><strong>KPIs tracked</strong></li>
-                    <ul>
-                        <li>Sales Conversion Rate (%) = (Converted Leads / Total Leads) × 100</li>
-                        <li>Top 5 Performing Regions (by premium collected)</li>
-                        <li>Top 5 Selling Products</li>
-                        <li>Top 5 Agent Contributions</li>
-                        <li>Best Performing Channel (e.g., Direct, Bancassurance, Broker, Online)</li>
-                    </ul>
-                    <li>
-                        <strong>Insights Delivered:</strong>
-                        <ul>
-                            <li>Regional performance heatmap</li>
-                            <li>Channel optimisation recommendations</li>
-                            <li>Agent incentives performance tracking</li>
-                        </ul>
-                    </li>
-                </ol>
-
-                <h3>Module 4: Actuarial Risk & Pricing Insights</h3>
-                <ol>
-                    <li><strong>KPIs tracked</strong></li>
-                    <ul>
-                        <li>Loss Ratio (%) = (Incurred Claims / Earned Premium) × 100</li>
-                        <li>Persistency Ratio (%) = (Renewed Policies / Renewable Policies) × 100</li>
-                        <li>Policy Lapse Rate (%) = (Lapsed Policies / Total In-Force Policies) × 100</li>
-                        <li>New vs Renewal Premium Split</li>
-                        <li>Average Sum Insured per Policy/Product</li>
-                        <li>Projected vs Actual Claims Trend</li>
-                        <li>Risk-Adjusted Profitability Index (per product line)</li>
-                    </ul>
-                </ol>
 
                 <h3>Methodology</h3>
                 <ol>
-                    <ul>
-                        <li><strong>Data Integration:</strong> Unified datasets across departments using Policy Number +
-                            Start Date as a common key</li>
-                        <li><strong>KPI Calculations:</strong> Built modular SQL scripts and DAX measures to compute
-                            department-specific KPIs</li>
-                        <li><strong>Dashboard Development:</strong> Used Excel and/or Power BI to deliver interactive
-                            and printable dashboards</li>
-                        <li><strong>Data Dump:</strong> Provided detailed raw exports for backend teams in each
-                            department</li>
-                    </ul>
-                </ol>
 
-                <h3>Validation and Testing</h3>
-                <ol>
-                    <ul>
-                        <li>Conducted User Acceptance Testing (UAT) with all HODs</li>
-                        <li>Collected iterative feedback for enhancements</li>
-                        <li>Ensured report alignment with each department’s strategic and operational KPIs</li>
-                    </ul>
+                    <!-- SECTION 1 -->
+                    <li><strong>Data Integration and Foundation Modelling</strong>
+                        <ul>
+                            <li>Identified core source systems from Claims, CRM, Finance, and Actuarial datasets and
+                                mapped data
+                                lineage for each module.</li>
+                            <li>Unified all datasets using <em>Policy Number + Policy Start Date</em> as a composite
+                                identifier,
+                                enabling consistent joins across departments.</li>
+                            <li>Created a multi-layer data architecture including Staging, Transformation, and
+                                Presentation layers
+                                to separate raw ingestion from KPI-ready curated tables.</li>
+                            <li>Ensured data integrity through row-level validation, duplicate checks, and consistency
+                                reconciliation
+                                across modules.</li>
+                        </ul>
+                    </li>
+
+                    <!-- SECTION 2 -->
+                    <li><strong>KPI Engineering and Metric Standardisation</strong>
+                        <ul>
+                            <li>Defined and implemented department-specific KPIs based on business logic provided by
+                                each HOD:</li>
+
+                            <ul>
+                                <li><strong>Claims KPIs:</strong> Claim Ratio, Claims Settled (Daily/MTD), Pending
+                                    Claims Count,
+                                    High-Value Claims, New Claims Registered.</li>
+                                <li><strong>Financial KPIs:</strong> Revenue vs Claims Paid, Policy Profitability,
+                                    Expense Ratio,
+                                    Commission Payouts, Premium Income.</li>
+                                <li><strong>Sales KPIs:</strong> Sales Conversion Rate, Top Regions, Top Products, Top
+                                    Agents,
+                                    Channel Performance.</li>
+                                <li><strong>Actuarial KPIs:</strong> Loss Ratio, Persistency, Lapse Rate, New vs Renewal
+                                    Premium,
+                                    Average Sum Insured, Projected vs Actual Claims, Risk-Adjusted Profitability Index.
+                                </li>
+                            </ul>
+
+                            <li>Built SQL scripts and DAX measures for modular KPI calculations, ensuring definitions
+                                remained
+                                consistent across all reporting modules.</li>
+
+                            <li>Engineered derived fields such as regional heatmaps, channel efficiency scores, product
+                                profitability,
+                                and high-value claim alerts.</li>
+                        </ul>
+                    </li>
+
+                    <!-- SECTION 3 -->
+                    <li><strong>Dashboard Development and Visual Storytelling</strong>
+                        <ul>
+                            <li>Designed four interconnected dashboard modules:
+                                <ul>
+                                    <li><strong>Claims Performance Dashboard</strong> – Backlog analysis, high-value
+                                        claim tracking,
+                                        daily settlement trends, and approval efficiency monitoring.</li>
+                                    <li><strong>Financial Overview</strong> – Revenue tracking, expense ratio,
+                                        product-level
+                                        profitability, leakages, and broker payout analysis.</li>
+                                    <li><strong>Sales Performance Snapshot</strong> – Conversion trends, regional
+                                        comparisons,
+                                        channel performance, agent contributions, and product mix insights.</li>
+                                    <li><strong>Actuarial Risk & Pricing Insights</strong> – Persistency, loss ratio,
+                                        lapse analysis,
+                                        claim forecasting, and risk-adjusted profitability evaluations.</li>
+                                </ul>
+                            </li>
+
+                            <li>Built dashboards in both Excel (for printable reporting) and Power BI (for interactive
+                                exploration),
+                                ensuring accessibility for all executive and operational users.</li>
+
+                            <li>Structured the dashboard UI using a consistent visual hierarchy:
+                                <ul>
+                                    <li>KPI summary cards at the top for leadership quick-scan.</li>
+                                    <li>Trendlines and comparisons in the middle for pattern analysis.</li>
+                                    <li>Breakdowns by region, product, and channel at the bottom for detailed
+                                        investigation.</li>
+                                </ul>
+                            </li>
+
+                            <li>Included slicers for region, product, line of business, channel, and time periods to
+                                enable
+                                personalised exploration by HODs.</li>
+                        </ul>
+                    </li>
+
+                    <!-- SECTION 4 -->
+                    <li><strong>Automation, Data Dumps, and Backend Enablement</strong>
+                        <ul>
+                            <li>Created automated SQL pipelines to refresh daily and MTD datasets without manual
+                                involvement.</li>
+                            <li>Generated detailed raw data exports for backend analytics teams in Claims, Sales,
+                                Finance, and
+                                Actuarial functions.</li>
+                            <li>Reduced repetitive data-prep efforts across departments through reusable,
+                                well-structured data models.</li>
+                            <li>Ensured scalability for future enhancements such as quarterly views, forecasting models,
+                                and
+                                product risk segmentation.</li>
+                        </ul>
+                    </li>
+
+                    <!-- SECTION 5 -->
+                    <li><strong>Validation, UAT, and Iterative Refinement</strong>
+                        <ul>
+                            <li>Conducted multi-round UAT sessions with all HODs to confirm accuracy of KPI
+                                calculations, trend
+                                representation, and business relevance.</li>
+                            <li>Aligned definitions of Claim Ratio, Loss Ratio, Persistency, and Lapse Rate across
+                                departments to
+                                remove reporting discrepancies.</li>
+                            <li>Refined visual layouts, thresholds, colour codes, and commentary sections based on
+                                executive feedback.</li>
+                            <li>Documented all KPIs, formulas, and data flows to support long-term maintainability.</li>
+                        </ul>
+                    </li>
+
                 </ol>
 
                 <h3>Conclusion</h3>
                 <ol>
-                    <strong>Business Impact</strong>
-                    <ul>
-                        <li>Enabled real-time, MTD business health monitoring across verticals</li>
-                        <li>Supported data-driven discussions in daily/weekly leadership meetings</li>
-                        <li>Improved cross-departmental awareness of performance drivers</li>
-                        <li>Became a standard reference tool for MD reviews, strategic discussions, and forecasting</li>
-                    </ul>
+                    <li><strong>Enhanced Leadership Decision-Making</strong>
+                        <ul>
+                            <li>Provided real-time visibility into business health across Claims, Finance, Sales, and
+                                Actuarial
+                                departments.</li>
+                            <li>Enabled proactive issue detection such as product underperformance, surge in claim
+                                ratios, or drops
+                                in sales conversion.</li>
+                            <li>Strengthened the MD’s ability to track daily performance and intervene quickly when
+                                needed.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Operational and Reporting Efficiency</strong>
+                        <ul>
+                            <li>Eliminated multiple manual Excel reports, reducing reporting time and error rates.</li>
+                            <li>Created a unified reporting structure that ensured data consistency, completeness, and
+                                accuracy.</li>
+                            <li>Empowered individual departments to drill down into their KPIs using consistent,
+                                validated data.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Cross-Departmental Alignment</strong>
+                        <ul>
+                            <li>Improved collaboration between Claims, Sales, Finance, and Actuarial teams by providing
+                                a shared
+                                single source of truth.</li>
+                            <li>Established harmonised KPI definitions, reducing confusion and debate during leadership
+                                meetings.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Scalable BI Foundation for Future Growth</strong>
+                        <ul>
+                            <li>Created a robust blueprint for future dashboards, forecasting tools, and advanced
+                                analytics models.</li>
+                            <li>Enabled easy onboarding of new KPIs or modules without reinventing the data model.</li>
+                        </ul>
+                    </li>
                 </ol>
             </div>
+
+            <!--             <div id="MD_Reports" class="box"> 
+            <h3><u>Company Project 4: Daily Business Reporting</u></h3>
+        <h3>Objective</h3>
+        <p class="justified-text">The goal of this project was to create a comprehensive daily reporting system
+            for the Managing Director and Heads of Departments (Claims, Finance, Sales, and Actuarial). The
+            report provided real-time visibility into Daily and Month-To-Date (MTD) performance across key
+            verticals, supporting agile decision-making and deeper accountability.
+        </p>
+
+        <h3>Scope and Stakeholders</h3>
+        <p class="justified-text">The reporting system catered to the following departments and stakeholder:</p>
+        <ol>
+            <li>Managing Director (MD)</li>
+            <li>Department Heads of Claims, Finance, Sales, and Actuarial</li>
+        </ol>
+        <p>All reports were designed with data integrity, KPI alignment, and executive usability in mind. All
+            data sources were linked using Policy Number + Policy Start Date as a composite identifier across
+            modules.
+        </p>
+
+        <h3>Module 1: Claims Performance Dashboard</h3>
+        <ol>
+            <li><strong>KPIs tracked</strong></li>
+            <ul>
+                <li>Claim Ratio (%) = (Total Claims Paid / Total Premium Received) × 100</li>
+                <li>Number of Claims Settled (Daily & MTD)</li>
+                <li>Pending Claims Count</li>
+                <li>High-Value Claims: Flagged all claims > ₹1,000,000</li>
+                <li>New Claims Registered (Daily)</li>
+            </ul>
+            <li>
+                <strong>Insights Delivered:</strong>
+                <ul>
+                    <li>Claims backlog trend</li>
+                    <li>Daily progress on high-value cases</li>
+                    <li>Monitoring claim approval efficiency</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>Module 2: Financial Overview</h3>
+        <ol>
+            <li><strong>KPIs tracked</strong></li>
+            <ul>
+                <li>Revenue vs Claims Paid</li>
+                <li>Product-wise Policy Profitability</li>
+                <li>Expense Ratio (%) = (Total Operating Expenses / Net Premium Earned) × 100</li>
+                <li>Broker Commission Payouts</li>
+            </ul>
+            <li>
+                <strong>Insights Delivered:</strong>
+                <ul>
+                    <li>Net profitability per product line</li>
+                    <li>Financial leakage identification</li>
+                    <li>Broker payout tracking vs revenue generated</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>Module 3: Sales Performance Snapshot</h3>
+        <ol>
+            <li><strong>KPIs tracked</strong></li>
+            <ul>
+                <li>Sales Conversion Rate (%) = (Converted Leads / Total Leads) × 100</li>
+                <li>Top 5 Performing Regions (by premium collected)</li>
+                <li>Top 5 Selling Products</li>
+                <li>Top 5 Agent Contributions</li>
+                <li>Best Performing Channel (e.g., Direct, Bancassurance, Broker, Online)</li>
+            </ul>
+            <li>
+                <strong>Insights Delivered:</strong>
+                <ul>
+                    <li>Regional performance heatmap</li>
+                    <li>Channel optimisation recommendations</li>
+                    <li>Agent incentives performance tracking</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>Module 4: Actuarial Risk & Pricing Insights</h3>
+        <ol>
+            <li><strong>KPIs tracked</strong></li>
+            <ul>
+                <li>Loss Ratio (%) = (Incurred Claims / Earned Premium) × 100</li>
+                <li>Persistency Ratio (%) = (Renewed Policies / Renewable Policies) × 100</li>
+                <li>Policy Lapse Rate (%) = (Lapsed Policies / Total In-Force Policies) × 100</li>
+                <li>New vs Renewal Premium Split</li>
+                <li>Average Sum Insured per Policy/Product</li>
+                <li>Projected vs Actual Claims Trend</li>
+                <li>Risk-Adjusted Profitability Index (per product line)</li>
+            </ul>
+        </ol>
+
+        <h3>Methodology</h3>
+        <ol>
+            <ul>
+                <li><strong>Data Integration:</strong> Unified datasets across departments using Policy Number +
+                    Start Date as a common key</li>
+                <li><strong>KPI Calculations:</strong> Built modular SQL scripts and DAX measures to compute
+                    department-specific KPIs</li>
+                <li><strong>Dashboard Development:</strong> Used Excel and/or Power BI to deliver interactive
+                    and printable dashboards</li>
+                <li><strong>Data Dump:</strong> Provided detailed raw exports for backend teams in each
+                    department</li>
+            </ul>
+        </ol>
+
+        <h3>Validation and Testing</h3>
+        <ol>
+            <ul>
+                <li>Conducted User Acceptance Testing (UAT) with all HODs</li>
+                <li>Collected iterative feedback for enhancements</li>
+                <li>Ensured report alignment with each department’s strategic and operational KPIs</li>
+            </ul>
+        </ol>
+
+        <h3>Conclusion</h3>
+        <ol>
+            <strong>Business Impact</strong>
+            <ul>
+                <li>Enabled real-time, MTD business health monitoring across verticals</li>
+                <li>Supported data-driven discussions in daily/weekly leadership meetings</li>
+                <li>Improved cross-departmental awareness of performance drivers</li>
+                <li>Became a standard reference tool for MD reviews, strategic discussions, and forecasting</li>
+            </ul>
+        </ol>
+    </div> -->
 
             <div id="CRM_Dashboard" class="box">
                 <h3><u>Company Project 5: CRM Dashboard – Customer Satisfaction & Service KPIs</u></h3>
@@ -1239,10 +1600,13 @@
                 <h3><u>Company Project 6: Repeated Claims Detection – Fraud Prevention</u></h3>
                 <h3>Objective</h3>
                 <p class="justified-text">
-                    The project aimed to detect and prevent fraudulent health insurance claims by identifying repeated
-                    claims submitted by the same insured member on the same date of admission. Using Snowflake as the
+                    The project aimed to detect and prevent fraudulent health insurance claims by identifying
+                    repeated
+                    claims submitted by the same insured member on the same date of admission. Using Snowflake as
+                    the
                     data source,
-                    the initiative focused on building automated checks, integrating outputs with medical and payments
+                    the initiative focused on building automated checks, integrating outputs with medical and
+                    payments
                     teams,
                     and developing a predictive model to proactively flag high-risk claims.
                 </p>
@@ -1259,7 +1623,8 @@
                 <ol>
                     <li><strong>Data Collection and Processing</strong>
                         <ul>
-                            <li>Extracted Month-to-Date (MTD) claims data from Snowflake covering claim details, insured
+                            <li>Extracted Month-to-Date (MTD) claims data from Snowflake covering claim details,
+                                insured
                                 member IDs, admission dates, and claim statuses.</li>
                             <li>Defined claim status priority order: <strong>Paid → Outstanding →
                                     Cancelled/Rejected</strong> to ensure correct handling of duplicates.</li>
@@ -1272,9 +1637,11 @@
                         <ul>
                             <li>Used SQL queries in Qlik to identify multiple claims with the same insured member
                                 and admission date.</li>
-                            <li>Applied prioritisation logic to retain only the valid claim record (Paid/Outstanding)
+                            <li>Applied prioritisation logic to retain only the valid claim record
+                                (Paid/Outstanding)
                                 and flag duplicates (Cancelled/Rejected).</li>
-                            <li>Generated exception reports highlighting repeated claims for daily review by medical and
+                            <li>Generated exception reports highlighting repeated claims for daily review by medical
+                                and
                                 payment teams.</li>
                         </ul>
                     </li>
@@ -1293,7 +1660,8 @@
                             </li>
                             <li>Built classification models (Logistic Regression, Random Forest, XGBoost) to predict
                                 probability of fraud.</li>
-                            <li>Selected Random Forest based on performance metrics (AUC = 0.87, Precision = 82%, Recall
+                            <li>Selected Random Forest based on performance metrics (AUC = 0.87, Precision = 82%,
+                                Recall
                                 = 78%).</li>
                         </ul>
                     </li>
@@ -1301,7 +1669,8 @@
                     <li><strong>Process Implementation</strong>
                         <ul>
                             <li>Deployed SQL checks in Snowflake for automated duplicate detection.</li>
-                            <li>Integrated predictive model outputs into dashboard view for Medical and Payments teams.
+                            <li>Integrated predictive model outputs into dashboard view for Medical and Payments
+                                teams.
                             </li>
                             <li>Created a daily fraud risk report with high-probability cases flagged for manual
                                 investigation.</li>
@@ -1315,16 +1684,19 @@
                         <ul>
                             <li>Prevented repeated claims from being processed by creating a unique composite key
                                 system.</li>
-                            <li>Blocked suspicious claims at source, saving significant costs in potential fraudulent
+                            <li>Blocked suspicious claims at source, saving significant costs in potential
+                                fraudulent
                                 payouts.</li>
-                            <li>Improved regulatory compliance by maintaining accurate and validated claim records.</li>
+                            <li>Improved regulatory compliance by maintaining accurate and validated claim records.
+                            </li>
                         </ul>
                     </li>
 
                     <li><strong>Business Impact</strong>
                         <ul>
                             <li>Medical and Payments teams reduced manual duplicate checks by over 60%.</li>
-                            <li>The predictive fraud model helped proactively flag <strong>high-risk claims with ~80%
+                            <li>The predictive fraud model helped proactively flag <strong>high-risk claims with
+                                    ~80%
                                     accuracy</strong>.</li>
                             <li>Strengthened client trust by ensuring tighter fraud controls and improved audit
                                 readiness.</li>
@@ -1347,7 +1719,8 @@
                 <ol class="hanging-indent">
                     <li><strong>Transparency:</strong> Show each role exactly where they stood against
                         fixed monthly/quarterly targets, updated daily.</li>
-                    <li><strong>Accuracy:</strong> Automate tiered payout logic to eliminate manual errors and disputes.
+                    <li><strong>Accuracy:</strong> Automate tiered payout logic to eliminate manual errors and
+                        disputes.
                     </li>
                 </ol>
 
@@ -1357,7 +1730,8 @@
                         <ul>
                             <li>Integrated daily sales and renewals into Snowflake via SQL/Alteryx; aligned with HR
                                 payroll data.</li>
-                            <li>Loaded <strong>fixed targets</strong> (monthly/quarterly) by role: FSO, Area, Zone.</li>
+                            <li>Loaded <strong>fixed targets</strong> (monthly/quarterly) by role: FSO, Area, Zone.
+                            </li>
                         </ul>
                     </li>
 
@@ -1377,7 +1751,8 @@
                         <ul>
                             <li><strong>Target vs Actual Gauges</strong> for Month and Quarter at FSO → Area → Zone
                                 levels.</li>
-                            <li><strong>Leaderboards</strong> to rank FSOs and teams; drilldowns from Zone → Area → FSO.
+                            <li><strong>Leaderboards</strong> to rank FSOs and teams; drilldowns from Zone → Area →
+                                FSO.
                             </li>
                             <li><strong>Role-based access</strong>: FSOs saw self; managers saw aggregates; HR saw
                                 payout validation.</li>
@@ -1398,7 +1773,8 @@
                     <li><strong>Operational Impact</strong>
                         <ul>
                             <li>100% payout accuracy; payroll preparation time reduced from weeks to days.</li>
-                            <li>Managers coached mid-cycle using live <em>% Achievement</em> and pipeline visibility.
+                            <li>Managers coached mid-cycle using live <em>% Achievement</em> and pipeline
+                                visibility.
                             </li>
                         </ul>
                     </li>
@@ -1431,7 +1807,8 @@
                 <ol class="hanging-indent">
                     <li><strong>Transparency:</strong> Provide a unified, conformed data model across Claims, Sales,
                         Finance, and Product departments.</li>
-                    <li><strong>Performance:</strong> Optimise ETL and query logic to accelerate refresh cycles, reduce
+                    <li><strong>Performance:</strong> Optimise ETL and query logic to accelerate refresh cycles,
+                        reduce
                         compute costs, and enhance stability.</li>
                 </ol>
 
@@ -1439,13 +1816,17 @@
                 <ol>
                     <li><strong>Data Collection & Processing</strong>
                         <ul>
-                            <li>Profiled 40+ fact and dimension tables using SQL and Qlik ETL logs to identify redundant
+                            <li>Profiled 40+ fact and dimension tables using SQL and Qlik ETL logs to identify
+                                redundant
                                 hierarchies and joins.</li>
-                            <li>Extracted and staged data via <strong>SQL, Alteryx, and Qlik ETL</strong> workflows with
+                            <li>Extracted and staged data via <strong>SQL, Alteryx, and Qlik ETL</strong> workflows
+                                with
                                 incremental loads using watermark control tables.</li>
-                            <li>Built modular ETL pipelines (staging → dimension → fact → publish) to enable parallel
+                            <li>Built modular ETL pipelines (staging → dimension → fact → publish) to enable
+                                parallel
                                 processing and improve orchestration efficiency.</li>
-                            <li>Collaborated with IT to create a <strong>replica environment</strong> for testing and
+                            <li>Collaborated with IT to create a <strong>replica environment</strong> for testing
+                                and
                                 validation before production deployment.</li>
                         </ul>
                     </li>
@@ -1454,13 +1835,16 @@
                         <ul>
                             <li>Defined clear fact-level grain (e.g., one row per claim transaction or policy sale).
                             </li>
-                            <li>Collapsed snowflaked dimensions into <strong>denormalised conformed dimensions</strong>
+                            <li>Collapsed snowflaked dimensions into <strong>denormalised conformed
+                                    dimensions</strong>
                                 such as <em>dim_customer</em> and <em>dim_product</em> with surrogate keys.</li>
-                            <li>Implemented <strong>SCD Type 2</strong> for historical attributes (region, segment) and
+                            <li>Implemented <strong>SCD Type 2</strong> for historical attributes (region, segment)
+                                and
                                 <strong>Type 1</strong> for static fields (names, IDs).
                             </li>
                             <li>Shifted some <strong>front-end calculations</strong> (KPIs, derived measures)
-                                into <strong>backend Python and Qlik scripts</strong> for better performance and reduced
+                                into <strong>backend Python and Qlik scripts</strong> for better performance and
+                                reduced
                                 DAX load time.</li>
                             <li>Reviewed and commented out <strong>unused or redundant dashboards</strong> to reduce
                                 refresh overhead and focus on high-value reports.</li>
@@ -1494,7 +1878,8 @@
 
                     <li><strong>Orchestration & Testing</strong>
                         <ul>
-                            <li>Replaced nested SQL joins with <strong>materialised staging tables</strong> to reduce
+                            <li>Replaced nested SQL joins with <strong>materialised staging tables</strong> to
+                                reduce
                                 I/O load and runtime.</li>
                             <li>Implemented <strong>parallel dimension builds</strong> via Qlik QMC and Alteryx task
                                 scheduling.</li>
@@ -1510,7 +1895,8 @@
 
                     <li><strong>Dashboard & BI Integration</strong>
                         <ul>
-                            <li>Re-mapped Power BI and Qlik dashboards to the new <strong>Star Schema views</strong>,
+                            <li>Re-mapped Power BI and Qlik dashboards to the new <strong>Star Schema
+                                    views</strong>,
                                 cutting visual load time from 45 min to 15 min.</li>
                             <li>Rebuilt DAX and Qlik expressions to leverage backend-calculated KPIs.</li>
                             <li>Used Snowflake and Alteryx outputs to drive refreshed Power BI datasets and
@@ -1523,7 +1909,8 @@
                             <li>Documented schema mappings, ETL lineage, and KPI logic for version control.</li>
                             <li>Trained BI and data engineering teams on the new data model, dependencies, and load
                                 monitoring.</li>
-                            <li>Introduced <strong>automated data validation scripts</strong> (row count, totals, null
+                            <li>Introduced <strong>automated data validation scripts</strong> (row count, totals,
+                                null
                                 checks) with run-time logs.</li>
                             <li>Set up audit dashboards to monitor ETL status, refresh duration, and data freshness
                                 KPIs.</li>
@@ -1535,7 +1922,8 @@
                 <ol>
                     <li><strong>Operational Impact</strong>
                         <ul>
-                            <li>ETL runtime reduced from <strong>8 hours → 4 hours 45 minutes</strong> (~40% faster).
+                            <li>ETL runtime reduced from <strong>8 hours → 4 hours 45 minutes</strong> (~40%
+                                faster).
                             </li>
                             <li>All published reports achieved <strong>95%+ accuracy</strong> on <em>T-1 logic</em>.
                             </li>
@@ -1550,10 +1938,12 @@
                             <li>Leadership teams gained <strong>real-time KPI visibility by 6 AM</strong>, improving
                                 decision-making agility.</li>
                             <li>Compute cost reduced via schema simplification and incremental loading.</li>
-                            <li>Enabled consistent data across departments, strengthening collaboration between IT, BI,
+                            <li>Enabled consistent data across departments, strengthening collaboration between IT,
+                                BI,
                                 and Operations.</li>
                             <li>High scalability achieved for future integrations and additional product lines.</li>
-                            <li><strong>Drivers:</strong> Schema simplification, file-based trigger automation, backend
+                            <li><strong>Drivers:</strong> Schema simplification, file-based trigger automation,
+                                backend
                                 KPI computation, and proactive QA validation.</li>
                         </ul>
                     </li>
@@ -1572,7 +1962,8 @@
                 <ol class="hanging-indent">
                     <li><strong>Exploratory Data Analytics:</strong> Conducted detailed analysis on policy renewal
                         patterns to identify trends in customer drop-offs and influencing factors.</li>
-                    <li><strong>Business Intelligence Model:</strong> Designed an interactive Power BI dashboard with
+                    <li><strong>Business Intelligence Model:</strong> Designed an interactive Power BI dashboard
+                        with
                         visual summaries, trend lines, and customer segmentation for renewal decision-making.</li>
                 </ol>
 
@@ -1608,7 +1999,8 @@
                             </li>
                             <li>Used relatable analogies and clear visual storytelling to simplify complex data for
                                 non-technical teams.</li>
-                            <li>Recommended automated renewal reminders, loyalty discounts, and improved claim support
+                            <li>Recommended automated renewal reminders, loyalty discounts, and improved claim
+                                support
                                 processes.</li>
                         </ul>
                     </li>
@@ -1634,6 +2026,13 @@
                         </ul>
                     </li>
                 </ol>
+
+                <h3>Competency Shown:</h3>
+                <ol>
+                    <li><strong> Explaining complex findings to non-technical audience </strong></li>
+                    <li><strong> Analysis that directly influenced a business decision </strong></li>
+                    <li><strong> Customer behaviour patterns & how insights influenced strategy </strong></li>
+                </ol>
             </div>
 
             <div id="Saying_no_to_stakeholder" class="box">
@@ -1642,7 +2041,8 @@
                 <p class="justified-text">
                     The project aimed to resolve technical challenges in automated reporting and enhance data
                     accessibility for the Finance Department.
-                    The goal was to manage stakeholder expectations effectively while ensuring a secure, scalable, and
+                    The goal was to manage stakeholder expectations effectively while ensuring a secure, scalable,
+                    and
                     efficient solution for large report sharing.
                 </p>
                 <ol class="hanging-indent">
@@ -1664,7 +2064,8 @@
 
                     <li><strong>Data Preprocessing and Feature Engineering</strong>
                         <ul>
-                            <li>Optimised extracts by removing redundant columns and segmenting historical data.</li>
+                            <li>Optimised extracts by removing redundant columns and segmenting historical data.
+                            </li>
                             <li>Created modular datasets for manageable file sizes and faster generation.</li>
                             <li>Automated uploads to SharePoint/Google Drive for secure stakeholder access.</li>
                         </ul>
@@ -1672,7 +2073,8 @@
 
                     <li><strong>Report Development and Insights</strong>
                         <ul>
-                            <li>Communicated email size limitations clearly and proposed practical alternatives.</li>
+                            <li>Communicated email size limitations clearly and proposed practical alternatives.
+                            </li>
                             <li>Implemented:
                                 <ol>Shared drive links for secure access</ol>
                                 <ol>Power BI dashboards with on-demand filtering</ol>
@@ -1687,32 +2089,220 @@
                 <ol>
                     <li><strong>Impact on Reporting Efficiency</strong>
                         <ul>
-                            <li>Eliminated email-based delivery challenges by shifting to secure automated sharing.</li>
+                            <li>Eliminated email-based delivery challenges by shifting to secure automated sharing.
+                            </li>
                             <li>Enabled real-time report access, improving operational agility.</li>
                         </ul>
                     </li>
 
                     <li><strong>Business Insights and Optimisation</strong>
                         <ul>
-                            <li>Improved stakeholder satisfaction through transparency and proactive communication.</li>
-                            <li>Recognised for introducing a scalable, secure, and efficient reporting framework.</li>
+                            <li>Improved stakeholder satisfaction through transparency and proactive communication.
+                            </li>
+                            <li>Recognised for introducing a scalable, secure, and efficient reporting framework.
+                            </li>
                         </ul>
+                    </li>
+                </ol>
+
+                <h3>Competency Shown:</h3>
+                <ol>
+                    <li><strong> Managing Expectations of Stakeholders</strong></li>
+                    <li><strong> A moment when I had to "No" to a Stakeholder</strong></li>
+                </ol>
+            </div>
+
+            <div id="PBI_Adoption" class="box">
+                <h3><u>Company Project 11: Power BI Adoption & Stakeholder Enablement</u></h3>
+
+                <h3>Objective</h3>
+                <p class="justified-text">
+                    The project focused on transitioning Excel-dependent business users to Power BI reporting.
+                    The goal was to improve analytics maturity, enhance data accessibility, and build stakeholder
+                    confidence
+                    by designing intuitive dashboards and delivering hands-on training.
+                </p>
+
+                <ol class="hanging-indent">
+                    <li><strong>Exploratory Data Analytics:</strong> Reviewed existing Excel-based reporting
+                        workflows,
+                        identified
+                        repetitive pain points, and analysed user behaviour to understand resistance to Power BI
+                        adoption.</li>
+
+                    <li><strong>Business Intelligence Model:</strong> Designed user-friendly Power BI dashboards
+                        using
+                        familiar Excel-like views, slicers, matrix tables, and dynamic summaries to support a smooth
+                        transition.
+                    </li>
+                </ol>
+
+                <h3>Methodology</h3>
+                <ol>
+                    <li><strong>Data Collection and Processing</strong>
+                        <ul>
+                            <li>Evaluated departmental Excel files to map required KPIs and reporting logic.</li>
+                            <li>Rebuilt core datasets in Power BI using structured queries and Power Query
+                                transformations.</li>
+                            <li>Ensured data refresh schedules aligned with existing reporting timelines.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Dashboard Design and User Experience</strong>
+                        <ul>
+                            <li>Designed Excel-style matrix summaries, card visuals, and structured slicers (region,
+                                product, period).</li>
+                            <li>Applied consistent titles, subtitles, colour themes, and visual grouping for ease of
+                                navigation.</li>
+                            <li>Created simplified layouts to reduce cognitive load for first-time Power BI users.
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Training, Documentation, and Change Management</strong>
+                        <ul>
+                            <li>Prepared detailed user guides explaining filters, drill-downs, and export features.
+                            </li>
+                            <li>Conducted live workshops and demonstrations to showcase Power BI advantages over
+                                Excel.
+                            </li>
+                            <li>Provided real-time examples to build trust in the system by showing clear
+                                performance
+                                improvements.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Conclusion</h3>
+                <ol>
+                    <li><strong>Impact on User Adoption</strong>
+                        <ul>
+                            <li>Stakeholders actively transitioned from Excel reports to Power BI dashboards.</li>
+                            <li>Reporting accuracy and user confidence significantly improved due to intuitive
+                                dashboard
+                                design.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Business Insights and Optimisation</strong>
+                        <ul>
+                            <li>Enhanced organisation-wide data literacy and analytical capability.</li>
+                            <li>Recognised for simplifying BI adoption and improving cross-departmental reporting
+                                efficiency.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Competency Shown:</h3>
+                <ol>
+                    <li><strong>Stakeholder Enablement & BI Adoption Leadership</strong></li>
+                </ol>
+            </div>
+
+            <div id="Dashboard_Redesign" class="box">
+                <h3><u>Company Project 12: Power BI Dashboard Redesign Based on User Feedback</u></h3>
+
+                <h3>Objective</h3>
+                <p class="justified-text">
+                    This project aimed to redesign a poorly adopted Power BI dashboard that received negative user
+                    feedback.
+                    The goal was to improve clarity, performance, visual structure, and business relevance by
+                    addressing
+                    root causes
+                    of dissatisfaction and rebuilding the dashboard to better support operational decision-making.
+                </p>
+
+                <ol class="hanging-indent">
+                    <li><strong>Exploratory Data Analytics:</strong> Conducted a structured feedback session to
+                        identify
+                        issues
+                        in usability, visual clutter, inconsistent formatting, and slow performance.</li>
+
+                    <li><strong>Business Intelligence Model:</strong> Developed a redesigned dashboard with
+                        prioritised
+                        KPIs,
+                        enhanced navigation, improved DAX logic, and a clean visual hierarchy aligned with
+                        stakeholder
+                        needs.</li>
+                </ol>
+
+                <h3>Methodology</h3>
+                <ol>
+                    <li><strong>Data Collection and Processing</strong>
+                        <ul>
+                            <li>Reviewed existing SQL queries, Power Query steps, and data models to identify
+                                inefficiencies.</li>
+                            <li>Optimised SQL logic, removed redundant fields, and improved refresh performance.
+                            </li>
+                            <li>Standardised KPI definitions and aligned them with business requirements.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Dashboard Redesign and UX Improvements</strong>
+                        <ul>
+                            <li>Introduced clear titles, subtitles, data labels, and consistent visual formatting.
+                            </li>
+                            <li>Applied a unified colour scheme aligned with brand guidelines.</li>
+                            <li>Reorganised slicers and placed visuals logically (e.g., slicers on left, 2–3 visuals
+                                per
+                                page).</li>
+                            <li>Added essential KPIs such as monthly sales trend, top-performing regions, and top
+                                agents.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>User Validation and Iteration</strong>
+                        <ul>
+                            <li>Conducted UAT sessions to validate usability and gather iterative feedback.</li>
+                            <li>Removed irrelevant visuals and added business-relevant insights.</li>
+                            <li>Delivered a polished dashboard that matched stakeholder expectations and improved
+                                adoption.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Conclusion</h3>
+                <ol>
+                    <li><strong>Impact on Dashboard Performance and Adoption</strong>
+                        <ul>
+                            <li>Improved report refresh speed and user navigation.</li>
+                            <li>Stakeholders began leveraging the redesigned dashboard for daily monitoring.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Business Insights and Optimisation</strong>
+                        <ul>
+                            <li>Strengthened decision-making by surfacing relevant KPIs in a clean and intuitive
+                                format.
+                            </li>
+                            <li>Received recognition for transforming a low-impact dashboard into a high-value
+                                analytical asset.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Competency Shown:</h3>
+                <ol>
+                    <li><strong>Dashboard Redesign, UX Optimisation & Stakeholder-Centric BI Development</strong>
                     </li>
                 </ol>
             </div>
 
             <div id="Multi_Project" class="box">
-                <h3><u>Company Project 11: Multi-Project Management</u></h3>
+                <h3><u>Company Project 13: Multi-Project Management</u></h3>
                 <h3>Objective</h3>
                 <p class="justified-text">
                     The project focused on managing multiple high-priority BI initiatives under tight deadlines.
-                    The goal was to ensure timely delivery of critical reports, streamline ETL processes, and maintain
+                    The goal was to ensure timely delivery of critical reports, streamline ETL processes, and
+                    maintain
                     transparent stakeholder communication for efficient decision-making.
                 </p>
                 <ol class="hanging-indent">
-                    <li><strong>Exploratory Data Analytics:</strong> Analysed concurrent data dependencies across Sales,
+                    <li><strong>Exploratory Data Analytics:</strong> Analysed concurrent data dependencies across
+                        Sales,
                         Claims, and Finance to prioritise workflows effectively.</li>
-                    <li><strong>Business Intelligence Model:</strong> Delivered three key BI projects simultaneously –
+                    <li><strong>Business Intelligence Model:</strong> Delivered three key BI projects simultaneously
+                        –
                         Sales Executive Report, Claims Report Automation, and Commission Report Optimisation.</li>
                 </ol>
 
@@ -1729,7 +2319,8 @@
                     <li><strong>Data Preprocessing and Feature Engineering</strong>
                         <ul>
                             <li>Developed reusable data models to reduce report creation time.</li>
-                            <li>Created dynamic filters and aggregations in Power BI for department-level insights.</li>
+                            <li>Created dynamic filters and aggregations in Power BI for department-level insights.
+                            </li>
                             <li>Implemented validation checks to ensure data consistency across outputs.</li>
                         </ul>
                     </li>
@@ -1737,9 +2328,11 @@
                     <li><strong>Project Management and Execution</strong>
                         <ul>
                             <li>Prioritised the Sales Executive Report due to its business-critical nature.</li>
-                            <li>Created detailed task schedules and allocated time efficiently across all deliverables.
+                            <li>Created detailed task schedules and allocated time efficiently across all
+                                deliverables.
                             </li>
-                            <li>Maintained transparent communication with all stakeholders on progress and constraints.
+                            <li>Maintained transparent communication with all stakeholders on progress and
+                                constraints.
                             </li>
                             <li>Coordinated cross-functional collaboration to accelerate project delivery.</li>
                         </ul>
@@ -1750,7 +2343,8 @@
                 <ol>
                     <li><strong>Impact on Delivery Efficiency</strong>
                         <ul>
-                            <li>Delivered all three reports on time, improving departmental productivity and visibility.
+                            <li>Delivered all three reports on time, improving departmental productivity and
+                                visibility.
                             </li>
                             <li>Automated and optimised reporting processes across Sales, Claims, and Finance.</li>
                         </ul>
@@ -1758,16 +2352,24 @@
 
                     <li><strong>Business Insights and Optimisation</strong>
                         <ul>
-                            <li>Enhanced multi-tasking and prioritisation frameworks for concurrent BI projects.</li>
-                            <li>Recognised for effective time management and proactive stakeholder coordination under
+                            <li>Enhanced multi-tasking and prioritisation frameworks for concurrent BI projects.
+                            </li>
+                            <li>Recognised for effective time management and proactive stakeholder coordination
+                                under
                                 tight deadlines.</li>
                         </ul>
                     </li>
                 </ol>
+
+                <h3>Competency Shown:</h3>
+                <ol>
+                    <li><strong> Managing Multiple Projects with tight Deadlines</strong></li>
+                </ol>
             </div>
 
             <div id="Poundland_Loss_Prevention" class="box">
-                <h3><u>Company Project 12: Loss-Prevention & Operational Insights – Poundland, Above Bar Street</u></h3>
+                <h3><u>Company Project 14: Loss-Prevention & Operational Insights – Poundland, Above Bar Street</u>
+                </h3>
 
                 <h3>Objective</h3>
                 <p class="justified-text">
@@ -1788,7 +2390,8 @@
                                 inconsistently named products or categories.</li>
                             <li>Segmented loss data by:
                                 <ul>
-                                    <li><strong>Product Category</strong> (e.g., food, health &amp; beauty, homeware,
+                                    <li><strong>Product Category</strong> (e.g., food, health &amp; beauty,
+                                        homeware,
                                         seasonal)</li>
                                     <li><strong>Department/Area</strong> within the store</li>
                                     <li><strong>Loss Type</strong> (damage, suspected theft, mis-scan, expiry)</li>
@@ -1804,15 +2407,19 @@
 
                     <li><strong>Dashboard Design and Visualisation (Power BI)</strong>
                         <ul>
-                            <li>Built a loss-prevention dashboard using <strong>simple, clear visuals</strong> designed
+                            <li>Built a loss-prevention dashboard using <strong>simple, clear visuals</strong>
+                                designed
                                 for
                                 non-technical store users.</li>
                             <li><strong>Key visuals and what they represented:</strong>
                                 <ul>
-                                    <li><strong>Matrix Chart - Summarise the numbers:</strong> Showing Inventory sent vs
+                                    <li><strong>Matrix Chart - Summarise the numbers:</strong> Showing Inventory
+                                        sent vs
                                         Inventory Sold and flagging total loss every week and month</li>
-                                    <li><strong>Bar Chart – Loss by Category:</strong> Highlighted which product groups
-                                        contributed most to shrinkage, helping managers prioritise high-risk areas.</li>
+                                    <li><strong>Bar Chart – Loss by Category:</strong> Highlighted which product
+                                        groups
+                                        contributed most to shrinkage, helping managers prioritise high-risk areas.
+                                    </li>
                                     <li><strong>Stacked Column Chart – Loss by Department:</strong> Showed
                                         department-wise
                                         loss (e.g., Food vs Homeware), revealing which sections of the store needed
@@ -1824,7 +2431,8 @@
                                     <li><strong>Heat Map – Incidents by Time of Day/Day of Week:</strong> Identified
                                         high-risk
                                         trading periods where more staff attention or checks were required.</li>
-                                    <li><strong>Pie Chart – Loss Type Breakdown:</strong> Compared damage vs suspected
+                                    <li><strong>Pie Chart – Loss Type Breakdown:</strong> Compared damage vs
+                                        suspected
                                         theft
                                         vs mis-scan vs expiry, supporting targeted interventions (e.g., packaging,
                                         scanning
@@ -1858,7 +2466,8 @@
 
                 <h3>Conclusion</h3>
                 <ul>
-                    <li>Improved visibility of shrinkage patterns by category, department, time period, and loss type.
+                    <li>Improved visibility of shrinkage patterns by category, department, time period, and loss
+                        type.
                     </li>
                     <li>Enabled store and area managers to focus on the highest-impact loss drivers and adjust
                         processes,
@@ -1875,7 +2484,8 @@
                     <li>Extend the dashboard to include basic <strong>sales vs loss</strong> ratios to quantify the
                         financial
                         impact of shrinkage by category.</li>
-                    <li>Incorporate <strong>store footfall or transaction count</strong> (where available) to normalise
+                    <li>Incorporate <strong>store footfall or transaction count</strong> (where available) to
+                        normalise
                         loss
                         against traffic.</li>
                     <li>Standardise the model so it can be reused by other stores in the region with minimal
@@ -2199,7 +2809,8 @@
                     product, and geography.
                     I first explored public sources (ONS, GOV.UK, World Bank), but datasets were short and held in
                     single flat CSVs with no
-                    reliable keys - so relationships couldn’t be modeled. I therefore used a multi-table Kaggle dataset
+                    reliable keys - so relationships couldn’t be modeled. I therefore used a multi-table Kaggle
+                    dataset
                     (synthetic IDs,
                     GDPR-compliant) to design a clean semantic model and actionable visuals. Accent color:
                     <b>#9C26C1</b>.
@@ -2208,7 +2819,8 @@
                 <ol class="hanging-indent">
                     <li><strong>Exploratory Data Analytics:</strong> Profiled sales mix, seasonality, and margin
                         behaviour across brands, countries, and stores.</li>
-                    <li><strong>Business Intelligence Model:</strong> Delivered a star-schema Power BI model with time
+                    <li><strong>Business Intelligence Model:</strong> Delivered a star-schema Power BI model with
+                        time
                         intelligence and a slicer-driven UX for decision-making.</li>
                 </ol>
 
@@ -2216,7 +2828,8 @@
                 <ol>
                     <li><strong>Data Selection & Processing</strong>
                         <ul>
-                            <li>Sources attempted: ONS, GOV.UK, World Bank (too short/flat; single-sheet CSVs, no keys).
+                            <li>Sources attempted: ONS, GOV.UK, World Bank (too short/flat; single-sheet CSVs, no
+                                keys).
                             </li>
                             <li>Chosen source: Kaggle retail dataset with 8 related tables (GDPR-compliant synthetic
                                 IDs).</li>
@@ -2230,10 +2843,14 @@
                         <ul>
                             <li>Fact: <b>Sales</b> (order-line grain: OrderDate, Quantity, NetPrice, UnitCost,
                                 CurrencyCode, ExchangeRate).</li>
-                            <li>Dimensions: <b>Date</b> (marked), <b>Product</b>, <b>Customer</b>, <b>Store</b>.</li>
-                            <li>Relationship choices: some fields/tables (e.g., parts of Orders/OrderRows) were <b>not
-                                    connected</b> because the same fields already existed in <b>Sales</b>; connecting
-                                would create duplicate filter paths/ambiguity.</li>
+                            <li>Dimensions: <b>Date</b> (marked), <b>Product</b>, <b>Customer</b>, <b>Store</b>.
+                            </li>
+                            <li>Relationship choices: some fields/tables (e.g., parts of Orders/OrderRows) were
+                                <b>not
+                                    connected</b> because the same fields already existed in <b>Sales</b>;
+                                connecting
+                                would create duplicate filter paths/ambiguity.
+                            </li>
                         </ul>
                     </li>
 
@@ -2244,10 +2861,12 @@
                                 Brand/Category/Product, Country, Continent).</li>
                             <li>Seven key questions (chosen because they cover most business needs):
                                 <ol>
-                                    <li>Create a filter menu which will allow end users to slice through the data</li>
+                                    <li>Create a filter menu which will allow end users to slice through the data
+                                    </li>
                                     <li>Top performing stores by revenue</li>
                                     <li>Brand, Category &amp; Product by revenue</li>
-                                    <li>Total sales revenue from 2022–2024 including a monthly and yearly breakdown</li>
+                                    <li>Total sales revenue from 2022–2024 including a monthly and yearly breakdown
+                                    </li>
                                     <li>Continent &amp; Country breakdown by revenue and year</li>
                                     <li>Quarterly revenue breakdown from FY22 Q1 to FY24 Q1 (using existing fiscal
                                         fields - no new columns)</li>
@@ -2271,7 +2890,8 @@
                 <ol>
                     <li><strong>Outcome</strong>
                         <ul>
-                            <li>Delivered a clean, performant star schema with clear visuals answering the seven core
+                            <li>Delivered a clean, performant star schema with clear visuals answering the seven
+                                core
                                 questions.</li>
                             <li>Used Kaggle’s multi-table data after public sources proved too flat; ensured GDPR
                                 compliance.</li>
@@ -2279,9 +2899,11 @@
                     </li>
                     <li><strong>Next Steps</strong>
                         <ul>
-                            <li>Add forecasting lines (Analytics pane) and parameterised Top-N with drill-through.</li>
+                            <li>Add forecasting lines (Analytics pane) and parameterised Top-N with drill-through.
+                            </li>
                             <li>Publish to Power BI Service, enable scheduled refresh and usage metrics.</li>
-                            <li>Optional: dynamic currency formatting and rolling trend pages using the prepared R12M
+                            <li>Optional: dynamic currency formatting and rolling trend pages using the prepared
+                                R12M
                                 measure.</li>
                         </ul>
                     </li>
@@ -2291,13 +2913,11 @@
 
                 <ol>
                     <li><strong>.pbix Dashboard</strong>
-                        <p class="justified-text"><a
-                                href="Documents/Projects/Big_Picture/Vyom_Khanna_Dashboard.pbix"
+                        <p class="justified-text"><a href="Documents/Projects/Big_Picture/Vyom_Khanna_Dashboard.pbix"
                                 target="_blank">Click to Preview</a></p>
                     </li>
                     <li><strong>Report</strong>
-                        <p class="justified-text"><a
-                                href="Documents/Projects/Big_Picture/Vyom_Khanna_Report.pdf"
+                        <p class="justified-text"><a href="Documents/Projects/Big_Picture/Vyom_Khanna_Report.pdf"
                                 target="_blank">Click to Preview</a></p>
                     </li>
             </div>
