@@ -1812,16 +1812,15 @@
             </div>
 
             <div id="Snowflake_to_Star_Schema" class="box">
-                <h3><u>Company Project 8: Data Warehouse Optimisation - Snowflake to Star Schema Migration</u></h3>
+                <h3><u>Company Project 8: ETL Pipeline Optimisation</u></h3>
 
                 <h3>Objective</h3>
                 <p class="justified-text">
-                    Redesign and optimise the enterprise data warehouse by migrating from a
-                    <strong>Snowflake Schema</strong> to a <strong>Star Schema</strong> to simplify joins,
-                    improve dashboard refresh performance, and <strong>reduce ETL runtime from 8 hours to under 5
-                        hours</strong>.
-                    The initiative ensured <strong>95%+ data accuracy on T-1 logic (Today – 1)</strong>
-                    while improving cross-pipeline consistency and report reliability.
+                    The objective of this project was to optimise the existing enterprise data warehouse and BI
+                    ecosystem by improving Qlik ETL and DBT pipelines, reducing end-to-end data refresh time, and
+                    enhancing dashboard performance. The focus was on lowering ETL runtime from ~10 hours, reducing
+                    visual load times, retiring underused dashboards, and ensuring accurate and consistent T-1 (Today –
+                    1) reporting.
                 </p>
 
                 <ol class="hanging-indent">
@@ -1834,34 +1833,32 @@
 
                 <h3>Methodology</h3>
                 <ol>
-                    <li><strong>Data Collection & Processing</strong>
+                    <li><strong>Stage 1 Extraction</strong>
                         <ul>
                             <li>Profiled 40+ fact and dimension tables using SQL and Qlik ETL logs to identify
                                 redundant
                                 hierarchies and joins.</li>
-                            <li>Extracted and staged data via <strong>SQL and Qlik ETL</strong> workflows
-                                with
-                                incremental loads using watermark control tables.</li>
-                            <li>Built modular ETL pipelines (staging → dimension → fact → publish) to enable
-                                parallel
-                                processing and improve orchestration efficiency.</li>
+                            <li>Extracted and staged data via <strong>SQL and Qlik ETL</strong> Analysed data change
+                                patterns and applied incremental load logic at Stage 1, using
+                                <code>EXISTS / NOT EXISTS</code> conditions on frequently changing fields to avoid full
+                                reloads and reduce extraction time.</li>
+                            <li>Reviewed detailed Qlik reload logs to identify tables with the highest extraction time
+                                and data volume. Created parallel extraction Qlik apps for large tables, allowing heavy
+                                datasets to load independently without blocking other pipelines.</li>
                             <li>Collaborated with IT to create a <strong>replica environment</strong> for testing
                                 and
                                 validation before production deployment.</li>
                         </ul>
                     </li>
 
-                    <li><strong>Rules & Feature Engineering</strong>
+                    <li><strong>Stage 2 Transformation</strong>
                         <ul>
-                            <li>Defined clear fact-level grain (e.g., one row per claim transaction or policy sale).
-                            </li>
-                            <li>Collapsed snowflaked dimensions into <strong>denormalised conformed
-                                    dimensions</strong>
-                                such as <em>dim_customer</em> and <em>dim_product</em> with surrogate keys.</li>
-                            <li>Implemented <strong>SCD Type 2</strong> for historical attributes (region, segment)
+                            <li>Defined a clear fact-level grain to ensure consistency across datasets (e.g., one row per claim transaction or one row per policy sale), reducing ambiguity in joins and KPI calculations.</li>
+                            <li>Identified transformations that were being repeated across multiple Qlik applications (such as basic aggregations, mappings, and derived fields) and merged them into a single upstream transformation layer.</li>
+                            <!-- <li>Implemented <strong>SCD (Slowly Changing Dimension) Type 2</strong> for historical attributes (region, segment)
                                 and
-                                <strong>Type 1</strong> for static fields (names, IDs).
-                            </li>
+                                <strong>Type 1 (Slowly Changing Dimension)</strong> for static fields (names, IDs).
+                            </li> -->
                             <li>Shifted some <strong>front-end calculations</strong> (KPIs, derived measures)
                                 into <strong>backend Python and Qlik scripts</strong> for better performance and
                                 reduced
@@ -1871,9 +1868,22 @@
                         </ul>
                     </li>
 
-                    <li><strong>ETL Optimisation & File-Based Trigger Mechanism</strong>
+                    <li><strong>Stage 3 Visualisation & Testing</strong>
+                        <ul>
+                            <li>Designed simple, lightweight visuals in dashboards to reduce load time and improve usability, including, <strong>KPI cards</strong> for key metrics, Basic <strong>bar and line charts</strong> for trends, <Strong>Table / matrix views</Strong> for detailed breakdowns. Visuals followed a light colour scheme with no conditional formatting to minimise rendering overhead.</li>
+                            <li>Implemented <strong>parallel dimension builds tasks</strong> via Qlik QMC task
+                                scheduling.</li>
+                            <li>Introduced <strong>T-1 logic (Today – 1)</strong> to ensure all daily reports used
+                                validated, complete data.</li>
+                            <li>Cross-checked report numbers and KPIs between <strong>Production vs Replica</strong>
+                                environments
+                                to verify consistency and accuracy.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>ETL Optimisation & File-Based Trigger Mechanism to ensure Data Accuracy</strong>
                         <p class="justified-text">
-                            In my previous organisation, we were dealing with multiple ETL jobs pulling data from
+                            We were dealing with multiple ETL jobs pulling data from
                             various
                             sources, often on overlapping schedules. To ensure data accuracy and consistency across
                             pipelines, I implemented a <strong>file-based trigger mechanism</strong>.
@@ -1896,24 +1906,7 @@
                         </ul>
                     </li>
 
-                    <li><strong>Orchestration & Testing</strong>
-                        <ul>
-                            <li>Replaced nested SQL joins with <strong>materialised staging tables</strong> to
-                                reduce
-                                I/O load and runtime.</li>
-                            <li>Implemented <strong>parallel dimension builds</strong> via Qlik QMC task
-                                scheduling.</li>
-                            <li>Introduced <strong>T-1 logic (Today – 1)</strong> to ensure all daily reports used
-                                validated, complete data.</li>
-                            <li>Analysed ETL logs, identified bottlenecks, and re-sequenced heavy joins for faster
-                                throughput.</li>
-                            <li>Cross-checked report numbers and KPIs between <strong>Production vs Replica</strong>
-                                environments
-                                to verify consistency and accuracy.</li>
-                        </ul>
-                    </li>
-
-                    <li><strong>Dashboard & BI Integration</strong>
+                    <!-- <li><strong>Dashboard & BI Integration</strong>
                         <ul>
                             <li>Re-mapped Power BI and Qlik dashboards to the new <strong>Star Schema
                                     views</strong>,
@@ -1922,7 +1915,7 @@
                             <li>Used Snowflake outputs to drive refreshed Power BI datasets and
                                 auto-distributed snapshots.</li>
                         </ul>
-                    </li>
+                    </li> -->
 
                     <li><strong>Adoption & Governance</strong>
                         <ul>
