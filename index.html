@@ -224,12 +224,14 @@
             <div class="box" and id="Team_Computers">
                 <a href="#Team_Computers" target="_blank"></a>
                 <h3><u>Team Computers, Gurgaon, India</u></h3>
-                <p class="justified-text"><i>Business Intelligence Engineer & Analyst | September 2021 - August 2023 |
+                <p class="justified-text"><i>Business Intelligence Engineer & Data Analyst | September 2021 - August
+                        2023 |
                         Industry -
                         Insurance</i></p>
                 <!-- <p class="justified-text">September 2021 - May 2023</p>
                 <p class="justified-text">Industry - Insurance</p> -->
-                <p class="justified-text">In this role, I worked as a Business Intelligence Engineer for a
+                <p class="justified-text">In this role, I worked as a Data Analyst initially and then moved to Business
+                    Intelligence Engineer side for a
                     healthcare insurance client, where I focused on leveraging SQL, Python, and BI tools to transform
                     raw data into actionable
                     insights, automate reporting, and streamline decision-making processes. In short I was involved with
@@ -1841,7 +1843,8 @@
                             <li>Extracted and staged data via <strong>SQL and Qlik ETL</strong> Analysed data change
                                 patterns and applied incremental load logic at Stage 1, using
                                 <code>EXISTS / NOT EXISTS</code> conditions on frequently changing fields to avoid full
-                                reloads and reduce extraction time.</li>
+                                reloads and reduce extraction time.
+                            </li>
                             <li>Reviewed detailed Qlik reload logs to identify tables with the highest extraction time
                                 and data volume. Created parallel extraction Qlik apps for large tables, allowing heavy
                                 datasets to load independently without blocking other pipelines.</li>
@@ -1853,8 +1856,12 @@
 
                     <li><strong>Stage 2 Transformation</strong>
                         <ul>
-                            <li>Defined a clear fact-level grain to ensure consistency across datasets (e.g., one row per claim transaction or one row per policy sale), reducing ambiguity in joins and KPI calculations.</li>
-                            <li>Identified transformations that were being repeated across multiple Qlik applications (such as basic aggregations, mappings, and derived fields) and merged them into a single upstream transformation layer.</li>
+                            <li>Defined a clear fact-level grain to ensure consistency across datasets (e.g., one row
+                                per claim transaction or one row per policy sale), reducing ambiguity in joins and KPI
+                                calculations.</li>
+                            <li>Identified transformations that were being repeated across multiple Qlik applications
+                                (such as basic aggregations, mappings, and derived fields) and merged them into a single
+                                upstream transformation layer.</li>
                             <!-- <li>Implemented <strong>SCD (Slowly Changing Dimension) Type 2</strong> for historical attributes (region, segment)
                                 and
                                 <strong>Type 1 (Slowly Changing Dimension)</strong> for static fields (names, IDs).
@@ -1870,7 +1877,11 @@
 
                     <li><strong>Stage 3 Visualisation & Testing</strong>
                         <ul>
-                            <li>Designed simple, lightweight visuals in dashboards to reduce load time and improve usability, including, <strong>KPI cards</strong> for key metrics, Basic <strong>bar and line charts</strong> for trends, <Strong>Table / matrix views</Strong> for detailed breakdowns. Visuals followed a light colour scheme with no conditional formatting to minimise rendering overhead.</li>
+                            <li>Designed simple, lightweight visuals in dashboards to reduce load time and improve
+                                usability, including, <strong>KPI cards</strong> for key metrics, Basic <strong>bar and
+                                    line charts</strong> for trends, <Strong>Table / matrix views</Strong> for detailed
+                                breakdowns. Visuals followed a light colour scheme with no conditional formatting to
+                                minimise rendering overhead.</li>
                             <li>Implemented <strong>parallel dimension builds tasks</strong> via Qlik QMC task
                                 scheduling.</li>
                             <li>Introduced <strong>T-1 logic (Today – 1)</strong> to ensure all daily reports used
