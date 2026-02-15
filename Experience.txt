@@ -1,0 +1,488 @@
+<section id="experience"> 
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-navigation">
+            <a href="#SouthamptonFC" class="experience-nav-box">Southampton FC</a>
+            <a href="#Poundland" class="experience-nav-box">Poundland and Dealz</a>
+            <a href="#Team_Computers" class="experience-nav-box">Team Computers</a>
+            <a href="#Nipa_International_Ltd" class="experience-nav-box">Nipa International Ltd</a>
+            <a href="#HondaAssembly" class="experience-nav-box">Honda India</a>
+            <a href="#HondaAdmin" class="experience-nav-box">Honda India</a>
+            </div>
+
+            <div class="box" id="SouthamptonFC">
+                <a href="#SouthamptonFC" target="_blank"></a>
+                <h3><u>Southampton Football Club, Southampton, UK</u></h3>
+                <p class="justified-text"><i>Safety Steward | December 2024 - Present | Industry - Sports & Events</i>
+                </p>
+
+                <p class="justified-text">
+                    I currently work part-time as a Safety Steward at Southampton Football Club, supporting matchdays
+                    and
+                    large-scale events. This role requires strong situational awareness, effective communication, and
+                    calm
+                    decision-making to ensure the safety and comfort of all spectators.
+                </p>
+
+                <p class="justified-text"><b>Key Achievements and Responsibilities:</b></p>
+                <ul class="hanging-indent">
+                    <li>
+                        <span><strong>Crowd Safety and Monitoring:</strong></span>
+                        <span>Maintained a safe and orderly environment by actively monitoring spectator areas during
+                            high-attendance matches and events.</span>
+                    </li>
+
+                    <li>
+                        <span><strong>Customer Guidance and Support:</strong></span>
+                        <span>Provided clear, polite assistance to fans, guiding them to seating areas, exits, and
+                            stadium
+                            facilities.</span>
+                    </li>
+
+                    <li>
+                        <span><strong>Crowd Control and Queue Management:</strong></span>
+                        <span>Supported crowd-control operations by managing queues and preventing congestion in
+                            high-traffic zones.</span>
+                    </li>
+
+                    <li>
+                        <span><strong>Incident and Emergency Response:</strong></span>
+                        <span>Responded calmly to incidents or emergencies and reported issues promptly to the safety
+                            supervisor.</span>
+                    </li>
+
+                    <li>
+                        <span><strong>Regulatory Compliance:</strong></span>
+                        <span>Ensured all stadium safety regulations, entry protocols, and event policies were followed
+                            consistently.</span>
+                    </li>
+
+                    <li>
+                        <span><strong>Team Collaboration:</strong></span>
+                        <span>Worked closely with security teams, event staff, and emergency personnel to ensure smooth
+                            event operations.</span>
+                    </li>
+                </ul>
+            </div>
+
+
+
+            <!-- <div class="dropdown" style="position: relative;">
+            <button class="dropdown-btn">Poundland and Dealz</button>
+            <div class="dropdown-content"> -->
+            <div class="box" and id="Poundland">
+                <a href="#Poundland" target="_blank"></a>
+                <h3><u>Poundland and Dealz, Southampton, UK</u></h3>
+                <p class="justified-text"><i>Sales Assistant | April 2024 - | Industry - FMCG</i></p>
+                <!-- <p class="justified-text">April 2024 - Present</p>
+                <p class="justified-text">Industry - FMCG</p> -->
+                <p class="justified-text">
+                    <!-- Currently working part-time at this fast-paced FMCG retailer, which I joined during my
+                    post-graduation degree, while searching for a full-time role. -->
+                    I currently work as a Sales Assistant at Poundland on Above Bar Street in Southampton, which is
+                    known to be one of the busiest Poundland locations on the South Coast. This role is part-time and
+                    primarily supports my cost of living in the UK, while I dedicate the remainder of my time to
+                    upskilling and actively seeking full-time career opportunities.
+                </p>
+                <p class="justified-text"><b>Key Achievements and Responsibilities:</b></p>
+                <ul class="hanging-indent">
+                    <!-- <li>
+                        <span><strong>Prepared and Monitored Reports:</strong></span>
+                        <span>Compiled weekly and monthly SKU reports using sales data from the store to track product
+                            trends, basket composition, and customer buying habits. These reports helped the team stay
+                            informed about what was working and what needed adjustment on the shop floor.</span>
+                    </li>
+
+                    <li>
+                        <span><strong>Tableau Dashboards:</strong></span>
+                        <span>Created clear and easy-to-use Tableau dashboards to show key metrics like average basket
+                            size, top and bottom sellers, and how different products performed at various times of the
+                            day, helping staff plan better around peak hours and promotions.</span>
+                    </li>
+
+                    <li>
+                        <span><strong>Performance and Customer Insights:</strong></span>
+                        <span>Shared insights during weekly business reviews with store leadership, offering practical
+                            suggestions to improve product visibility and upselling. This often led to smarter shelf
+                            arrangements, better product pairing, and increased add-on sales.</span>
+                    </li>
+ -->
+                    <li>
+                        <span><strong>Exceeded Sales Targets:</strong></span>
+                        <span>Surpassed weekly sales targets by 15% during christmas through strategic customer
+                            engagement and tailored product recommendations.</span>
+                    </li>
+
+                    <li>
+                        <span><strong>Customer Service Excellence:</strong></span>
+                        <span>Delivered high-quality service, resulting in positive feedback from customers and
+                            recognition from management.</span>
+                    </li>
+                    <!-- <li>
+                        <span><strong>Visual Merchandising Collaboration:</strong></span>
+                        <span>Partnered with the visual merchandising team to design eye-catching displays, increasing
+                            foot
+                            traffic.</span>
+                    </li> -->
+                    <li>
+                        <span><strong>Stock Replenishment and Pricing Accuracy:</strong></span>
+                        <span>Ensured timely stock replenishment and accurate pricing for optimal customer
+                            experience.</span>
+                    </li>
+                    <li>
+                        <span><strong>Inventory Support:</strong></span>
+                        <span>Reduced stock discrepancies by 10% through precise inventory management and protocol
+                            adherence.</span>
+                    </li>
+
+                    <li>
+                        <span><strong>Food and Product Waste Control:</strong></span>
+                        <span>Implemented effective waste management practices, reducing food and product wastage by 60%
+                            through accurate stock rotation, monitoring expiration dates, and minimising
+                            overstocking.</span>
+                    </li>
+                </ul>
+
+                <!-- <p class="justified-text"><b>KPIs Presented:</b></p>
+                <ul class="hanging-indent"> -->
+            </div>
+
+            <div class="box" and id="Team_Computers">
+                <a href="#Team_Computers" target="_blank"></a>
+                <h3><u>Team Computers, Gurgaon, India</u></h3>
+                <p class="justified-text"><i>Business Intelligence Engineer & Data Analyst | September 2021 - August
+                        2023 |
+                        Industry -
+                        Insurance</i></p>
+                <!-- <p class="justified-text">September 2021 - May 2023</p>
+                <p class="justified-text">Industry - Insurance</p> -->
+                <p class="justified-text">In this role, I worked as a Data Analyst initially and then moved to Business
+                    Intelligence Engineer side for a
+                    healthcare insurance client, where I focused on leveraging SQL, Python, and BI tools to transform
+                    raw data into actionable
+                    insights, automate reporting, and streamline decision-making processes. In short I was involved with
+                    end-to-end data lifecycle. I can't put everything on the resume so here you'll see I am trying to
+                    put in my responsibilities as per data
+                    lifecycle sequence.</p>
+                <p class="justified-text"><b>Key Achievements and Responsibilities:</b></p>
+                <ul class="hanging-indent">
+                    <li>
+                        <span><strong>ETL (Extract, Transform, Load) Expertise:</strong></span>
+                        <span>Engineered scalable ETL workflows using SQL, Qlik, and DBT to streamline and automate
+                            the data ingestion process. Migrated legacy data pipelines from a snowflake schema to a star
+                            schema architecture, which improved data accessibility, enhanced accuracy (up to 95%), and
+                            decreased dashboard refresh time from 8 hours to 3 hours.
+                        </span>
+                    </li>
+
+                    <li>
+                        <span><strong>Data Integration:</strong></span>
+                        <span>Transformed and integrated data from internal systems, APIs, and flat files using Qlik
+                            and SQL DBT. Consolidated disparate datasets into Azure and Snowflake data warehouses to
+                            enable
+                            centralised reporting and analytics.
+                        </span>
+                    </li>
+
+                    <li>
+                        <span><strong>Root Cause Analysis & Performance Diagnostics:</strong></span>
+                        <span>Led investigations into ETL failures, dashboard lags, and pipeline inefficiencies.
+                            Implemented variable logic, threshold triggers, and fallback procedures to enhance the
+                            reliability of the data ecosystem. Collaborated with the Head of Claims and IT to optimise
+                            warehouse and server performance, reducing data retrieval latency by 40%.</span>
+                    </li>
+
+                    <li>
+                        <span><strong>Optimisation for Accuracy:</strong></span>
+                        <span>Tuned SQL queries, Power BI DAX measures, and ETL logic to reduce data latency and improve
+                            reliability. Reduced dashboard loading times by 3 hours while maintaining 95%+ data
+                            accuracy, enhancing the user experience and trust in data outputs.</span>
+                    </li>
+
+                    <li>
+                        <span><strong>Excel for Validation and Reporting:</strong></span>
+                        <span>Used advanced Excel functions (pivot tables, nested formulas, conditional formatting,
+                            VLOOKUP) for ad hoc validation, compliance checks, and fast-turnaround analysis. Excel
+                            reports were especially effective for teams without access to enterprise BI platforms,
+                            enabling quick, data-backed decision-making.
+                        </span>
+                    </li>
+
+                    <li>
+                        <span><strong>Data SME & Issue Resolution:</strong></span>
+                        <span> Served as a Data Subject Matter Expert (SME), actively supporting stakeholders by
+                            troubleshooting report discrepancies, clarifying data definitions, and validating KPIs.
+                            Built credibility across functions by ensuring high data accuracy and resolving issues
+                            quickly, resulting in increased trust and consistent report usage.
+                        </span>
+                    </li>
+
+                    <li>
+                        <span><strong>Data Analysis & Dashboarding:</strong></span>
+                        <span>Utilised SQL and Python to perform detailed analysis of healthcare insurance datasets,
+                            identifying key business trends, customer behaviour patterns, and operational
+                            inefficiencies. Translated complex data into clear, visual insights using QlikSense and
+                            Power BI dashboards, enabling stakeholders to make timely, data-informed decisions.</span>
+                    </li>
+
+                    <li>
+                        <span><strong>Dashboards:</strong></span>
+                        <span>Built and maintained cross-functional dashboards that monitored real-time KPIs such as
+                            policy uptake, claim cycle times, and financial exposure. These dashboards were used by
+                            department heads and the MD to prioritise actions, track goals, and allocate resources. One
+                            flagship dashboard for travel insurance helped reduce claim resolution time by 20% and
+                            improved customer retention by 15%.</span>
+                    </li>
+
+                    <li>
+                        <span><strong>Dashboard Lifecycle Management:</strong></span>
+                        <span>Managed the full dashboard development lifecycle from scoping to deployment and
+                            maintenance. Ensured that business dashboards remained relevant, accurate, and
+                            user-friendly, with periodic enhancements based on stakeholder feedback.</span>
+                    </li>
+
+                    <li>
+                        <span><strong>Prepared and Monitored Reports:</strong></span>
+                        <span>Created and maintained daily, weekly, and monthly reports across Claims, Renewals, and
+                            Sales. One key outcome was reducing average pending healthcare claims from 80K to 38K,
+                            increasing claims processing productivity by 52%.</span>
+                    </li>
+
+                    <li>
+                        <span><strong>Customer Experience Dashboards:</strong></span>
+                        <span>Built CRM dashboards using Power BI to track Net Promoter Score (NPS) and customer service
+                            ratings. These visual tools enabled business teams to identify service gaps and implement
+                            targeted improvements, leading to measurable increases in customer satisfaction.</span>
+                    </li>
+
+                    <li>
+                        <span><strong>Automation:</strong></span>
+                        <span>Automated over 100 recurring internal and B2B client reports using a combination of
+                            Python, Qlik NPrinting, and Qlik QMC. This initiative cut manual reporting effort by 70%,
+                            improved accuracy, and ensured timely delivery of business-critical insights, often under
+                            tight SLAs.
+                        </span>
+                    </li>
+
+                    <li>
+                        <span><strong>Ad-Hoc Analysis & ETL:</strong></span>
+                        <span>Performed real-time analyses by extracting and transforming raw data from multiple sources
+                            using SQL, Excel, Python, QlikSense, and Power BI. Addressed unique business questions
+                            ranging from claim backlogs to fraud detection and customer segmentation.</span>
+                    </li>
+
+                    <li>
+                        <span><strong>Advanced Analytics Enablement:</strong></span>
+                        <span>Centralised disparate data sources into Azure and Snowflake warehouses to support
+                            higher-level analytics use cases, including predictive modelling, segmentation, and
+                            forecasting. Prepared structured datasets that could be directly used for machine learning
+                            or scenario simulations.</span>
+                    </li>
+
+                    <li>
+                        <span><strong>Predictive Modeling & Risk Scoring:</strong></span>
+                        <span>Built regression and classification models in Python (Scikit-learn, Pandas, Seaborn) to
+                            predict high-risk claims and support fraud detection. These models empowered risk teams to
+                            take proactive actions, reducing false claims exposure and enhancing underwriting
+                            accuracy.</span>
+                    </li>
+
+                    <li>
+                        <span><strong>Client Needs Assessment:</span></strong>
+                        <span>Interpreted and translated complex client requirements into meaningful analytical outputs.
+                            Delivered custom dashboards, ad-hoc reports, and visual tools that directly supported
+                            decision-making, performance evaluation, and operational planning.</span>
+                    </li>
+
+                    <!-- <li>
+                        <span><strong>Sales Impact:</strong></span>
+                        <span>Developed data models and dashboards to analyse sales trends, customer demographics, and
+                            marketing campaign effectiveness. This enabled smarter targeting strategies and contributed
+                            to a 20% increase in online policy sales.</span>
+                    </li> -->
+
+                    <li>
+                        <span><strong>Incentive Reporting & Sales Impact:</strong></span>
+                        <span>Created detailed performance tracking reports for the sales team to link individual
+                            performance with incentives and goals. These dashboards helped increase transparency and
+                            accountability, ultimately contributing to a 15% boost in quarterly sales productivity.
+                            Additionally, built customer segmentation dashboards that supported a 20% uplift in online
+                            policy sales through targeted campaigns.
+                        </span>
+                    </li>
+
+                    <li>
+                        <span><strong>Client Collaboration:</strong></span>
+                        <span>Worked alongside cross-functional teams, including Claims, IT, Finance, and Sales, to
+                            define reporting goals and business KPIs. Participated in Agile sprints and traditional
+                            Waterfall cycles to deliver BI solutions that were aligned with real business needs. Reduced
+                            ad hoc reporting load by 25% by delivering standardised self-serve dashboards.
+                        </span>
+                    </li>
+
+                    <li>
+                        <span><strong>Stakeholder Collaboration:</strong></span>
+                        <span>Worked collaboratively with the Head of Claims and IT infrastructure teams to troubleshoot
+                            performance issues, leading to a 20% improvement in server response time and enhanced
+                            dashboard responsiveness.
+                        </span>
+                    </li>
+
+                    <li>
+                        <span><strong>Training & Stakeholder Support:</strong></span>
+                        <span> Led structured training sessions for business users, analysts, and department leads to
+                            drive adoption of Power BI and Qlik dashboards. Developed supporting documentation and
+                            walkthroughs, significantly improving data literacy across teams and reducing reliance on
+                            manual reports and IT support.
+                        </span>
+                    </li>
+
+                    <li>
+                        <span><strong>Mentorship and Training:</strong></span>
+                        <span> Trained junior developers and interns by providing hands-on guidance in data analysis
+                            techniques, SQL query optimisation, and Python-based automation. This fostered a
+                            collaborative environment and accelerated their learning curve, improving overall team
+                            efficiency.
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="box" and id="Nipa_International_Ltd">
+                <a href="Nipa_International_Ltd" target="_blank"></a>
+                <h3><u>Nipa International Ltd, Gurgaon, India</u></h3>
+                <p class="justified-text"><i>Junior Data Analyst | August 2020 - August 2021 | Indsutry -
+                        Manufacturing</i></p>
+                <!-- <p class="justified-text">January 2021 - August 2021</p>
+                <p class="justified-text">Indsutry - Manufacturing</p> -->
+                <p class="justified-text">In this role, I managed work orders from the R&D department, led initiatives
+                    to enhance productivity, and implemented data-driven strategies to streamline operations and improve
+                    production efficiencies.</p>
+                <p class="justified-text"><b>Key Achievements and Responsibilities:</b></p>
+                <ul class="hanging-indent">
+                    <li><strong>Data Prepration:</strong>Extracted raw manufacturing and operational data from the ERP
+                        system using MySQL. Applied data cleaning techniques to standardise entries, correct anomalies,
+                        and ensure integrity, resulting in a 20% reduction in data processing time and significantly
+                        improving the reliability of downstream analysis.</li>
+                    <li><strong>Operational Reporting & Performance Tracking:</strong>Developed and maintained
+                        comprehensive performance reports in Excel to monitor critical metrics such as production
+                        efficiency, machine downtime, and product defect rates. These reports empowered floor managers
+                        to identify bottlenecks and implement timely interventions, leading to a 15% improvement in
+                        process tracking and corrective action response.</li>
+                    <li><strong>Audit & Compliance Reporting:</strong> Created standardised reporting templates and
+                        dashboards tailored for internal and external audits. This initiative reduced audit preparation
+                        time by 30% by ensuring consistent data formats, improving traceability, and minimising
+                        last-minute data reconciliation efforts.</li>
+                    <!-- <li><strong>Database Management:</strong> Updated and maintained employee and tool databases using
+                        MySQL, ensuring data consistency and availability for operational needs.</li> -->
+                    <li><strong>Data Analysis & Reporting:</strong> Conducted in-depth analysis of raw material
+                        consumption and waste patterns across multiple production lines. Identified inefficiencies and
+                        areas of overuse that translated into potential annual cost savings of approximately ₹2.5
+                        million. Recommendations were shared with procurement and production teams to guide optimisation
+                        strategies.</li>
+                    <li><strong>Cross-functional Support for Process Optimisation:</strong> Supported plant operations
+                        by providing
+                        timely data insights that improved production planning and reduced unplanned downtime,
+                        contributing to smoother workflows and better resource utilisation.</li>
+                    <li><strong>Inventory & Supplier Insights:</strong> Assisted in analysing stock levels, reorder
+                        frequency, and supplier performance using ERP exports. Provided visual summaries and reports
+                        that helped procurement teams make informed sourcing decisions, reduce overstock risks, and
+                        improve inventory turnover ratios. </li>
+                    <!-- <li><strong>Siemens Efficiency Enhancement:</strong> Optimised the Siemens home appliance production
+                        line, achieving a 20% increase in efficiency through strategic supply chain adjustments and
+                        design improvements.</li>
+                    <li><strong>Supplier Negotiations:</strong> Used data insights to inform supplier negotiations,
+                        reducing procurement costs by 18% and strengthening relationships with key suppliers.</li> -->
+                    <!-- <li><strong>Production Process Improvements:</strong> Increased production efficiency by 15% through
+                        Power BI and Excel reports that identified process refinements, ultimately contributing to
+                        smoother and more cost-effective operations. Monitored sales trends and B2B purchasing
+                        behaviour,
+                        providing actionable insights that increased upselling opportunities by 12%.</li> -->
+                </ul>
+            </div>
+
+            <div class="box" id="HondaAssembly">
+                <a href="#HondaAssembly" target="_blank"></a>
+                <h3><u>Honda Cars India Ltd, Noida, India</u></h3>
+                <p class="justified-text"><i>Intern – Assembly Frame | June 2019 - July 2019 | Industry - Automotive
+                        Manufacturing</i></p>
+
+                <p class="justified-text">
+                    Completed a short-term internship within the assembly frame department, gaining hands-on exposure to
+                    automotive manufacturing processes and shop-floor operations in a high-precision production
+                    environment.
+                </p>
+
+                <p class="justified-text"><b>Key Achievements and Responsibilities:</b></p>
+                <ul class="hanging-indent">
+                    <li>
+                        <span><strong>Assembly Line Support:</strong></span>
+                        <span>Assisted in monitoring assembly line processes and supporting daily production
+                            activities.</span>
+                    </li>
+
+                    <li>
+                        <span><strong>Frame Assembly Observation:</strong></span>
+                        <span>Observed frame assembly operations, ensuring alignment, accuracy, and adherence to safety
+                            standards.</span>
+                    </li>
+
+                    <li>
+                        <span><strong>Production Data Tracking:</strong></span>
+                        <span>Helped track production data, update checklists, and report process deviations to
+                            supervisors.</span>
+                    </li>
+
+                    <li>
+                        <span><strong>Quality Inspection Support:</strong></span>
+                        <span>Supported quality inspection tasks by checking components for defects and verifying
+                            measurements.</span>
+                    </li>
+
+                    <li>
+                        <span><strong>Cross-Functional Coordination:</strong></span>
+                        <span>Collaborated with technicians and engineers to help maintain smooth workflow on the shop
+                            floor.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="box" id="HondaAdmin">
+                <a href="#HondaAdmin" target="_blank"></a>
+                <h3><u>Honda Cars India Ltd, Noida, India</u></h3>
+                <p class="justified-text"><i>Intern – Administrative Office | June 2018 - July 2018 | Industry -
+                        Automotive Manufacturing</i></p>
+
+                <p class="justified-text">
+                    Worked as an administrative intern supporting daily office operations, developing strong
+                    organisational,
+                    communication, and data-handling skills within a professional corporate environment.
+                </p>
+
+                <p class="justified-text"><b>Key Achievements and Responsibilities:</b></p>
+                <ul class="hanging-indent">
+                    <li>
+                        <span><strong>Document Management:</strong></span>
+                        <span>Managed document filing, scanning, data entry, and organisation of digital and physical
+                            records.</span>
+                    </li>
+
+                    <li>
+                        <span><strong>Administrative Support:</strong></span>
+                        <span>Assisted with meeting scheduling, room preparation, and internal communication
+                            tasks.</span>
+                    </li>
+
+                    <li>
+                        <span><strong>Office Supply Coordination:</strong></span>
+                        <span>Tracked office supplies and coordinated with teams to ensure timely replenishment.</span>
+                    </li>
+
+                    <li>
+                        <span><strong>Reporting and Data Handling:</strong></span>
+                        <span>Prepared basic reports, maintained spreadsheets, and supported staff with daily
+                            administrative
+                            needs.</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
