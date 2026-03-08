@@ -273,17 +273,25 @@
         </section>
 
         <section id="cheat_sheets">
-    <h2 class="section-title">Cheat Sheets:</h2>
-    <div class="box">
-        <p class="justified-text">SQL: <a href="Documents/Cheat_Sheets/SQL_Cheat_Sheet.pdf" target="_blank">Click to review and download Cheat Sheet</a></p>
-        <p class="justified-text">DAX: <a href="Documents/Cheat_Sheets/DAX Cheat Sheet.pdf" target="_blank">Click to review and download Cheat Sheet</a></p>
-        <p class="justified-text">Python Data Analysis: <a href="Documents/Cheat_Sheets/Python_Data_Analysis_Cheat_Sheet.pdf" target="_blank">Click to review and download Cheat Sheet</a></p>
-        <p class="justified-text">Python ML: <a href="Documents/Cheat_Sheets/Python_ML_Cheat_Sheet.pdf" target="_blank">Click to review and download Cheat Sheet</a></p>
-        <p class="justified-text">Qlik: <a href="Documents/Cheat_Sheets/Qlik_Cheat_Sheet.pdf" target="_blank">Click to review and download Cheat Sheet</a></p>
-        <p class="justified-text">SQL Alchemy: <a href="Documents/Cheat_Sheets/SQL_Alchemy_Cheat_Sheet.pdf" target="_blank">Click to review and download Cheat Sheet</a></p>
-        <p class="justified-text">PySpark: <a href="Documents/Cheat_Sheets/PySpark_Cheat_Sheet.pdf" target="_blank">Click to review and download Cheat Sheet</a></p>
-    </div>
-</section>
+            <h2 class="section-title">Cheat Sheets:</h2>
+            <div class="box">
+                <p class="justified-text">SQL: <a href="Documents/Cheat_Sheets/SQL_Cheat_Sheet.pdf"
+                        target="_blank">Click to review and download Cheat Sheet</a></p>
+                <p class="justified-text">DAX: <a href="Documents/Cheat_Sheets/DAX Cheat Sheet.pdf"
+                        target="_blank">Click to review and download Cheat Sheet</a></p>
+                <p class="justified-text">Python Data Analysis: <a
+                        href="Documents/Cheat_Sheets/Python_Data_Analysis_Cheat_Sheet.pdf" target="_blank">Click to
+                        review and download Cheat Sheet</a></p>
+                <p class="justified-text">Python ML: <a href="Documents/Cheat_Sheets/Python_ML_Cheat_Sheet.pdf"
+                        target="_blank">Click to review and download Cheat Sheet</a></p>
+                <p class="justified-text">Qlik: <a href="Documents/Cheat_Sheets/Qlik_Cheat_Sheet.pdf"
+                        target="_blank">Click to review and download Cheat Sheet</a></p>
+                <p class="justified-text">SQL Alchemy: <a href="Documents/Cheat_Sheets/SQL_Alchemy_Cheat_Sheet.pdf"
+                        target="_blank">Click to review and download Cheat Sheet</a></p>
+                <p class="justified-text">PySpark: <a href="Documents/Cheat_Sheets/PySpark_Cheat_Sheet.pdf"
+                        target="_blank">Click to review and download Cheat Sheet</a></p>
+            </div>
+        </section>
 
 
         <section id="projects">
@@ -328,6 +336,8 @@
                 <a href="#Python_ETL_PBI_Visualisation_ML" class="project-nav-box">Self Project 2: Monthly Beverage
                     Sales Dashboard – Power BI + Python</a>
                 <a href="#Big_Picture" class="project-nav-box">Self Project 3: Retail Sales Performance</a>
+                <a href="#Housing_Dashboard" class="project-nav-box">Self Project 4: Property &amp; Repairs Analysis
+                    Dashboard – Power BI</a>
                 <a href="#Predictive_Model" class="project-nav-box">Project 1: Bike Usage Prediction</a>
                 <a href="#Power_BI" class="project-nav-box">Academic Project 2: Retail Analytics</a>
                 <a href="#project3" class="project-nav-box">Academic Project 3: NHS Staff Scheduling</a>
@@ -2640,6 +2650,136 @@
                     </li>
                     <li><strong>Report</strong>
                         <p class="justified-text"><a href="Documents/Projects/Big_Picture/Vyom_Khanna_Report.pdf"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+            </div>
+
+            <div id="Housing_Dashboard" class="box">
+                <h3><u>Self Project 4: Property &amp; Repairs Analysis Dashboard – Power BI</u></h3>
+
+                <h3>Objective</h3>
+                <p class="justified-text">
+                    This project aimed to create an end-to-end BI dashboard for an housing agency, one of
+                    England's largest social housing providers, analysing a portfolio of 550 properties and 1,200 repair
+                    jobs across Birmingham postcodes. The dashboard provides interactive analysis of asset condition,
+                    energy efficiency risk, repair cost drivers, contractor performance, and operational patterns across
+                    two report pages, built entirely in Power BI using a structured data modelling and DAX approach.
+                </p>
+
+                <h3>Methodology</h3>
+                <ol>
+                    <li><strong>Data Profiling and Quality Assessment</strong>
+                        <ul>
+                            <li>Reviewed both datasets before building anything: 550 properties and 1,200 repairs.</li>
+                            <li>Confirmed zero null values and zero duplicate records across both tables.</li>
+                            <li>Identified 3 cost outliers in the repairs dataset: jobs costing £12,000, £20,000 and
+                                £20,000 against an otherwise sub-£1,000 distribution. Retained as legitimate high-cost
+                                jobs and flagged in analysis.</li>
+                            <li>March 2025 data runs only to the 25th — flagged explicitly in the monthly trend visual
+                                to avoid misinterpretation.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Data Modelling</strong>
+                        <ul>
+                            <li>Built a star schema: Repairs as the fact table, Properties and DateTable as dimension
+                                tables.</li>
+                            <li>Relationships: Repairs[PropertyID] to Properties[PropertyID] (Many to One),
+                                Repairs[ReportedDate] to DateTable[Date] (Many to One).</li>
+                            <li>Created a continuous DateTable spanning January 2024 to March 2025 to enable time
+                                intelligence and avoid gaps in the monthly trend axis.</li>
+                            <li>YearMonth field converted to text in Power Query to prevent Power BI collapsing both
+                                years into a single axis.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Power Query Transformations</strong>
+                        <ul>
+                            <li>Extracted PostcodeDistrict from PostcodeSector using <code>Text.BeforeDelimiter</code>
+                                to enable geographic analysis.</li>
+                            <li>Added EPC_SortOrder (A=1 to F=6) to enforce correct chart ordering for EPC Rating
+                                Distribution.</li>
+                            <li>Added DurationBracket (0-7, 8-14, 15-21, 22-30, 30+ Days) to group job durations into
+                                meaningful bands.</li>
+                            <li>Added DurationSort to enforce correct bracket ordering via Sort by Column.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>DAX Measures</strong> (stored in dedicated _Measures table)
+                        <ul>
+                            <li>Core KPIs: Total Repairs, Total Spend, Avg Cost per Job, Avg Duration Days, Total
+                                Properties, Repairs per Property.</li>
+                            <li>Risk measures: % Emergency Jobs, % EPC D or Below, High Cost Repairs, Properties Over 50
+                                Years.</li>
+                            <li>Operational: Repeat Repairs (count of properties with 3 or more repair jobs).</li>
+                            <li>All division measures use <code>DIVIDE()</code> to handle zero denominators gracefully.
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Dashboard Pages and Visuals</strong>
+                        <ul>
+                            <li><strong>Page 1 – Property and Repairs Overview:</strong> KPI cards, EPC Rating
+                                Distribution, Property Type by Heating Type, Repairs by Category, Contractor Performance
+                                combo chart, and Monthly Repair Trend (Jan 2024 to Mar 2025).</li>
+                            <li><strong>Page 2 – Asset and Operational Analysis:</strong> Repeat Repairs card, Ageing
+                                Stock by Property Type, Properties and Repairs by Area, Repair Volume by Priority, Avg
+                                Cost by Contractor and Priority, and Duration Bracket Matrix.</li>
+                            <li>Slicers across both pages: Year and Month, Priority, RepairCategory, PropertyType.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Conclusion</h3>
+                <ol>
+                    <li><strong>Key Outcomes</strong>
+                        <ul>
+                            <li>Built a fully relational star schema with proper data governance and naming conventions.
+                            </li>
+                            <li>Identified £52K in potential annual savings through ContractorB renegotiation.</li>
+                            <li>Surfaced 283 properties at EPC D or below representing the biggest compliance risk in
+                                the portfolio.</li>
+                            <li>Delivered actionable recommendations on contractor performance, electrical maintenance,
+                                seasonal planning and repeat repair intervention.</li>
+                            <li>Dashboard designed for non-technical housing managers with clear titles, interactive
+                                slicers and KPI cards on every page.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Next Steps</strong>
+                        <ul>
+                            <li>Connect to live data source to enable automated refresh via Power BI Service.</li>
+                            <li>Implement Row Level Security so regional managers only see their own properties.</li>
+                            <li>Build a planned maintenance prioritisation model combining EPC rating, build year and
+                                repair frequency.</li>
+                            <li>Add forecasting on monthly repair volume using Power BI analytics pane.</li>
+                            <li>Introduce drill-through pages so users can click a postcode or contractor and see the
+                                full detail behind the number.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Opportunities for Predictive Insights</h3>
+                <ul>
+                    <li><strong>Property Risk Scoring:</strong> Combine EPC rating, build year and repair frequency into
+                        a single risk score per property.</li>
+                    <li><strong>Contractor Fraud Detection:</strong> Flag jobs where cost significantly exceeds category
+                        average.</li>
+                    <li><strong>Demand Forecasting:</strong> Predict monthly repair volume by category to improve
+                        contractor capacity planning.</li>
+                    <li><strong>Retrofit Prioritisation Model:</strong> Rank properties for EPC retrofit based on cost,
+                        impact and tenure type.</li>
+                </ul>
+
+                <h3>Relevant Files</h3>
+
+                <ol>
+                    <li><strong>Dashboard</strong>
+                        <p class="justified-text"><a href="Documents/Projects/Housing_Project/GSA_Dashboard.pbix"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+                    <li><strong>Presentation</strong>
+                        <p class="justified-text"><a href="Documents/Projects/Housing_Project/GSA_Presentation.pptx"
                                 target="_blank">Click to Preview</a></p>
                     </li>
             </div>
