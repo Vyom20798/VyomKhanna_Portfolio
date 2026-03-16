@@ -2362,57 +2362,46 @@
 
 
             <div id="Python_ETL_PBI_Visualisation_ML" class="box">
-                <h3><u>Self Project 2: Beverage Sales Dashboard – Power BI + Python</u>
-                </h3>
+                <h3><u>Self Project 2: German Beverages Sales Dashboard – Power BI + Python</u></h3>
 
                 <h3>Objective</h3>
                 <p class="justified-text">
-                    This project aimed to create an end-to-end sales dashboard solution using
-                    Power
-                    BI and Python,
-                    driven by a
-                    Kaggle dataset on synthetic beverage sales. The dashboard provides a rich,
-                    interactive analysis of
-                    sales KPIs,
-                    customer behavior, product trends, and regional insights. It also integrates
-                    a
-                    reusable Python data
-                    pipeline
-                    to automate data ingestion, cleaning, and transformation.
+                    Build an end-to-end sales analytics solution combining a reusable Python data pipeline with a
+                    6-page interactive Power BI dashboard. The project uses a synthetic, GDPR-compliant Kaggle
+                    dataset on beverage sales in Germany. Python handles automated ingestion, cleaning, and
+                    feature engineering — Power BI delivers the analytical layer with time intelligence, customer
+                    segmentation, regional mapping, and discount analysis. Accent colours: <b>#1E3A5F</b> (navy)
+                    and <b>#2E86AB</b> (teal).
                 </p>
+
+                <ol class="hanging-indent">
+                    <li><strong>Exploratory Data Analysis:</strong> Profiled revenue distribution, discount
+                        behaviour, seasonal patterns, and customer segmentation across 24 products, 4 categories,
+                        and 16 German states.</li>
+                    <li><strong>Business Intelligence Model:</strong> Delivered a 6-page Power BI report with time
+                        intelligence, a dedicated Date Table, and 35+ DAX measures organised into display folders
+                        — built to handle 1 million rows performantly.</li>
+                </ol>
 
                 <h3>Methodology</h3>
                 <ol>
-                    <li><strong>Kaggle Extractor Module</strong>
+                    <li><strong>Kaggle Extractor Module (Python)</strong>
                         <ul>
-                            <li>Developed a custom Python module
-                                <code>Kaggle_Extractor.py</code> to
-                                automate data
-                                ingestion.
-                            </li>
+                            <li>Developed a custom Python module <code>Kaggle_Extractor.py</code> to automate
+                                data ingestion.</li>
                             <li><strong>Key Features:</strong></li>
                             <ul>
-                                <li><strong>Automated Data Downloading:</strong> Uses the Kaggle
-                                    API
-                                    to download ZIP
-                                    datasets via
-                                    dataset path (e.g.,
+                                <li><strong>Automated Data Downloading:</strong> Uses the Kaggle API to download
+                                    ZIP datasets via dataset path (e.g.,
                                     <code>"sebastianwillmann/beverage-sales"</code>).
                                 </li>
-                                <li><strong>ZIP Extraction & File Management:</strong> Extracts
-                                    and
-                                    stores datasets in
-                                    structured
-                                    folders.</li>
-                                <li><strong>Dynamic DataFrame Loading:</strong> Loads CSV files
-                                    into
-                                    pandas DataFrames
-                                    automatically.</li>
+                                <li><strong>ZIP Extraction &amp; File Management:</strong> Extracts and stores
+                                    datasets in structured folders.</li>
+                                <li><strong>Dynamic DataFrame Loading:</strong> Loads CSV files into pandas
+                                    DataFrames automatically.</li>
                             </ul>
-                            <p>This serves as the data ingestion layer of the project and is
-                                easily
-                                reusable across
-                                different datasets.</p>
+                            <p>This serves as the data ingestion layer of the project and is easily reusable
+                                across different datasets.</p>
                         </ul>
                     </li>
 
@@ -2428,35 +2417,45 @@
                                 </li>
                                 <li><code>Is_Weekend</code> flag based on order day</li>
                             </ul>
-                            <li><strong>Data Volume Handling:</strong> Reduced original dataset
-                                from
-                                <b>8.9 million rows
-                                    to 1 million</b>
-                                to improve performance and allow sanity checks within system
-                                memory
-                                limits.
+                            <li><strong>Data Volume Handling:</strong> Reduced original dataset from
+                                <b>8.9 million rows to 1 million</b> to improve performance and allow sanity
+                                checks within system memory limits.
                             </li>
-                            <li>Exports cleaned CSV with a timestamped filename for Power BI use
-                            </li>
+                            <li>Exports cleaned CSV with a timestamped filename for Power BI consumption.</li>
                         </ul>
                     </li>
 
-                    <li><strong>Power BI Modeling and DAX</strong>
+                    <li><strong>Power BI Modelling and DAX</strong>
                         <ul>
-                            <li>Loaded cleaned data into Power BI using Power Query</li>
-                            <li>Created calculated columns and DAX measures for KPIs and trends
-                            </li>
+                            <li>Loaded cleaned Python output into Power BI via Power Query.</li>
+                            <li>Base table: <b>Orders</b> (order-line grain: Order Date, Product, Quantity,
+                                Unit Price, Discount, Total Price, Region, Customer Type).</li>
+                            <li>Date Table built in DAX using <code>ADDCOLUMNS(CALENDAR(...))</code> with Year,
+                                Quarter, Month, Month No, Week No, Day Name, and Is Weekend columns. Marked as
+                                Date Table with a one-to-many relationship to Orders[Order_Date] — required for
+                                all time intelligence functions to evaluate correctly.</li>
+                            <li>Calculated columns added in Power Query: <code>Country</code> (= "Germany" for
+                                geographic mapping) and <code>Month Year Sort</code> (YYYY * 100 + MM) for
+                                chronological axis ordering.</li>
+                            <li>All analytical logic kept in <b>DAX measures rather than calculated
+                                    columns</b> — critical at 1M row scale to avoid model bloat.</li>
+                            <li>Dedicated measures table with 35+ measures organised into six display folders
+                                matching each report page.</li>
                             <li><strong>Core DAX KPIs:</strong></li>
                             <ul>
-                                <li><code>Total_Sales</code>, <code>Total_Customers</code>,
-                                    <code>Total_Orders</code>,
-                                    <code>Avg_Order_Value</code>
+                                <li><code>Total Revenue</code>, <code>Total Orders</code>,
+                                    <code>Total Customers</code>, <code>Avg Order Value</code>,
+                                    <code>Revenue MoM %</code>
                                 </li>
-                                <li>Advanced: <code>Customer_Lifetime_Value</code>,
-                                    <code>Customer_Recency</code>,
-                                    <code>Product_Popularity</code>,
-                                    <code>Revenue_per_Unit</code>,
-                                    <code>YoY_Growth</code>
+                                <li>Time intelligence: <code>Revenue YoY %</code>,
+                                    <code>Revenue YTD</code>, <code>Revenue MTD</code>,
+                                    <code>Rolling 3M Revenue</code>, <code>Cumulative Revenue</code>
+                                </li>
+                                <li>Operations: <code>Discount Impact</code>, <code>Discount Rate %</code>,
+                                    <code>Gross Revenue</code>, <code>Rev vs Target %</code>
+                                </li>
+                                <li>Customer: <code>Revenue per Customer</code>,
+                                    <code>Orders per Customer</code>
                                 </li>
                             </ul>
                         </ul>
@@ -2464,70 +2463,119 @@
 
                     <li><strong>Dashboard Pages and Visuals</strong>
                         <ul>
-                            <li><b>Overview:</b> KPI Cards, Top Product/Customer/Region</li>
-                            <li><b>Top 10s:</b> Products, Customers, Categories, Regions</li>
-                            <li><b>Customer Trends:</b> Lifetime Value, Frequency Trend</li>
-                            <li><b>RFM & Returns:</b> Customer Segments, Returns, Recency
-                                Distribution</li>
-                            <li><b>Product Analysis:</b> Popularity, Revenue per Unit, Category
-                                Bar
-                                Chart</li>
-                            <li><b>Geospatial:</b> Filled and bubble maps of region-wise sales
+                            <li>Colour scheme: <b>#1E3A5F</b> navy and <b>#2E86AB</b> teal. Canvas background:
+                                <b>#F5F7FA</b>. Slicer panels on each page (Year, Region, Category, Customer
+                                Type, Product).
+                            </li>
+                            <li>Six pages built, each answering a defined business question:
+                                <ol>
+                                    <li><strong>Executive Summary</strong> — What is the overall health of the
+                                        business? Five KPI cards (Total Revenue, Total Orders, Total Customers,
+                                        Avg Order Value, Revenue MoM %), monthly revenue trend with Rolling 3M
+                                        overlay.</li>
+                                    <li><strong>Product Analysis</strong> — Which products and categories drive
+                                        revenue, and where are discounts concentrated? Treemap (Category &gt;
+                                        Product), bar chart (Top Products by Revenue), clustered bar (Revenue vs
+                                        Volume by Category), donut (Category Revenue %), matrix scorecard
+                                        (Product, Revenue, Quantity, Avg Discount %, Rank).</li>
+                                    <li><strong>Regional Performance</strong> — Which German states generate the
+                                        most revenue and how does product mix vary by region? Custom Shape Map
+                                        using Germany TopoJSON — states shaded by revenue intensity on a navy
+                                        gradient. Horizontal bar chart (16 states ranked), matrix (Region
+                                        &times; Category with revenue and totals).</li>
+                                    <li><strong>Customer Analysis</strong> — How do B2B and B2C customers
+                                        differ in value and behaviour? Donut (B2B 76.55% vs B2C 23.45% revenue
+                                        split), scatter plot (Revenue vs Quantity, bubble size = orders, colour
+                                        = customer type), KPI cards (Total Customers, Revenue per Customer).</li>
+                                    <li><strong>Time Intelligence</strong> — How has revenue trended over 3
+                                        years and what growth patterns emerge? Line and column combo (Monthly
+                                        Revenue + YoY % line), area chart (Cumulative Revenue 2021–2023), area
+                                        chart (Revenue MTD), line chart (Revenue MoM %). All powered by Date
+                                        Table using <code>DATESYTD</code>, <code>DATEADD</code>,
+                                        <code>DATESMTD</code>, and <code>CALCULATE</code> with
+                                        <code>ALL</code>.
+                                    </li>
+                                    <li><strong>Operations</strong> — Where are discounts eroding revenue most
+                                        and are we on track against target? Gauge (Revenue vs &#8364;150M
+                                        target — 87% achieved), KPI cards (Discount Impact &#8364;10.71M,
+                                        Discount Rate 7.56%), horizontal bar (Discount Impact by Product),
+                                        matrix (Region &times; Category with Revenue and Discount Rate % —
+                                        conditional formatting red = high, green = low).</li>
+                                </ol>
                             </li>
                         </ul>
                     </li>
                 </ol>
 
-                <h3>Conclusion</h3>
+                <h3>Key Findings</h3>
                 <ul>
-                    <li>Automated pipeline from Kaggle to Power BI using Python and DAX</li>
-                    <li>Improved reproducibility and reduced development time</li>
-                    <li>Enabled deeper business analysis with custom KPIs and segmentation</li>
-                    <li>Scalable design, pipeline can be adapted for other datasets with minimal
-                        effort</li>
-                </ul>
-
-                <h3>Next Steps</h3>
-                <ul>
-                    <li>Add forecasting visuals using Power BI’s analytics pane</li>
-                    <li>Integrate data refresh automation via Power BI Service</li>
-                    <li>Introduce custom themes and trendlines for better UX</li>
-                    <li>Parameterise top-N filters and drill-through charts for advanced
-                        interactivity</li>
+                    <li>Alcoholic Beverages accounts for 77% of total revenue (&#8364;101M) but also 77% of
+                        total discount impact (&#8364;8.3M) — high concentration risk on a single category.</li>
+                    <li>Revenue is evenly distributed across all 16 German states — Hamburg leads at
+                        &#8364;9.1M, Bremen lowest at &#8364;7.2M, a difference of only 20%.</li>
+                    <li>B2B customers generate 76% of revenue despite placing orders at the same frequency as
+                        B2C (33 orders per customer) — significantly higher order values.</li>
+                    <li>Cumulative revenue grew from &#8364;4M (Jan 2021) to &#8364;131M (Dec 2023) with no
+                        major dips, indicating stable demand across the full period.</li>
+                    <li>Discount rate is consistent across all categories (7.2%–7.9%) and all regions —
+                        suggesting a blanket discount policy rather than targeted promotions.</li>
                 </ul>
 
                 <h3>Opportunities for Predictive Insights</h3>
                 <ul>
-                    <li><b>Customer Churn Prediction:</b> Identify customers with declining
-                        engagement</li>
-                    <li><b>RFM Scoring:</b> Implement numerical scoring for Recency, Frequency,
-                        and
-                        Monetary value</li>
-                    <li><b>Basket Analysis:</b> Discover frequently bought product combinations
-                    </li>
-                    <li><b>Discount Elasticity:</b> Analyse how discount levels affect product
-                        sales
-                        and revenue</li>
+                    <li><b>Customer Churn Prediction:</b> Identify customers with declining engagement using
+                        recency and frequency trends.</li>
+                    <li><b>RFM Scoring:</b> Implement numerical scoring for Recency, Frequency, and Monetary
+                        value to segment customers.</li>
+                    <li><b>Basket Analysis:</b> Discover frequently bought product combinations to inform
+                        promotional bundling.</li>
+                    <li><b>Discount Elasticity:</b> Analyse how discount levels affect product sales and
+                        revenue across categories.</li>
+                </ul>
+
+                <h3>Conclusion</h3>
+                <ul>
+                    <li>Delivered an automated pipeline from Kaggle to Power BI using Python and DAX —
+                        reducing 8.9M rows to a clean 1M row dataset ready for analysis.</li>
+                    <li>Built a clean, performant 6-page Power BI report with 35+ DAX measures, full time
+                        intelligence, and custom geographic mapping across product, customer, time, and
+                        regional dimensions.</li>
+                    <li>Scalable design — pipeline can be adapted for other datasets with minimal effort.</li>
+                </ul>
+
+                <h3>Next Steps</h3>
+                <ul>
+                    <li>Implement Row-Level Security (dynamic RLS using <code>USERPRINCIPALNAME()</code>) for
+                        region-based access control.</li>
+                    <li>Publish to Power BI Service with scheduled refresh and usage metrics enabled.</li>
+                    <li>Add forecasting lines via the Analytics pane and parameterised Top-N product filtering
+                        with drill-through.</li>
+                    <li>Introduce an R12M (rolling 12-month) trend measure and dynamic currency formatting for
+                        multi-market extension.</li>
                 </ul>
 
                 <p class="justified-text">
-                    All data was extracted, processed, and cleaned using my custom-built
-                    <code>Kaggle_Extractor.py</code> module, ensuring a repeatable and modular
-                    pipeline across multiple
-                    Kaggle datasets.
+                    All data was extracted, processed, and cleaned using the custom-built
+                    <code>Kaggle_Extractor.py</code> module, ensuring a repeatable and modular pipeline
+                    reusable across multiple Kaggle datasets.
                 </p>
 
                 <h3>Relevant Files</h3>
-
                 <ol>
                     <li><strong>.pbix Dashboard</strong>
                         <p class="justified-text"><a
                                 href="Documents/Projects/Monthly Beverage_Sales_Dashboard/Beverages_Sales.pbix"
                                 target="_blank">Click to Preview</a></p>
                     </li>
-                    <li><strong>Readme</strong>
+                    <li><strong>Report</strong>
                         <p class="justified-text"><a
                                 href="Documents/Projects/Monthly Beverage_Sales_Dashboard/PowerBI_Sales_Dashboard_Report.docx"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+
+                    <li><strong>Python Scripts</strong>
+                        <p class="justified-text">
+                                <a href ="Documents/Projects/Kaggle/EDA_Script.py"
                                 target="_blank">Click to Preview</a></p>
                     </li>
             </div>
