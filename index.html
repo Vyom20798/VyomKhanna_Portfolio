@@ -338,7 +338,9 @@
                 <a href="#Big_Picture" class="project-nav-box">Self Project 3: Retail Sales Performance</a>
                 <a href="#Housing_Dashboard" class="project-nav-box">Self Project 4: Property &amp; Repairs Analysis
                     Dashboard – Power BI</a>
-                <a href="#Predictive_Model" class="project-nav-box">Project 1: Bike Usage Prediction</a>
+                <a href="#Oodle_Dashboard" class="project-nav-box">Self Project 5: Loan Application Analysis - Python
+                    &amp; Data Visualisation
+                </a> <a href="#Predictive_Model" class="project-nav-box">Project 1: Bike Usage Prediction</a>
                 <a href="#Power_BI" class="project-nav-box">Academic Project 2: Retail Analytics</a>
                 <a href="#project3" class="project-nav-box">Academic Project 3: NHS Staff Scheduling</a>
                 <a href="#project4" class="project-nav-box">Academic Project 4: EV Transition</a>
@@ -2369,7 +2371,7 @@
                     Build an end-to-end sales analytics solution combining a reusable Python data pipeline with a
                     6-page interactive Power BI dashboard. The project uses a synthetic, GDPR-compliant Kaggle
                     dataset on beverage sales in Germany. Python handles automated ingestion, cleaning, and
-                    feature engineering — Power BI delivers the analytical layer with time intelligence, customer
+                    feature engineering - Power BI delivers the analytical layer with time intelligence, customer
                     segmentation, regional mapping, and discount analysis. Accent colours: <b>#1E3A5F</b> (navy)
                     and <b>#2E86AB</b> (teal).
                 </p>
@@ -2380,7 +2382,7 @@
                         and 16 German states.</li>
                     <li><strong>Business Intelligence Model:</strong> Delivered a 6-page Power BI report with time
                         intelligence, a dedicated Date Table, and 35+ DAX measures organised into display folders
-                        — built to handle 1 million rows performantly.</li>
+                        - built to handle 1 million rows performantly.</li>
                 </ol>
 
                 <h3>Methodology</h3>
@@ -2432,13 +2434,13 @@
                                 Unit Price, Discount, Total Price, Region, Customer Type).</li>
                             <li>Date Table built in DAX using <code>ADDCOLUMNS(CALENDAR(...))</code> with Year,
                                 Quarter, Month, Month No, Week No, Day Name, and Is Weekend columns. Marked as
-                                Date Table with a one-to-many relationship to Orders[Order_Date] — required for
+                                Date Table with a one-to-many relationship to Orders[Order_Date] - required for
                                 all time intelligence functions to evaluate correctly.</li>
                             <li>Calculated columns added in Power Query: <code>Country</code> (= "Germany" for
                                 geographic mapping) and <code>Month Year Sort</code> (YYYY * 100 + MM) for
                                 chronological axis ordering.</li>
                             <li>All analytical logic kept in <b>DAX measures rather than calculated
-                                    columns</b> — critical at 1M row scale to avoid model bloat.</li>
+                                    columns</b> - critical at 1M row scale to avoid model bloat.</li>
                             <li>Dedicated measures table with 35+ measures organised into six display folders
                                 matching each report page.</li>
                             <li><strong>Core DAX KPIs:</strong></li>
@@ -2469,25 +2471,25 @@
                             </li>
                             <li>Six pages built, each answering a defined business question:
                                 <ol>
-                                    <li><strong>Executive Summary</strong> — What is the overall health of the
+                                    <li><strong>Executive Summary</strong> - What is the overall health of the
                                         business? Five KPI cards (Total Revenue, Total Orders, Total Customers,
                                         Avg Order Value, Revenue MoM %), monthly revenue trend with Rolling 3M
                                         overlay.</li>
-                                    <li><strong>Product Analysis</strong> — Which products and categories drive
+                                    <li><strong>Product Analysis</strong> - Which products and categories drive
                                         revenue, and where are discounts concentrated? Treemap (Category &gt;
                                         Product), bar chart (Top Products by Revenue), clustered bar (Revenue vs
                                         Volume by Category), donut (Category Revenue %), matrix scorecard
                                         (Product, Revenue, Quantity, Avg Discount %, Rank).</li>
-                                    <li><strong>Regional Performance</strong> — Which German states generate the
+                                    <li><strong>Regional Performance</strong> - Which German states generate the
                                         most revenue and how does product mix vary by region? Custom Shape Map
-                                        using Germany TopoJSON — states shaded by revenue intensity on a navy
+                                        using Germany TopoJSON - states shaded by revenue intensity on a navy
                                         gradient. Horizontal bar chart (16 states ranked), matrix (Region
                                         &times; Category with revenue and totals).</li>
-                                    <li><strong>Customer Analysis</strong> — How do B2B and B2C customers
+                                    <li><strong>Customer Analysis</strong> - How do B2B and B2C customers
                                         differ in value and behaviour? Donut (B2B 76.55% vs B2C 23.45% revenue
                                         split), scatter plot (Revenue vs Quantity, bubble size = orders, colour
                                         = customer type), KPI cards (Total Customers, Revenue per Customer).</li>
-                                    <li><strong>Time Intelligence</strong> — How has revenue trended over 3
+                                    <li><strong>Time Intelligence</strong> - How has revenue trended over 3
                                         years and what growth patterns emerge? Line and column combo (Monthly
                                         Revenue + YoY % line), area chart (Cumulative Revenue 2021–2023), area
                                         chart (Revenue MTD), line chart (Revenue MoM %). All powered by Date
@@ -2495,11 +2497,11 @@
                                         <code>DATESMTD</code>, and <code>CALCULATE</code> with
                                         <code>ALL</code>.
                                     </li>
-                                    <li><strong>Operations</strong> — Where are discounts eroding revenue most
+                                    <li><strong>Operations</strong> - Where are discounts eroding revenue most
                                         and are we on track against target? Gauge (Revenue vs &#8364;150M
-                                        target — 87% achieved), KPI cards (Discount Impact &#8364;10.71M,
+                                        target - 87% achieved), KPI cards (Discount Impact &#8364;10.71M,
                                         Discount Rate 7.56%), horizontal bar (Discount Impact by Product),
-                                        matrix (Region &times; Category with Revenue and Discount Rate % —
+                                        matrix (Region &times; Category with Revenue and Discount Rate % -
                                         conditional formatting red = high, green = low).</li>
                                 </ol>
                             </li>
@@ -2510,14 +2512,14 @@
                 <h3>Key Findings</h3>
                 <ul>
                     <li>Alcoholic Beverages accounts for 77% of total revenue (&#8364;101M) but also 77% of
-                        total discount impact (&#8364;8.3M) — high concentration risk on a single category.</li>
-                    <li>Revenue is evenly distributed across all 16 German states — Hamburg leads at
+                        total discount impact (&#8364;8.3M) - high concentration risk on a single category.</li>
+                    <li>Revenue is evenly distributed across all 16 German states - Hamburg leads at
                         &#8364;9.1M, Bremen lowest at &#8364;7.2M, a difference of only 20%.</li>
                     <li>B2B customers generate 76% of revenue despite placing orders at the same frequency as
-                        B2C (33 orders per customer) — significantly higher order values.</li>
+                        B2C (33 orders per customer) - significantly higher order values.</li>
                     <li>Cumulative revenue grew from &#8364;4M (Jan 2021) to &#8364;131M (Dec 2023) with no
                         major dips, indicating stable demand across the full period.</li>
-                    <li>Discount rate is consistent across all categories (7.2%–7.9%) and all regions —
+                    <li>Discount rate is consistent across all categories (7.2% - 7.9%) and all regions -
                         suggesting a blanket discount policy rather than targeted promotions.</li>
                 </ul>
 
@@ -2535,12 +2537,12 @@
 
                 <h3>Conclusion</h3>
                 <ul>
-                    <li>Delivered an automated pipeline from Kaggle to Power BI using Python and DAX —
+                    <li>Delivered an automated pipeline from Kaggle to Power BI using Python and DAX -
                         reducing 8.9M rows to a clean 1M row dataset ready for analysis.</li>
                     <li>Built a clean, performant 6-page Power BI report with 35+ DAX measures, full time
                         intelligence, and custom geographic mapping across product, customer, time, and
                         regional dimensions.</li>
-                    <li>Scalable design — pipeline can be adapted for other datasets with minimal effort.</li>
+                    <li>Scalable design - pipeline can be adapted for other datasets with minimal effort.</li>
                 </ul>
 
                 <h3>Next Steps</h3>
@@ -2575,8 +2577,8 @@
 
                     <li><strong>Python Scripts</strong>
                         <p class="justified-text">
-                                <a href ="Documents/Projects/Kaggle/EDA_Script.py"
-                                target="_blank">Click to Preview</a></p>
+                            <a href="Documents/Projects/Kaggle/EDA_Script.py" target="_blank">Click to Preview</a>
+                        </p>
                     </li>
             </div>
 
@@ -2723,7 +2725,7 @@
                             <li>Identified 3 cost outliers in the repairs dataset: jobs costing £12,000, £20,000 and
                                 £20,000 against an otherwise sub-£1,000 distribution. Retained as legitimate high-cost
                                 jobs and flagged in analysis.</li>
-                            <li>March 2025 data runs only to the 25th — flagged explicitly in the monthly trend visual
+                            <li>March 2025 data runs only to the 25th - flagged explicitly in the monthly trend visual
                                 to avoid misinterpretation.</li>
                         </ul>
                     </li>
@@ -2832,6 +2834,174 @@
                     </li>
             </div>
 
+            <div id="Oodle_Dashboard" class="box">
+                <h3><u>Self Project 5: Loan Application Analysis - Python &amp; Data Visualisation</u></h3>
+                <h3 class="section-heading">Objective</h3>
+                <p class="justified-text">
+                    This project involved a complete end-to-end exploratory data analysis of 10,000 fabricated car loan
+                    application records for Oodle Car Finance, a UK-based consumer lending platform. The goal was to
+                    help the
+                    marketing team decide where to invest more effectively by identifying which customer segments - by
+                    geography,
+                    age, car type, and loan size - delivered the highest approval rates, conversion rates, and funded
+                    loan
+                    outcomes. All analysis was performed in Python using pandas and matplotlib, with findings presented
+                    to a
+                    technical leadership audience.
+                </p>
+                <h3 class="section-heading">Methodology</h3>
+                <ol class="methodology">
+                    <li><strong>Data Profiling and Quality Assessment</strong>
+                        <ul>
+                            <li>Loaded and cleaned the dataset: currency columns (<code>Loanamount</code>,
+                                <code>Deposit</code>)
+                                stripped of £ symbols and converted to float; column names stripped of leading/trailing
+                                whitespace.
+                            </li>
+                            <li>Confirmed <code>APR</code> is structurally null for all 3,530 declined applications by
+                                design -
+                                no rate is assigned unless a loan is approved. Handled via filter rather than
+                                imputation.</li>
+                            <li>Identified a spike at age 25 (890 records vs ~194 average across all other ages) -
+                                flagged as a
+                                likely default/fallback value in the source data, potentially inflating the 18–25 band.
+                            </li>
+                            <li>Identified 393 records (4%) with a deposit-to-loan ratio above 0.72, concentrated in SUV
+                                and
+                                Saloon buyers with small loans (~£5,169 avg). Retained as potentially legitimate but
+                                flagged for
+                                review.</li>
+                            <li>Confirmed <code>APR</code> takes only 5 discrete values (5%, 10%, 15%, 20%, 25%) - a
+                                pricing
+                                tier, not a continuous rate.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Feature Engineering and Banding</strong>
+                        <ul>
+                            <li>Created binary flags: <code>approved</code> and <code>funded_flag</code> using
+                                <code>.astype(int)</code> to enable direct rate calculation via <code>.sum()</code> and
+                                <code>.mean()</code>.
+                            </li>
+                            <li>Banded continuous variables using <code>pd.cut()</code>: age into four groups (18–25,
+                                26–35,
+                                36–50, 51–65), loan amount into four bands (&lt;£5k to £20k+), and APR into four tiers
+                                (5–25%).</li>
+                            <li>Derived a <code>deposit_ratio</code> column (deposit ÷ loan amount) to surface customers
+                                with
+                                unusually high deposit-relative-to-loan profiles.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Funnel and Segment Analysis</strong>
+                        <ul>
+                            <li>Computed three funnel metrics across all segments: approval rate (approved ÷ total),
+                                conversion
+                                rate (funded ÷ approved), and funded rate (funded ÷ total) as the primary marketing ROI
+                                metric.</li>
+                            <li>Applied a reusable <code>groupby().agg().assign()</code> pattern across all dimensions -
+                                area,
+                                age band, car type, loan band, and APR tier.</li>
+                            <li>Used <code>observed=True</code> on all categorical groupby operations to suppress empty
+                                category
+                                artefacts from <code>pd.cut()</code>.</li>
+                            <li>Performed a multi-dimension sweet spot analysis by chaining filter → groupby → assign →
+                                sort on
+                                urban applicants across age and car type simultaneously.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Visualisation</strong>
+                        <ul>
+                            <li>Built 6 charts in matplotlib using Oodle's brand colour palette (navy
+                                <code>#1A1F3C</code>,
+                                teal <code>#00C9A7</code>): funnel overview, urban vs rural comparison, age band combo
+                                chart,
+                                car type grouped bar, APR vs conversion dual-axis, and top segment horizontal bar.
+                            </li>
+                            <li>Used a twin-axis (<code>twinx()</code>) pattern on the age and APR charts to overlay
+                                volume or
+                                approval rate lines against bar-based rate metrics.</li>
+                            <li>All charts saved programmatically to a <code>./charts/</code> directory and embedded
+                                into a
+                                10-slide PowerPoint deck built via PptxGenJS.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Presentation and Reporting</strong>
+                        <ul>
+                            <li>Produced a 10-slide PowerPoint deck for technical leadership: title, executive summary
+                                with KPI
+                                cards, one slide per analytical dimension, a sweet spot segment slide, and a numbered
+                                recommendations slide.</li>
+                            <li>Produced a 9-page Word document Python guide explaining every code block, pattern, and
+                                analytical decision for sharing and reproducibility.</li>
+                            <li>All slides styled in Oodle brand colours with consistent teal accent lines, dark navy
+                                backgrounds
+                                on section headers, and chart-plus-insight-box layouts.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3 class="section-heading">Conclusion</h3>
+                <ol class="conclusion">
+                    <li><strong>Key Outcomes</strong>
+                        <ul>
+                            <li>Identified urban customers as 65% more likely to result in a funded loan than rural
+                                (38.7% vs
+                                23.5% funded rate) - the single strongest marketing lever in the dataset.</li>
+                            <li>Surfaced ages 36–65 as representing 78% of all funded loans, with 81–88% approval rates
+                                -
+                                clear primary demographic for targeted marketing spend.</li>
+                            <li>Established Convertible buyers as the highest-value segment: highest funded rate (34%)
+                                and
+                                average loan size of £17,179 - over 2× the Saloon average.</li>
+                            <li>Demonstrated APR has negligible impact on conversion (flat ~47% across all 4 tiers) -
+                                pricing
+                                competitiveness is not a meaningful acquisition lever.</li>
+                            <li>Identified post-approval drop-off as the most underleveraged opportunity: 47.4% of
+                                approved
+                                customers never fund, representing a larger addressable gap than top-of-funnel
+                                acquisition.</li>
+                            <li>Pinpointed Urban 51–65 Convertible buyers as the sweet spot segment at 50.4% funded rate
+                                -
+                                19.7 percentage points above the overall average of 30.7%.</li>
+                            <li>Dashboard and analysis designed to be fully reproducible - all workings documented in an
+                                accompanying Python script with section-by-section commentary.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Relevant Files</h3>
+
+                <ol>
+                    <li><strong>Question</strong>
+                        <p class="justified-text"><a
+                                href="Documents/Projects/Oodle/Oodle_Data_Analyst_Take_Home_Test_Instructions.pdf"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+                    <li><strong>Dataset</strong>
+                        <p class="justified-text"><a
+                                href="Documents/Projects/Oodle/Oodle_Case_Study_for_Data_Test_25.csv"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+
+                    <li><strong>Python Code</strong>
+                        <p class="justified-text"><a href="Documents/Projects/Oodle/Oodle_analysis.py"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+                    <li><strong>Presentation</strong>
+                        <p class="justified-text"><a href="Documents/Projects/Oodle/Oodle_Analysis.pptx"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+
+                    <li><strong>Python Guide</strong>
+                        <p class="justified-text"><a
+                                href="Documents/Projects/Oodle/Oodle_Python_Guide.docx"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+
+            </div>
 
             <div id="Predictive_Model" class="box">
                 <h3><u>Academic Project 1: Predicting London Bike Usage Using Machine Learning -
