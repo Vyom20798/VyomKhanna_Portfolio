@@ -14,27 +14,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vyom Khanna - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles_2.css">
 </head>
 
 <body>
     <button id="nav-toggle" class="nav-toggle">☰ Menu</button>
     <div id="nav-drawer" class="nav-drawer">
-        <h2>Navigation</h2>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About Me</a></li>
-        <!-- <li><a href="#experience">Experience</a></li> -->
-        <li><a href="#Requirement-Gathering">Requirement Gathering Process</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#cheat_sheets">Cheat Sheets</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#resume">Resume</a></li>
-        <li><a href="#certificates">Certificates</a></li>
-        <li><a href="#mobility">Mobility</a></li>
-        <li><a href="#right_to_work">Right To Work</a></li>
-        <!-- <li><a href="#More">More</a></li> -->
+        <div class="nav-header">
+            <h2>Navigation</h2>
+            <button id="nav-close" class="nav-close" title="Close menu">✕</button>
+        </div>
+        <ul class="nav-list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#Requirement-Gathering">Requirement Gathering</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#cheat_sheets">Cheat Sheets</a></li>
+
+            <!-- Projects: link + expand arrow side by side -->
+            <li class="nav-split-item">
+                <a href="#projects" class="nav-split-link">Projects</a>
+                <button class="nav-split-arrow" aria-expanded="false" data-target="nav-projects" title="Browse project categories">›</button>
+                <ul class="nav-sub" id="nav-projects">
+
+                    <li class="nav-split-item">
+                        <a href="#projects-company" class="nav-split-link nav-split-link--sub">Company Projects</a>
+                        <button class="nav-split-arrow nav-split-arrow--sub" aria-expanded="false" data-target="nav-company" title="Browse company projects">›</button>
+                        <ul class="nav-sub nav-sub--deep" id="nav-company">
+                            <li><a href="#Claim_Pendency">1 · Claims Pendency</a></li>
+                            <li><a href="#Travel_Dashboard">2 · Travel Insurance Dashboard</a></li>
+                            <li><a href="#B2b_and_Internal_Reporting">3 · B2B Compliance Reporting</a></li>
+                            <li><a href="#MD_Reports">4 · Daily Business Reporting</a></li>
+                            <li><a href="#CRM_Dashboard">5 · CRM Dashboard</a></li>
+                            <li><a href="#Repeated_Claims_Detection">6 · Fraud Prevention</a></li>
+                            <li><a href="#Sales_Incentive_Targets">7 · Sales Incentive Dashboard</a></li>
+                            <li><a href="#Snowflake_to_Star_Schema">8 · Data Warehouse Optimisation</a></li>
+                            <li><a href="#Policy_Renewal">9 · Policy Renewal Analysis</a></li>
+                            <li><a href="#Saying_no_to_stakeholder">10 · Stakeholder Communication</a></li>
+                            <li><a href="#PBI_Adoption">11 · Power BI Adoption</a></li>
+                            <li><a href="#Dashboard_Redesign">12 · Dashboard Redesign</a></li>
+                            <li><a href="#Multi_Project">13 · Multi-Project Management</a></li>
+                            <li><a href="#Poundland_Loss_Prevention">14 · Loss Prevention · Poundland</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-split-item">
+                        <a href="#projects-self" class="nav-split-link nav-split-link--sub">Self / Freelance</a>
+                        <button class="nav-split-arrow nav-split-arrow--sub" aria-expanded="false" data-target="nav-self" title="Browse self projects">›</button>
+                        <ul class="nav-sub nav-sub--deep" id="nav-self">
+                            <li><a href="#Automated_Extraction">1 · Kaggle Extractor</a></li>
+                            <li><a href="#Python_ETL_PBI_Visualisation_ML">2 · German Beverages Dashboard</a></li>
+                            <li><a href="#Big_Picture">3 · Retail Sales Performance</a></li>
+                            <li><a href="#Housing_Dashboard">4 · Property &amp; Repairs Dashboard</a></li>
+                            <li><a href="#Oodle_Dashboard">5 · Loan Application Analysis</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-split-item">
+                        <a href="#projects-academic" class="nav-split-link nav-split-link--sub">Academic Projects</a>
+                        <button class="nav-split-arrow nav-split-arrow--sub" aria-expanded="false" data-target="nav-academic" title="Browse academic projects">›</button>
+                        <ul class="nav-sub nav-sub--deep" id="nav-academic">
+                            <li><a href="#Predictive_Model">1 · Bike Usage Prediction</a></li>
+                            <li><a href="#Power_BI">2 · Retail Analytics</a></li>
+                            <li><a href="#project3">3 · NHS Staff Scheduling</a></li>
+                            <li><a href="#project4">4 · EV Transition</a></li>
+                            <li><a href="#project5">5 · Path Optimisation</a></li>
+                            <li><a href="#project6">6 · PCB Assembly Optimisation</a></li>
+                            <li><a href="#project7">7 · Covid Impact on UK</a></li>
+                            <li><a href="#project8">8 · Customer Sentiment Analysis</a></li>
+                            <li><a href="#project9">9 · Research Paper</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#certificates">Certificates</a></li>
+            <li><a href="#mobility">Mobility</a></li>
+            <li><a href="#right_to_work">Right To Work</a></li>
         </ul>
     </div>
 
@@ -304,51 +364,90 @@
                 Here are a few highlights:
             </p>
 
-            <div class="project-navigation">
-                <a href="#Claim_Pendency" class="project-nav-box">Company Project 1: Claims Pendency Report for
-                    Healthcare Insurance Client</a>
-                <a href="#Travel_Dashboard" class="project-nav-box">Company Project 2: Monthly Travel Insurance
-                    Dashboard for Stakeholders</a>
-                <a href="#B2b_and_Internal_Reporting" class="project-nav-box">Company Project 3: Claims Summary &
-                    Compliance
-                    Reporting for B2B Partners and Brokers</a>
-                <a href="#MD_Reports" class="project-nav-box">Company Project 4: Daily Business Reporting</a>
-                <a href="#CRM_Dashboard" class="project-nav-box">Company Project 5: CRM Dashboard – Customer
-                    Satisfaction & Service KPIs</a>
-                <a href="#Repeated_Claims_Detection" class="project-nav-box">Company Project 6: Repeated Claims
-                    Detection – Fraud Prevention</a>
-                <a href="#Sales_Incentive_Targets" class="project-nav-box">Company Project 7: Sales Incentive
-                    Dashboard</a>
-                <a href="#Snowflake_to_Star_Schema" class="project-nav-box">Company Project 8: Data Warehouse
-                    Optimisation - Snowflake to Star Schema Migration</a>
-                <a href="#Policy_Renewal" class="project-nav-box">Company Project 9: Communication with Non-Technical
-                    Stakeholder and Audience</a>
-                <a href="#Saying_no_to_stakeholder" class="project-nav-box">Company Project 10: Suggesting alternative
-                    to Stakeholders Demands</a>
-                <a href="#PBI_Adoption" class="project-nav-box">Company Project 11: Power BI Adoption & Stakeholder
-                    Enablement</a>
-                <a href="#Dashboard_Redesign" class="project-nav-box">Company Project 12: Power BI Dashboard Redesign
-                    Based on User Feedback</a>
-                <a href="#Multi_Project" class="project-nav-box">Company Project 13: Multi-Project Management</a>
-                <a href="#Poundland_Loss_Prevention" class="project-nav-box">Company Project 14: Loss-Prevention &
-                    Operational Insights</a>
-                <a href="#Automated_Extraction" class="project-nav-box">Self Project 1: Kaggle Extractor</a>
-                <a href="#Python_ETL_PBI_Visualisation_ML" class="project-nav-box">Self Project 2: Monthly Beverage
-                    Sales Dashboard – Power BI + Python</a>
-                <a href="#Big_Picture" class="project-nav-box">Self Project 3: Retail Sales Performance</a>
-                <a href="#Housing_Dashboard" class="project-nav-box">Self Project 4: Property &amp; Repairs Analysis
-                    Dashboard – Power BI</a>
-                <a href="#Oodle_Dashboard" class="project-nav-box">Self Project 5: Loan Application Analysis - Python
-                    &amp; Data Visualisation
-                </a> <a href="#Predictive_Model" class="project-nav-box">Project 1: Bike Usage Prediction</a>
-                <a href="#Power_BI" class="project-nav-box">Academic Project 2: Retail Analytics</a>
-                <a href="#project3" class="project-nav-box">Academic Project 3: NHS Staff Scheduling</a>
-                <a href="#project4" class="project-nav-box">Academic Project 4: EV Transition</a>
-                <a href="#project5" class="project-nav-box">Academic Project 5: Path Optimisation</a>
-                <a href="#project6" class="project-nav-box">Academic Project 6: PCB Assembly Optimisation</a>
-                <a href="#project7" class="project-nav-box">Academic Project 7: Covid Impact on UK (Research)</a>
-                <a href="#project8" class="project-nav-box">Academic Project 8: Customer Sentiment Analysis</a>
-                <a href="#project9" class="project-nav-box">Academic Project 9: Research Paper</a>
+            <!-- ── 3 Category Landing Cards ──────────────── -->
+            <div class="proj-categories">
+                <a href="#projects-company" class="proj-cat-card proj-cat-card--company">
+                    <div class="proj-cat-icon">🏢</div>
+                    <div class="proj-cat-body">
+                        <div class="proj-cat-label">Company Projects</div>
+                        <div class="proj-cat-count">14 projects</div>
+                        <div class="proj-cat-desc">Insurance, BI, automation &amp; stakeholder work</div>
+                    </div>
+                    <div class="proj-cat-arrow">→</div>
+                </a>
+                <a href="#projects-self" class="proj-cat-card proj-cat-card--self">
+                    <div class="proj-cat-icon">⚡</div>
+                    <div class="proj-cat-body">
+                        <div class="proj-cat-label">Self / Freelance</div>
+                        <div class="proj-cat-count">5 projects</div>
+                        <div class="proj-cat-desc">Power BI, Python pipelines &amp; portfolio dashboards</div>
+                    </div>
+                    <div class="proj-cat-arrow">→</div>
+                </a>
+                <a href="#projects-academic" class="proj-cat-card proj-cat-card--academic">
+                    <div class="proj-cat-icon">🎓</div>
+                    <div class="proj-cat-body">
+                        <div class="proj-cat-label">Academic Projects</div>
+                        <div class="proj-cat-count">9 projects</div>
+                        <div class="proj-cat-desc">ML, analytics &amp; optimisation — University of Southampton</div>
+                    </div>
+                    <div class="proj-cat-arrow">→</div>
+                </a>
+            </div>
+
+            <!-- ── Company Projects ───────────────────────── -->
+            <div id="projects-company" class="proj-group-header">
+                <span class="proj-group-tag">Company</span>
+                <h3 class="proj-group-title">Company Projects</h3>
+                <p class="proj-group-sub">Professional work across insurance, BI reporting &amp; stakeholder delivery</p>
+            </div>
+            <div class="project-navigation project-navigation--group">
+                <a href="#Claim_Pendency" class="project-nav-box">Claims Pendency Report</a>
+                <a href="#Travel_Dashboard" class="project-nav-box">Travel Insurance Dashboard</a>
+                <a href="#B2b_and_Internal_Reporting" class="project-nav-box">B2B Compliance Reporting</a>
+                <a href="#MD_Reports" class="project-nav-box">Daily Business Reporting</a>
+                <a href="#CRM_Dashboard" class="project-nav-box">CRM Dashboard</a>
+                <a href="#Repeated_Claims_Detection" class="project-nav-box">Fraud Prevention</a>
+                <a href="#Sales_Incentive_Targets" class="project-nav-box">Sales Incentive Dashboard</a>
+                <a href="#Snowflake_to_Star_Schema" class="project-nav-box">Data Warehouse Optimisation</a>
+                <a href="#Policy_Renewal" class="project-nav-box">Policy Renewal Analysis</a>
+                <a href="#Saying_no_to_stakeholder" class="project-nav-box">Stakeholder Communication</a>
+                <a href="#PBI_Adoption" class="project-nav-box">Power BI Adoption</a>
+                <a href="#Dashboard_Redesign" class="project-nav-box">Dashboard Redesign</a>
+                <a href="#Multi_Project" class="project-nav-box">Multi-Project Management</a>
+                <a href="#Poundland_Loss_Prevention" class="project-nav-box">Loss Prevention · Poundland</a>
+            </div>
+
+            <!-- ── Self / Freelance Projects ─────────────── -->
+            <div id="projects-self" class="proj-group-header proj-group-header--self">
+                <span class="proj-group-tag proj-group-tag--self">Self / Freelance</span>
+                <h3 class="proj-group-title">Self &amp; Freelance Projects</h3>
+                <p class="proj-group-sub">Personal portfolio builds — Power BI, Python pipelines &amp; data engineering</p>
+            </div>
+            <div class="project-navigation project-navigation--group">
+                <a href="#Automated_Extraction" class="project-nav-box">Kaggle Data Extractor</a>
+                <a href="#Python_ETL_PBI_Visualisation_ML" class="project-nav-box">German Beverages Dashboard</a>
+                <a href="#Big_Picture" class="project-nav-box">Retail Sales Performance</a>
+                <a href="#Housing_Dashboard" class="project-nav-box">Property &amp; Repairs Dashboard</a>
+                <a href="#Oodle_Dashboard" class="project-nav-box">Loan Application Analysis</a>
+            </div>
+
+            <!-- ── Academic Projects ──────────────────────── -->
+            <div id="projects-academic" class="proj-group-header proj-group-header--academic">
+                <span class="proj-group-tag proj-group-tag--academic">Academic</span>
+                <h3 class="proj-group-title">Academic Projects</h3>
+                <p class="proj-group-sub">University of Southampton — MSc Data &amp; Decision Analytics</p>
+            </div>
+            <div class="project-navigation project-navigation--group">
+                <a href="#Predictive_Model" class="project-nav-box">Bike Usage Prediction · ML</a>
+                <a href="#Power_BI" class="project-nav-box">Retail Analytics · Power BI</a>
+                <a href="#project3" class="project-nav-box">NHS Staff Scheduling</a>
+                <a href="#project4" class="project-nav-box">EV Transition Strategy</a>
+                <a href="#project5" class="project-nav-box">Path Optimisation · Python</a>
+                <a href="#project6" class="project-nav-box">PCB Assembly · Philips Case</a>
+                <a href="#project7" class="project-nav-box">Covid Impact on UK</a>
+                <a href="#project8" class="project-nav-box">Customer Sentiment Analysis</a>
+                <a href="#project9" class="project-nav-box">Research Paper</a>
             </div>
             <!-- Project 1: Predicting London Bike Usage -->
             <!--<div class="dropdown" style="position: relative;">
@@ -4141,7 +4240,7 @@
             <div class="box">
                 <div class="contact-details">
                     <p class="justified-text"><span class="contact-icon">📧</span> Mail:
-                        <a href="mailto:vyomkhanna355@gmail.com">vyomkhanna355@gmail.com</a>
+                        <a href="/cdn-cgi/l/email-protection#8afcf3e5e7e1e2ebe4e4ebb9bfbfcaede7ebe3e6a4e9e5e7"><span class="__cf_email__" data-cfemail="c6b0bfa9abadaea7a8a8a7f5f3f386a1aba7afaae8a5a9ab">[email&#160;protected]</span></a>
                     </p>
                     <p class="justified-text"><span class="contact-icon">📱</span> Call or WhatsApp:
                         <a href="tel:+447733989297">+44 7733 989297</a>
@@ -4305,21 +4404,35 @@
                 });
             });
         </script> -->
-        <script>
+        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
             // Select the toggle button, navigation drawer, and main container
             const navToggle = document.getElementById("nav-toggle");
             const navDrawer = document.getElementById("nav-drawer");
+
+            // Close button inside drawer
+            document.getElementById("nav-close").addEventListener("click", () => {
+                navDrawer.classList.remove("open");
+            });
 
             // Open/close the navigation drawer on toggle button click
             navToggle.addEventListener("click", () => {
                 navDrawer.classList.toggle("open");
             });
 
-            // Close the drawer when a link is clicked
-            const navLinks = document.querySelectorAll(".nav-drawer ul li a");
+            // Close the drawer when a link is clicked — but NOT split-links (they just navigate, keep drawer open for submenus)
+            const navLinks = document.querySelectorAll(".nav-drawer ul li a:not(.nav-split-link)");
             navLinks.forEach(link => {
                 link.addEventListener("click", () => {
                     navDrawer.classList.remove("open");
+                });
+            });
+            // Split-links (category headers) close drawer on click since they just scroll
+            document.querySelectorAll(".nav-split-link").forEach(link => {
+                link.addEventListener("click", () => {
+                    navDrawer.classList.remove("open");
+                    // also reset all submenus
+                    document.querySelectorAll(".nav-sub").forEach(s => { s.style.maxHeight = "0"; s.style.opacity = "0"; });
+                    document.querySelectorAll(".nav-split-arrow").forEach(b => b.setAttribute("aria-expanded", "false"));
                 });
             });
 
@@ -4332,14 +4445,49 @@
             });
 
             // Close the drawer when scrolling to a section
-            document.addEventListener("scroll", () => {
-                if (navDrawer.classList.contains("open")) {
-                    navDrawer.classList.remove("open");
-                }
-            }); 
+            
+        </script>
+
+        <script>
+            // ── Split-item accordion (Projects flyout) ──────────
+            document.querySelectorAll('.nav-split-arrow').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const targetId = this.getAttribute('data-target');
+                    const sub = document.getElementById(targetId);
+                    const isOpen = this.getAttribute('aria-expanded') === 'true';
+
+                    // Close siblings at same level
+                    const parentLi = this.closest('.nav-split-item');
+                    const siblingBtns = parentLi.parentElement.querySelectorAll(':scope > .nav-split-item > .nav-split-arrow');
+                    siblingBtns.forEach(sib => {
+                        if (sib !== this) {
+                            sib.setAttribute('aria-expanded', 'false');
+                            const sibSub = document.getElementById(sib.getAttribute('data-target'));
+                            if (sibSub) { sibSub.style.maxHeight = '0'; sibSub.style.opacity = '0'; }
+                        }
+                    });
+
+                    if (isOpen) {
+                        this.setAttribute('aria-expanded', 'false');
+                        sub.style.maxHeight = '0';
+                        sub.style.opacity = '0';
+                    } else {
+                        this.setAttribute('aria-expanded', 'true');
+                        sub.style.maxHeight = sub.scrollHeight + 600 + 'px';
+                        sub.style.opacity = '1';
+                    }
+                });
+            });
+
+            // Re-expand parents when a deep link updates maxHeight
+            document.querySelectorAll('.nav-sub--deep a').forEach(link => {
+                link.addEventListener('click', () => {
+                    document.getElementById('nav-drawer').classList.remove('open');
+                });
+            });
         </script>
 
     </div>
 </body>
-
 </html>
