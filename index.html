@@ -73,7 +73,7 @@
                             <li><a href="#Housing_Dashboard">4 · Property &amp; Repairs Dashboard</a></li>
                             <li><a href="#Oodle_Dashboard">5 · Loan Application Analysis</a></li>
                         </ul> -->
-                    </li> 
+                    </li>
 
                     <li class="nav-split-item">
                         <a href="#projects-academic" class="nav-split-link nav-split-link--sub">Academic Projects</a>
@@ -3325,6 +3325,193 @@
                                 target="_blank">Click to Preview</a></p>
                     </li>
 
+            </div>
+
+            <div id="HR_Dashboard" class="box">
+                <h3><u>Freelance Project 6: Factory Team Performance Review - Power BI &amp; Data Analysis</u></h3>
+                <h3 class="section-heading">Objective</h3>
+                <p class="justified-text">
+                    This project involved a complete end-to-end performance analysis of a factory sales team across 12
+                    months of
+                    operational data, completed as a technical assessment for HR Team. The goal was to support the
+                    People
+                    Department
+                    in making a data-driven supervisor succession decision following the retirement of the incumbent,
+                    Frank. Analysis
+                    covered contract revenue, bonus sales performance, absenteeism, and overtime commitment across four
+                    employees.
+                    All analysis was performed in Power BI using a multi-table data model with DAX measures, with
+                    findings
+                    presented in a branded 9-slide PowerPoint deck built using PptxGenJS.
+                </p>
+
+                <h3 class="section-heading">Methodology</h3>
+                <ol class="methodology">
+                    <li><strong>Data Modelling and Relationship Building</strong>
+                        <ul>
+                            <li>Loaded five worksheets from a single Excel workbook into Power BI:
+                                <code>Employee Summary</code>,
+                                <code>Contracts</code>, <code>Bonus Products</code>, <code>Leave</code>, and
+                                <code>Overtime</code>.
+                            </li>
+                            <li>Identified and corrected two missing relationships: <code>Contracts[SALES REP]</code> →
+                                <code>Employee Summary[Employee_Ref]</code> (Many-to-One) and
+                                <code>Contracts[Bonus_Product]</code>
+                                → <code>Bonus Products[Product_Ref]</code> (Many-to-One), both created manually via
+                                Manage
+                                Relationships to enforce correct cardinality.
+                            </li>
+                            <li>Noted a data quality issue in <code>Employee Summary</code>: one employee's
+                                <code>Leaving Date</code> field contained a live <code>=TODAY()+90</code> formula,
+                                flagged as an
+                                upcoming departure requiring succession planning.
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><strong>DAX Measure Development</strong>
+                        <ul>
+                            <li>Created a dedicated <code>_Measures</code> table to house all DAX logic cleanly and
+                                separately
+                                from source tables.</li>
+                            <li>Built five core measures: <code>Total Contract Value</code> (<code>SUM</code>),
+                                <code>Total Contracts Signed</code> (<code>COUNTROWS</code>),
+                                <code>Total Bonus Units</code>
+                                (<code>SUM</code>), <code>Total Leave Days</code> (<code>COUNTROWS</code>), and
+                                <code>Total OT Hours</code> (<code>SUM</code>).
+                            </li>
+                            <li>Developed a <code>Bonus Earnings</code> measure using <code>SUMX</code> over
+                                <code>SUMMARIZE</code> to group by employee and month, calculate monthly units above the
+                                50-unit
+                                target, and apply the £0.50 per excess unit rate - correctly handling months where
+                                targets were not
+                                met using <code>IF(Excess &gt; 0, Excess * 0.50, 0)</code>.
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Exploratory Analysis and Scorecard Building</strong>
+                        <ul>
+                            <li>Constructed an employee scorecard table visual combining all six measures against
+                                <code>Forename</code> to enable direct cross-employee comparison.
+                            </li>
+                            <li>Identified Tom Jerry as the top performer: £3.24M contract revenue (highest), £4,242
+                                bonus
+                                earnings (highest), 10 leave days (lowest among active staff), and 34 overtime hours -
+                                all with an
+                                Excellent evaluation rating.</li>
+                            <li>Identified William Harvey as an area of concern: 48 leave days (highest by a significant
+                                margin),
+                                lowest contract value at £891K, lowest bonus earnings at £828, and an Under Review
+                                evaluation
+                                status.</li>
+                            <li>Noted Kirsty Thomson's high contract volume (197 signed) against comparatively low
+                                revenue
+                                (£881K), surfacing a quality-vs-quantity pattern worth further investigation.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Dashboard Design</strong>
+                        <ul>
+                            <li>Built a single-page Power BI report using company's brand palette: navy
+                                <code>#1B1F5F</code> and gold <code>#F5C400</code>, applied consistently across all
+                                chart
+                                data colours, title backgrounds, and recommendation text boxes.
+                            </li>
+                            <li>Created five visuals: a scorecard table, a horizontal bar chart for contract value by
+                                employee,
+                                a column chart for bonus earnings by employee, a donut chart for bonus units share, and
+                                a bar
+                                chart for overtime hours - all on a single report page.</li>
+                            <li>Added a branded title text box ("Factory Team Performance Review 2023") and a
+                                yellow-background
+                                recommendation callout box identifying Tom Jerry as the recommended candidate.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Presentation and Reporting</strong>
+                        <ul>
+                            <li>Produced a 9-slide PowerPoint deck styled in company's brand colours: title slide,
+                                agenda,
+                                data
+                                sources overview, colour-coded employee scorecard, performance charts, recommendation
+                                slide with
+                                KPI stat boxes, additional measures, prioritised actions, and closing slide.</li>
+                            <li>Recommendation slide designed as a high-impact visual with four stat callout boxes
+                                (contract
+                                revenue, bonus earnings, leave days, OT hours) and a secondary note on Sophie Westgale
+                                as an
+                                alternative candidate.</li>
+                            <li>Actions slide structured with urgency badges (URGENT, PRIORITY, ACTION, REVIEW) covering
+                                Harvey's performance, McIntosh's upcoming departure, Jerry's succession process,
+                                Thomson's
+                                recognition, and a complaints data deep dive.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3 class="section-heading">Conclusion</h3>
+                <ol class="conclusion">
+                    <li><strong>Key Outcomes</strong>
+                        <ul>
+                            <li>Recommended Tom Jerry for promotion to Supervisor: highest contract revenue (£3.24M),
+                                highest
+                                bonus earnings (£4,242), lowest absenteeism among revenue-generating staff (10 days),
+                                and strong
+                                overtime commitment (34 hours) — all with an Excellent evaluation rating and 25 years of
+                                tenure.</li>
+                            <li>Identified Sophie Westgale as a strong alternative: zero recorded leave days, £3.07M in
+                                contract
+                                revenue, and an Excellent evaluation — making her the most reliable performer in the
+                                team.</li>
+                            <li>Flagged William Harvey as requiring an urgent HR review: 48 leave days, the lowest bonus
+                                performance in the team (£828), and an Under Review evaluation status present a clear
+                                performance
+                                risk.</li>
+                            <li>Identified Fiona McIntosh's imminent departure (90 days from assessment date) as a
+                                parallel
+                                workforce planning issue requiring immediate recruitment or handover action.</li>
+                            <li>Surfaced six additional KPIs recommended for inclusion in future reviews: complaint rate
+                                per
+                                employee, contract renewal rate, average contract value, leadership indicators, training
+                                records,
+                                and revenue per overtime hour.</li>
+                            <li>Highlighted post-approval drop-off as an underexplored data gap — complaints data was
+                                present in
+                                the source but unused, representing an untapped signal for client relationship quality
+                                assessment.</li>
+                            <li>All analysis built on a fully relational Power BI data model with documented DAX logic,
+                                designed
+                                to be reproducible and extendable as new monthly data is added.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Relevant Files</h3>
+                <ol>
+                    <li><strong>Question</strong>
+                        <p class="justified-text"><a
+                                href="Documents/Projects/Aviva/Aviva_Data_Analyst_Technical_Assessment_(Ex1).docx"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+                    <li><strong>Dataset</strong>
+                        <p class="justified-text"><a
+                                href="Documents/Projects/Aviva/Aviva_Data_Analyst_Technical_Assessment_(Ex1).xlsx"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+                    <li><strong>Presentation</strong>
+                        <p class="justified-text"><a
+                                href="Documents/Projects/Aviva/Aviva_Data_Analyst_Technical_Assessment_Presentation.pptx"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+
+                    </li>
+                    <li><strong>Dashboard</strong>
+                        <p class="justified-text"><a
+                                href="Documents/Projects/Aviva/Aviva_Data_Analyst_Technical_Assessment_Dashboard.pbix"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+                </ol>
             </div>
 
             <div id="Predictive_Model" class="box">
