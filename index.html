@@ -385,7 +385,7 @@
                     <div class="proj-cat-icon">⚡</div>
                     <div class="proj-cat-body">
                         <div class="proj-cat-label">Self / Freelance</div>
-                        <div class="proj-cat-count">6 projects</div>
+                        <div class="proj-cat-count">7 projects</div>
                         <div class="proj-cat-desc">Power BI, Python pipelines &amp; portfolio dashboards</div>
                     </div>
                     <div class="proj-cat-arrow">→</div>
@@ -443,6 +443,7 @@
                 <a href="#Housing_Dashboard" class="project-nav-box">Property &amp; Repairs Dashboard</a>
                 <a href="#Oodle_Dashboard" class="project-nav-box">Loan Application Analysis</a>
                 <a href="#HR_Dashboard" class="project-nav-box">Factory Team Performance Review</a>
+                <a href="#Frasers_Revenue" class="project-nav-box">Hotel Revenue Performance Dashboard</a>
             </div>
 
             <!-- ── Academic Projects ──────────────────────── -->
@@ -3510,6 +3511,151 @@
                     <li><strong>Dashboard</strong>
                         <p class="justified-text"><a
                                 href="Documents/Projects/Aviva/Aviva_Data_Analyst_Technical_Assessment_Dashboard.pbix"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+                </ol>
+            </div>
+
+            <div id="Frasers_Revenue" class="box">
+                <h3><u>Self Project 7: Hotel Revenue Performance Dashboard – Power BI</u></h3>
+
+                <h3>Objective</h3>
+                <p class="justified-text">
+                    Build an end-to-end hotel revenue analytics dashboard for a multi-property hospitality group,
+                    analysing
+                    on-the-books (OTB) performance against forecast across 10 hotels in 3 Norwegian cities: Oslo, Bergen
+                    and
+                    Stavanger. The dataset comprised three related tables covering hotel metadata, a continuous date
+                    calendar
+                    and daily revenue records. The dashboard provides interactive analysis of Average Daily Rate (ADR),
+                    occupancy, forecast variance and day-of-week patterns across two report pages. Brand colours matched
+                    to
+                    Frasers Hospitality and Malmaison identity: <b>#C9A96E</b> (gold) and <b>#E91E8C</b> (pink) on a
+                    dark
+                    background.
+                </p>
+
+                <ol class="hanging-indent">
+                    <li><strong>Revenue Performance Analysis:</strong> Profiled OTB vs Forecast gaps, ADR by hotel,
+                        occupancy
+                        rates and city-level revenue contribution across the 10-property portfolio.</li>
+                    <li><strong>Variance and Operational Analysis:</strong> Delivered day-of-week variance analysis,
+                        contractor
+                        performance benchmarking and a fully interactive city and hotel breakdown matrix.</li>
+                </ol>
+
+                <h3>Methodology</h3>
+                <ol>
+                    <li><strong>Data Profiling and Modelling</strong>
+                        <ul>
+                            <li>Reviewed three source tables: Hotel (10 hotels, capacity data), Date (Jan 2025 to Dec
+                                2026,
+                                with DOW, Month and Year fields) and Revenue (daily OTB and Forecast rooms and revenue
+                                per
+                                hotel).</li>
+                            <li>Built a star schema: Revenue as the fact table, Hotel and Date as dimension tables
+                                joined on
+                                HotelCode and Date respectively.</li>
+                            <li>Confirmed data integrity with no missing values or duplicate records across all tables.
+                            </li>
+                            <li>Identified that OTB and Forecast ADR are virtually identical at £200 across the
+                                portfolio,
+                                confirming the £36.2M forecast gap is driven entirely by volume shortfall, not rate
+                                variance.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>SQL Analysis</strong>
+                        <ul>
+                            <li>Calculated Average Daily Rate per hotel using aggregated revenue divided by rooms with
+                                NULLIF to handle zero-room edge cases.</li>
+                            <li>Produced a monthly rooms and revenue breakdown by hotel for Jan to Nov 2025 using
+                                multi-table
+                                joins across Revenue, Hotel and Date.</li>
+                            <li>Computed the difference between forecasted and OTB rooms and revenue by hotel and day of
+                                week,
+                                enabling variance analysis at a granular level.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>DAX Measures</strong>
+                        <ul>
+                            <li>Daily Rate OTB: <code>DIVIDE([Revenue_OTB],[Rooms_OTB],0)</code></li>
+                            <li>Daily Rate Fcst: <code>DIVIDE([Revenue_Fcst],[Rooms_Fcst],0)</code></li>
+                            <li>Occupancy Rate: <code>DIVIDE([Rooms_OTB],[Capacity],0)</code></li>
+                            <li>Revenue Gap %: <code>DIVIDE([Revenue_Fcst]-[Revenue_OTB],[Revenue_Fcst],0)</code></li>
+                            <li>Revenue Difference: <code>[Revenue_Fcst] - [Revenue_OTB]</code></li>
+                            <li>Rooms Difference: <code>[Rooms_Fcst] - [Rooms_OTB]</code></li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Report Development and Insights</strong>
+                        <ul>
+                            <li>Colour scheme: <b>#C9A96E</b> (Frasers gold) and <b>#E91E8C</b> (Malmaison pink) applied
+                                via custom JSON theme imported into Power BI.</li>
+                            <li>Slicer panel for self-service exploration: HotelName, City, Year, Month and DOW across
+                                both
+                                pages.</li>
+                            <li>Eight KPI cards surfacing Rooms OTB, Rooms Forecast, Revenue OTB, Revenue Forecast, ADR
+                                OTB,
+                                ADR Forecast, Occupancy Rate and Revenue Gap % as headline metrics.</li>
+                            <li>Six key questions driving the visual design:
+                                <ol>
+                                    <li>How does ADR compare across hotels for OTB vs Forecast?</li>
+                                    <li>Which city and hotel generates the most revenue?</li>
+                                    <li>How far is each hotel behind its revenue forecast and by how much?</li>
+                                    <li>How does revenue and room variance differ by day of week?</li>
+                                    <li>What are the OTB and Forecast trends over time by hotel?</li>
+                                    <li>What is the full performance breakdown by city and hotel including ADR and
+                                        occupancy?</li>
+                                </ol>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Conclusion</h3>
+                <ol>
+                    <li><strong>Outcome</strong>
+                        <ul>
+                            <li>Delivered a clean star schema with branded visuals across two dashboard pages answering
+                                six
+                                core business questions.</li>
+                            <li>Surfaced a 28.84% revenue gap driven entirely by volume, with Hotel Orange generating
+                                22% of
+                                total OTB revenue at the highest ADR in the portfolio at £256.</li>
+                            <li>Identified Stavanger as the highest-performing city despite having only 2 hotels, and
+                                Monday
+                                and Wednesday as the strongest revenue days indicating a corporate demand profile.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Next Steps</strong>
+                        <ul>
+                            <li>Connect to a live data source and publish to Power BI Service with automated refresh.
+                            </li>
+                            <li>Implement Row Level Security so individual hotel managers only see their own property.
+                            </li>
+                            <li>Add drill-through pages showing daily pick-up pace and ADR trend per hotel.</li>
+                            <li>Build forecasting visuals using the Power BI analytics pane to project OTB trajectory
+                                against
+                                forecast.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Relevant Files</h3>
+                <ol>
+                    <li><strong>Dataset & Question</strong>
+                        <p class="justified-text"><a
+                                href="Documents/Projects/MHDV/MHDV - Revenue - Data Analyst - Interview Task.xlsx"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+                    <li><strong>.pbix Dashboard</strong>
+                        <p class="justified-text"><a href="Documents/Projects/MHDV/MHDV_Dashboard.pbix"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+                    <li><strong>Presentation</strong>
+                        <p class="justified-text"><a href="Documents/Projects/MHDV/MHDV_Revenue_Analysis.pptx"
                                 target="_blank">Click to Preview</a></p>
                     </li>
                 </ol>
