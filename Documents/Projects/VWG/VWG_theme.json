@@ -1,0 +1,25 @@
+{
+  "name": "VWG Official",
+  "dataColors": [
+    "#001E50",
+    "#00B0F0",
+    "#6EA8D4",
+    "#003D8F",
+    "#A8C8E8",
+    "#E4002B",
+    "#FFA500",
+    "#00A896"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#001E50",
+  "tableAccent": "#001E50",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [{"color": {"solid": {"color": "#FFFFFF"}}}],
+        "title": [{"fontColor": {"solid": {"color": "#001E50"}}, "fontSize": 12, "bold": true}],
+        "border": [{"show": false}]
+      }
+    }
+  }
+}
