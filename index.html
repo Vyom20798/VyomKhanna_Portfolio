@@ -385,7 +385,7 @@
                     <div class="proj-cat-icon">⚡</div>
                     <div class="proj-cat-body">
                         <div class="proj-cat-label">Self / Freelance</div>
-                        <div class="proj-cat-count">7 projects</div>
+                        <div class="proj-cat-count">9 projects</div>
                         <div class="proj-cat-desc">Power BI, Python pipelines &amp; portfolio dashboards</div>
                     </div>
                     <div class="proj-cat-arrow">→</div>
@@ -444,6 +444,8 @@
                 <a href="#Oodle_Dashboard" class="project-nav-box">Loan Application Analysis</a>
                 <a href="#HR_Dashboard" class="project-nav-box">Factory Team Performance Review</a>
                 <a href="#Frasers_Revenue" class="project-nav-box">Hotel Revenue Performance Dashboard</a>
+                <a href="#VWG_Training" class="project-nav-box">Training Course Performance Dashboard</a>
+                <a href="#Company_Registration">Company Registration Data Analysis</a>
             </div>
 
             <!-- ── Academic Projects ──────────────────────── -->
@@ -3517,7 +3519,7 @@
             </div>
 
             <div id="Frasers_Revenue" class="box">
-                <h3><u>Self Project 7: Hotel Revenue Performance Dashboard – Power BI</u></h3>
+                <h3><u>Freelance Project 7: Hotel Revenue Performance Dashboard – Power BI</u></h3>
 
                 <h3>Objective</h3>
                 <p class="justified-text">
@@ -3656,6 +3658,339 @@
                     </li>
                     <li><strong>Presentation</strong>
                         <p class="justified-text"><a href="Documents/Projects/MHDV/MHDV_Revenue_Analysis.pptx"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+                </ol>
+            </div>
+
+            <div id="VWG_Training" class="box">
+                <h3><u>Freelance Project 8: Training Course Performance Dashboard – Power BI &amp; Excel (VWG UK)</u>
+                </h3>
+
+                <h3>Objective</h3>
+                <p class="justified-text">
+                    Build a complete end-to-end analysis of technical training course data for a major automotive group,
+                    covering 1,466 course events and 30,996 delegate records across 8 brands including Audi, VW
+                    Passenger
+                    Cars, Skoda, CUPRA, SEAT, VW Commercial Vehicles and P&amp;B. The goal was to identify utilisation
+                    patterns, highlight underperforming and overbooked courses, analyse brand-level booking and
+                    cancellation
+                    behaviour, and present findings to senior leadership in a 10 to 15 minute presentation. Analysis was
+                    delivered across Power BI, Excel and PowerPoint. Brand colours matched to VWG identity:
+                    <b>#001E50</b> (navy) and <b>#00B0F0</b> (light blue).
+                </p>
+
+                <ol class="hanging-indent">
+                    <li><strong>Utilisation and Capacity Analysis:</strong> Identified highest and lowest performing
+                        courses
+                        by utilisation rate, flagged 18 overbooked events across 11 courses and produced a utilisation
+                        band
+                        breakdown across all 1,466 events.</li>
+                    <li><strong>Brand Demand Insight:</strong> Analysed booking and cancellation behaviour across 8
+                        brands,
+                        surfaced P&amp;B as a critical outlier at 30% cancellation rate and identified brand-specific
+                        popular
+                        courses driven by new model launches.</li>
+                </ol>
+
+                <h3>Methodology</h3>
+                <ol>
+                    <li><strong>Data Profiling and Modelling</strong>
+                        <ul>
+                            <li>Reviewed two source tables: Utilisation Analysis (1,466 course events with capacity,
+                                bookings, no-shows and cancellations) and Bookings Data (30,996 delegate records with
+                                brand,
+                                job role and registration status).</li>
+                            <li>Built a star schema in Power BI with Bookings Data as the fact table and a custom DAX
+                                DateTable as a dimension joined on Activity Start Date.</li>
+                            <li>Confirmed data integrity across both tables. Identified that 88.9% average utilisation
+                                masked significant variation, with 154 events below 70% and 18 events overbooked.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Power Query Transformations</strong>
+                        <ul>
+                            <li>Added <code>Utilisation Band</code> column (90-100%, 70-89%, 50-69%, Below 50%) and
+                                <code>Utilisation Sort</code> column for correct chart ordering via Sort by Column.
+                            </li>
+                            <li>Added <code>Overbooked</code> flag comparing Current Bookings to Course Capacity to
+                                enable
+                                filtering of overbooked events.</li>
+                            <li>Stripped timestamps from Activity Start Date and Event Start Date fields to enable a
+                                clean
+                                relationship with the DateTable.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>DAX Measures and DateTable</strong>
+                        <ul>
+                            <li>DateTable built using <code>ADDCOLUMNS</code> and <code>CALENDAR</code> with Year,
+                                Quarter,
+                                Month Name, Month No, Year Month, Week No, Day Name and Is Weekend columns.</li>
+                            <li>Total Bookings: <code>COUNTROWS('BOOKINGS DATA')</code></li>
+                            <li>Completion Rate: <code>DIVIDE([Total Completed],[Total Bookings],0)</code></li>
+                            <li>Cancellation Rate: <code>DIVIDE([Total Cancelled],[Total Bookings],0)</code></li>
+                            <li>No Show Rate: <code>DIVIDE([Total No Show],[Total Bookings],0)</code></li>
+                            <li>Avg Utilisation: <code>AVERAGE('UTILISATION ANALYSIS'[Current Utilisation %])</code>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Report Development and Insights</strong>
+                        <ul>
+                            <li>Colour scheme: <b>#001E50</b> (VWG navy) and <b>#00B0F0</b> (light blue) applied via
+                                custom JSON theme imported into Power BI.</li>
+                            <li>Slicers on both pages: VWG Brand, Delivery Method, Year and Month Name.</li>
+                            <li>Six key questions driving the visual design:
+                                <ol>
+                                    <li>Which courses have the highest and lowest utilisation across the year?</li>
+                                    <li>Which courses are overbooked and where is unmet demand concentrated?</li>
+                                    <li>Which brands are booking the most and least training places overall?</li>
+                                    <li>Which brands have the highest cancellation and no-show rates?</li>
+                                    <li>Which courses are popular with specific brands and which have low engagement?
+                                    </li>
+                                    <li>How do booking volumes trend across the year and where are the seasonal peaks?
+                                    </li>
+                                </ol>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Excel Output</strong>
+                        <ul>
+                            <li>Delivered a 5-sheet workbook: Executive Summary (8 KPIs and 8 key insights), Brand
+                                Analysis
+                                (full booking and cancellation breakdown with bar chart), Utilisation Analysis (top and
+                                bottom 10 courses and band summary), Monthly Trend (13-month booking data with chart)
+                                and
+                                Cancellation Analysis (P&amp;B flagged as critical outlier).</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Dataset Provided (2 Worksheets)</h3>
+                <ul>
+                    <ol><b>Utilisation Analysis</b> – 1,466 course events with Course ID, Course Name, Event Start Date,
+                        Delivery Method, Course Capacity, Min Capacity, Current Bookings, No-Show Delegates, Cancelled
+                        Delegates and Current Utilisation %.</ol>
+                    <ol><b>Bookings Data</b> – 30,996 delegate records with Course Event, Course Name, Delegate User ID,
+                        VWG Brand, Job Role, Registration Status, Activity Start Date, Activity End Date and Delivery
+                        Method.</ol>
+                </ul>
+
+                <h3>Conclusion</h3>
+                <ol>
+                    <li><strong>Outcome</strong>
+                        <ul>
+                            <li>Delivered two Power BI dashboard pages and a 5-sheet Excel workbook covering all three
+                                task outcomes: utilisation analysis, brand demand insight and data visualisation.</li>
+                            <li>Identified P&amp;B as a critical cancellation outlier at 30.0% (double the 14.9%
+                                portfolio
+                                average) and surfaced 18 overbooked events as capacity planning gaps.</li>
+                            <li>Webinars outperform Face to Face on utilisation (92.4% vs 88.3%), recommending expansion
+                                of webinar delivery for high-demand technical topics.</li>
+                            <li>November 2024 peak of 3,427 bookings driven by CUPRA Terramar launch and VWCV brand
+                                immersion events, informing future capacity planning around model launches.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Next Steps</strong>
+                        <ul>
+                            <li>Connect to a live data source and publish to Power BI Service with automated refresh so
+                                the training team can monitor utilisation in real time.</li>
+                            <li>Implement Row Level Security so individual brand managers only see their own data.</li>
+                            <li>Build a forecasting model using Power BI analytics pane to project booking volumes
+                                against
+                                annual training targets.</li>
+                            <li>Investigate the 1,648 single-brand courses to identify cross-brand content sharing
+                                opportunities and reduce delivery duplication.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Relevant Files</h3>
+                <ol>
+                    <li><strong>Questionnaire</strong>
+                        <p class="justified-text"><a
+                                href="Documents/Projects/VWG/VWG_RLS_Business_Insight_Executive_Interview_Task_Brief.docx"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+
+                    <li><strong>Dataset</strong>
+                        <p class="justified-text"><a href="Documents/Projects/VWG/VWG_RLS_Task_Data_BISE.xlsx"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+
+                    <li><strong>.pbix Dashboard</strong>
+                        <p class="justified-text"><a href="Documents/Projects/VWG/VWG_Dashboard.pbix"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+                    <li><strong>Excel Analysis</strong>
+                        <p class="justified-text"><a href="Documents/Projects/VWG/VWG_Training_Analysis.xlsx"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+                    <li><strong>Presentation</strong>
+                        <p class="justified-text"><a href="Documents/Projects/VWG/VWG_Training_Analysis.pptx"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+                </ol>
+            </div>
+
+            <div id="Company_Registration" class="box">
+                <h3><u>Freelance Project 9: Company Registration Data Analysis – Excel &amp; PowerPoint</u></h3>
+
+                <h3>Objective</h3>
+                <p class="justified-text">
+                    Complete an exploratory analysis of 50,029 anonymised UK company registration records covering
+                    turnover, incorporation dates, company status and geographic distribution across 10 sectors.
+                    The goal was to answer four analytical questions and present findings to a panel in a 15-minute
+                    presentation. Analysis was performed in Python (pandas) for data profiling and insight generation,
+                    with outputs delivered as a branded Excel workbook and a 7-slide PowerPoint presentation.
+                    The dataset included fictional turnover figures for 2021 to 2025.
+                </p>
+
+                <ol class="hanging-indent">
+                    <li><strong>Sector Turnover and Consistency Analysis:</strong> Calculated year-on-year growth rates
+                        for all 10 sectors and used standard deviation as a consistency metric to identify which sector
+                        showed the most stable growth pattern over the 2021 to 2025 period.</li>
+                    <li><strong>Incorporation, Closure and Geographic Trends:</strong> Analysed incorporation month
+                        patterns, company closure trends over time and geographic concentration of registrations
+                        across UK postcode areas.</li>
+                </ol>
+
+                <h3>Methodology</h3>
+                <ol>
+                    <li><strong>Data Profiling and Quality Assessment</strong>
+                        <ul>
+                            <li>Identified and excluded 10 summary rows where Postcode was set to "All", leaving
+                                50,029 individual company records for analysis.</li>
+                            <li>Flagged 100 companies with a closed date of 1900 as likely default values and
+                                excluded them from closure trend analysis — documented transparently in the
+                                presentation.</li>
+                            <li>Confirmed three distinct company statuses: Active (45,729), In Liquidation (3,393)
+                                and Closed (907).</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Q1 — Sector Turnover Consistency</strong>
+                        <ul>
+                            <li>Calculated year-on-year growth rates for all 10 sectors across 2021 to 2025 using
+                                <code>groupby</code> and percentage change calculations in pandas.
+                            </li>
+                            <li>Used standard deviation of growth rates as the primary consistency metric — lower
+                                standard deviation indicates more stable, predictable growth.</li>
+                            <li>Construction: avg growth 6.2%, std dev 5.8 (most consistent). Healthcare: std dev
+                                34.4 (most volatile). Maintenance and Repair: only sector in consistent decline
+                                across three of four periods.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Q2 — Incorporation Month Analysis</strong>
+                        <ul>
+                            <li>Extracted month from <code>IncorporationDate</code> using
+                                <code>pd.to_datetime</code> and <code>dt.month</code>.
+                            </li>
+                            <li>March was the overall peak (4,743 companies) — likely linked to UK tax year
+                                planning as the new financial year begins in April.</li>
+                            <li>Not universal: Education and Maintenance and Repair peak in October, Consultancy
+                                and Healthcare peak in September. December is always the quietest month
+                                (3,274 — 26% below November).</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Q3 — Company Closures Over Time</strong>
+                        <ul>
+                            <li>Extracted closure year from <code>Company Closed Date</code> and grouped by year
+                                to track annual closure volumes from 2010 to 2024.</li>
+                            <li>Closures surged from 31 in 2019 to a peak of 160 in 2022 — consistent with
+                                delayed COVID-19 business failures working through the system.</li>
+                            <li>Sharp decline to 44 closures in 2024 suggesting the post-COVID closure wave has
+                                largely passed.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Q4 — Additional Insights: Trends and Geography</strong>
+                        <ul>
+                            <li>Extracted postcode area prefix using <code>str.extract(r'^([A-Z]{1,2})')</code>
+                                to enable geographic analysis without full address data.</li>
+                            <li>London postcodes (W, N, EC, WC, E, SW) account for 6 of the top 10 areas by
+                                company count, all with active rates above 90%.</li>
+                            <li>New incorporations grew 674% from 2010 to 2024, with a sharp 61% surge in 2023
+                                — the sharpest single-year acceleration in the dataset.</li>
+                            <li>Retail identified as the standout growth sector: 107% total turnover growth
+                                2021 to 2025 with positive growth in every year.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Output Delivery</strong>
+                        <ul>
+                            <li>Excel: 5-sheet workbook covering Executive Summary, Q1 Sector Turnover (with
+                                colour-coded growth table and bar chart), Q2 Incorporation Months (with sector
+                                breakdown table and bar chart), Q3 Closed Companies (with timeline and line chart)
+                                and Q4 Additional Insights (with geographic table and incorporation trend chart).</li>
+                            <li>PowerPoint: 7-slide deck in navy and blue corporate theme with a direct answer
+                                box on every question slide, built-in charts and a data quality callout slide.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Dataset Provided (2 Worksheets)</h3>
+                <ul>
+                    <ol><b>Data Dictionary</b> – Column descriptions for Company Reference, Company Type and
+                        Postcode fields.</ol>
+                    <ol><b>Data</b> – 50,039 rows including 10 summary rows and 50,029 individual company records
+                        with Company Type, Postcode, CompanyCategory, CompanyStatus, CountryOfOrigin, Company
+                        Closed Date, IncorporationDate, Account Last Made Date and turnover figures for 2021 to
+                        2025.</ol>
+                </ul>
+
+                <h3>Conclusion</h3>
+                <ol>
+                    <li><strong>Outcome</strong>
+                        <ul>
+                            <li>Answered all four analytical questions with supporting data, visualisations and
+                                reasoning suitable for a 15-minute panel presentation.</li>
+                            <li>Identified Construction as the most consistent sector and Retail as the strongest
+                                growth sector using a quantitative consistency metric (standard deviation of YoY
+                                growth rates).</li>
+                            <li>Surfaced a meaningful data quality issue (1900 closed date anomaly) and handled
+                                it transparently rather than silently excluding it.</li>
+                            <li>Company closures peaked in 2022 at 160, consistent with delayed COVID-19 failures,
+                                and declined sharply by 2024. New incorporations surged 61% in 2023, the sharpest
+                                acceleration in the dataset.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Next Steps</strong>
+                        <ul>
+                            <li>Build a Power BI dashboard to make the geographic and sector analysis interactive
+                                with postcode-level drill-down capability.</li>
+                            <li>Add a forecasting model to project 2026 incorporation volumes and sector turnover
+                                using the 5-year trend data.</li>
+                            <li>Investigate the 2023 incorporation surge further to determine whether it reflects
+                                genuine new business creation or reclassification of existing entities.</li>
+                            <li>Cross-reference closure data with sector and geography to identify whether
+                                specific areas or industries were disproportionately affected post-COVID.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Relevant Files</h3>
+                <ol>
+                    <li><strong>Questionnaire</strong>
+                        <p class="justified-text"><a href="Documents/Projects/HMRC/HMRC_Technical_Task.docx"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+                    <li><strong>Dataset</strong>
+                        <p class="justified-text"><a href="Documents/Projects/HMRC/HMRC_Technical_Task_Data.xlsx"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+                    <li><strong>Excel Analysis</strong>
+                        <p class="justified-text"><a
+                                href="Documents/Projects/HMRC/HMRC_Company_Registration_Analysis.xlsx"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+                    <li><strong>Presentation</strong>
+                        <p class="justified-text"><a
+                                href="Documents/Projects/HMRC/HMRC_Company_Registration_Analysis.pptx"
                                 target="_blank">Click to Preview</a></p>
                     </li>
                 </ol>
