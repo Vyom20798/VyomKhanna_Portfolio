@@ -470,37 +470,32 @@
             <button class="dropdown-btn">Predicting London Bike Usage Using Machine Learning</button>
             <div class="dropdown-content"> -->
 
-            <div id="Claim_Pendency" class="box">
+<div id="Claim_Pendency" class="box">
                 <h3><u>Company Project 1: Claims Pendency Report</u></h3>
 
                 <h3>Objective</h3>
                 <p class="justified-text">
                     The project aimed to transform a fragmented, manual claims pendency process into a unified,
-                    automated
-                    reporting system. The focus was on consolidating data from multiple claims functions, correcting
-                    ageing logic,
-                    and providing reliable insights to reduce backlog and improve operational efficiency.
+                    automated reporting system. The focus was on consolidating data from multiple claims functions,
+                    correcting ageing logic, and providing reliable insights to reduce backlog and improve operational
+                    efficiency.
                 </p>
                 <ol class="hanging-indent">
                     <li><strong>Data Consolidation Across Departments:</strong> Integrate pendency data from TPA,
-                        Cashless,
-                        Reimbursement, Medical, Travel, and Critical Illness units into a single, consistent dataset.
-                    </li>
+                        Cashless, Reimbursement, Medical, Travel, and Critical Illness units into a single, consistent
+                        dataset.</li>
                     <li><strong>Accurate Ageing and Pendency Measurement:</strong> Standardise ageing calculations and
-                        define
-                        business-aligned ageing buckets for high-risk claim identification.</li>
+                        define business-aligned ageing buckets for high-risk claim identification.</li>
                     <li><strong>Automation of Daily Reporting:</strong> Replace manual Excel-based compilation with
-                        automated SQL
-                        and reporting outputs for claims teams and leadership.</li>
+                        automated SQL and reporting outputs for claims teams and leadership.</li>
                     <li><strong>Productivity and Performance Tracking:</strong> Provide department-wise views of pending
-                        cases,
-                        processed volumes, and turnaround trends to support resource allocation and performance
+                        cases, processed volumes, and turnaround trends to support resource allocation and performance
                         management.</li>
                 </ol>
                 <p class="justified-text">
                     Overall, the objective was to engineer a robust data pipeline and reporting framework that improved
-                    data
-                    quality, accelerated claim processing, and created transparency across all claims sub-departments.
+                    data quality, accelerated claim processing, and created transparency across all claims
+                    sub-departments.
                 </p>
 
                 <h3>Methodology</h3>
@@ -508,59 +503,48 @@
                     <li><strong>Data Collection and Integration</strong>
                         <ul>
                             <li>Extracted claims pendency registers from the data warehouse using SQL for all claims
-                                units
-                                (TPA, Cashless, Reimbursement, Medical, Travel, Critical Illness, Health Checkups).</li>
-                            <li>Standardised claim identifiers using <em>Claim Number</em> and <em>Policy Number</em> as
-                                composite
-                                keys to join disparate datasets.</li>
-                            <li>Filtered out invalid records, including cases with net amount = 0, reversal entries, and
-                                already-paid claims incorrectly marked as pending.</li>
+                                units (TPA, Cashless, Reimbursement, Medical, Travel, Critical Illness, Health
+                                Checkups).</li>
+                            <li>Standardised claim identifiers using <em>Claim Number</em> and <em>Policy Number</em>
+                                as composite keys to join disparate datasets.</li>
+                            <li>Filtered out invalid records, including cases with net amount = 0, reversal entries,
+                                and already-paid claims incorrectly marked as pending.</li>
                         </ul>
                     </li>
 
                     <li><strong>Data Cleaning and Feature Engineering</strong>
                         <ul>
                             <li>Removed duplicate rows using window functions (e.g. <code>ROW_NUMBER()</code>) applied
-                                over key
-                                fields.</li>
+                                over key fields.</li>
                             <li>Resolved missing values (such as city, product type, provider) by mapping from master
-                                tables and
-                                validating with departmental inputs.</li>
-                            <li>Redefined ageing using the formula <em>Month-end Date − Last Document Received Date</em>
-                                and grouped
-                                claims into standard buckets (0–15, 15–30, 30–60, 60–90, 90–180, 180–365, &gt;365 days).
-                            </li>
+                                tables and validating with departmental inputs.</li>
+                            <li>Redefined ageing using the formula <em>Month-end Date &minus; Last Document Received
+                                Date</em> and grouped claims into standard buckets (0&ndash;15, 15&ndash;30,
+                                30&ndash;60, 60&ndash;90, 90&ndash;180, 180&ndash;365, &gt;365 days).</li>
                             <li>Created summarised features showing number of pending cases and total pending amount by
-                                department,
-                                ageing bucket, and claim type.</li>
+                                department, ageing bucket, and claim type.</li>
                         </ul>
                     </li>
 
                     <li><strong>Report Development and Automation</strong>
                         <ul>
                             <li>Built daily claims pendency summaries and detailed data dumps for each department, ready
-                                for use in
-                                Excel or Power BI.</li>
+                                for use in Excel or Power BI.</li>
                             <li>Designed monthly productivity views highlighting claims processed vs. pending and
-                                team-level
-                                throughput.</li>
+                                team-level throughput.</li>
                             <li>Automated refresh and export routines so that up-to-date pendency and productivity
-                                reports were
-                                generated without manual intervention.</li>
+                                reports were generated without manual intervention.</li>
                         </ul>
                     </li>
 
                     <li><strong>Validation, Collaboration, and Iteration</strong>
                         <ul>
-                            <li>Worked with the IT team to correct system-level ageing rules so future data followed the
-                                new
-                                standard definition.</li>
+                            <li>Worked with the IT team to correct system-level ageing rules so future data followed
+                                the new standard definition.</li>
                             <li>Conducted UAT sessions with Claims HOD, Medical Head, and TPA/Cashless managers to
-                                verify counts,
-                                amounts, and ageing distribution.</li>
+                                verify counts, amounts, and ageing distribution.</li>
                             <li>Iteratively refined logic and layouts based on user feedback to ensure alignment with
-                                business
-                                terminology and decision-making needs.</li>
+                                business terminology and decision-making needs.</li>
                         </ul>
                     </li>
                 </ol>
@@ -569,33 +553,28 @@
                 <ol>
                     <li><strong>Impact on Claims Processing</strong>
                         <ul>
-                            <li>Average daily pending claims reduced from approximately 80,000 to 38,000 over 18 months,
-                                including
-                                newly registered cases.</li>
-                            <li>Created visibility into long-pending claims, enabling teams to prioritise high-risk and
-                                aged
-                                cases.</li>
+                            <li>Average daily pending claims reduced from approximately 80,000 to 38,000 over 18
+                                months, including newly registered cases.</li>
+                            <li>Created visibility into long-pending claims, enabling teams to prioritise high-risk
+                                and aged cases.</li>
                         </ul>
                     </li>
 
                     <li><strong>Productivity and Operational Efficiency</strong>
                         <ul>
-                            <li>Productivity improved by around 52%, with clearer tracking of claims processed per team
-                                and
-                                department.</li>
-                            <li>Manual report preparation time was significantly reduced through automation of daily and
-                                monthly
-                                reports.</li>
+                            <li>Productivity improved by around 52%, with clearer tracking of claims processed per
+                                team and department.</li>
+                            <li>Manual report preparation time was significantly reduced through automation of daily
+                                and monthly reports.</li>
                         </ul>
                     </li>
 
                     <li><strong>Business Insights and Strategic Value</strong>
                         <ul>
-                            <li>Department-wise performance insights supported better staffing and backlog management.
-                            </li>
+                            <li>Department-wise performance insights supported better staffing and backlog
+                                management.</li>
                             <li>Clean, consolidated claims history provided valuable input for renewal and risk
-                                assessment
-                                processes.</li>
+                                assessment processes.</li>
                         </ul>
                     </li>
 
@@ -609,16 +588,69 @@
                     </li>
                 </ol>
 
+                <h3>Claims Processing Automation Initiative</h3>
+                <p class="justified-text">
+                    Following the finalisation and adoption of the pendency report, the project was extended to explore
+                    partial automation of the claims approval process. A structured eligibility table was developed in
+                    SQL and surfaced in Power BI, designed to reduce dependency on manual medical review for
+                    straightforward claims while remaining fully compliant with IRDAI regulations and Indian health
+                    insurance guidelines.
+                </p>
+                <ol>
+                    <li><strong>Automation Eligibility Criteria</strong>
+                        <ul>
+                            <li>Claim amount within the insured sum assured limit and below the INR 1,00,000 cashless
+                                pre-authorisation threshold requiring mandatory medical review.</li>
+                            <li>Treatment falls under a non-exclusion category as per the policy schedule and IRDAI
+                                standard exclusion list (e.g. no cosmetic, self-inflicted, or congenital condition
+                                flags).</li>
+                            <li>Minimum policy tenure of 30 days elapsed, in compliance with IRDAI waiting period
+                                provisions for general illnesses.</li>
+                            <li>No active fraud or misrepresentation flag against the policyholder or linked TPA in
+                                the system.</li>
+                            <li>Complete documentation received &mdash; discharge summary, itemised bills, and claim
+                                form all marked as present and verified.</li>
+                            <li>No prior claim rejection or active dispute history on the policy within the preceding
+                                12 months.</li>
+                            <li>Hospitalisation duration consistent with the diagnosed procedure as per standard
+                                clinical benchmarks, including GIPSA package norms where applicable.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Decision Flags</strong>
+                        <ul>
+                            <li><strong>Auto-Approvable:</strong> Meets all criteria &mdash; can be processed with
+                                minimal medical team intervention.</li>
+                            <li><strong>High Value / Complex:</strong> Claim amount exceeds threshold or involves a
+                                critical illness or surgical procedure requiring senior medical review.</li>
+                            <li><strong>Needs Intervention:</strong> One or more criteria unmet &mdash; incomplete
+                                documents, exclusion risk, fraud flag, or ageing anomaly detected.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Technical Implementation</strong>
+                        <ul>
+                            <li>The eligibility logic was encoded as a SQL <code>CASE-WHEN</code> classification layer
+                                on top of the existing pendency dataset, refreshed daily alongside the core pendency
+                                report.</li>
+                            <li>A dedicated Power BI page was built to surface the flagged worklist, giving the
+                                medical team and Claims HOD a prioritised view of cases requiring attention.</li>
+                            <li>The combined SQL and Power BI implementation allowed human effort to be concentrated
+                                on flagged and complex cases, while accelerating throughput for clean, low-risk
+                                claims.</li>
+                        </ul>
+                    </li>
+                </ol>
+
                 <h3>Competency Shown:</h3>
                 <ol>
-                    <li><strong> Time When I had to work with ambigous data </strong></li>
-                    <li><strong> Transforming messy data, approach I took and Outcome </strong></li>
-                    <li><strong> Lead a Complete Project End-to-End </strong></li>
-                    <li><strong> Working with Different Departments </strong></li>
+                    <li><strong>Time When I Had to Work with Ambiguous Data</strong></li>
+                    <li><strong>Transforming Messy Data, Approach I Took and Outcome</strong></li>
+                    <li><strong>Lead a Complete Project End-to-End</strong></li>
+                    <li><strong>Working with Different Departments</strong></li>
+                    <li><strong>Regulatory Awareness and Compliance-Driven Design</strong></li>
                 </ol>
-            </div>
-
-            <!-- <h3><u>Company Project 1: Claims Pendency Report for Healthcare Insurance Client</u></h3>
+            </div>            <!-- <h3><u>Company Project 1: Claims Pendency Report for Healthcare Insurance Client</u></h3>
             <h3>Objective</h3>
             <p class="justified-text">The project aimed to improve claims processing efficiency by developing a
                 Claims Pendency Report to track and analyse unresolved claims. The goal was to provide data-driven
