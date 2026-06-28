@@ -398,7 +398,7 @@
                     <div class="proj-cat-icon">⚡</div>
                     <div class="proj-cat-body">
                         <div class="proj-cat-label">Self / Freelance</div>
-                        <div class="proj-cat-count">10 projects</div>
+                        <div class="proj-cat-count">13 projects</div>
                         <div class="proj-cat-desc">Power BI, Python pipelines &amp; portfolio dashboards</div>
                     </div>
                     <div class="proj-cat-arrow">→</div>
@@ -460,6 +460,9 @@
                 <a href="#VWG_Training" class="project-nav-box">Training Course Performance Dashboard</a>
                 <a href="#Company_Registration" class="project-nav-box">Company Registration Data Analysis</a>
                 <a href="#SSG_Cheltenham" class="project-nav-box">Cheltenham Festival</a>
+                <a href="#BathNES_RomanBaths" class="project-nav-box">Visitor Insight Analysis</a>
+                <a href="#BFC_Applicant_Data_Analysis" class="project-nav-box">Student Admission Analysis</a>
+                <a href="#TidalSense" class="project-nav-box">N-Tidal Clinical Study</a>
             </div>
 
             <!-- ── Academic Projects ──────────────────────── -->
@@ -4204,9 +4207,604 @@
                 </ol>
             </div>
 
+            <div id="BathNES_RomanBaths" class="box">
+                <h3><u>Freelance Project 11: Roman Baths – Visitor Insight Analysis</u></h3>
+                <h3>Objective</h3>
+                <p class="justified-text">
+                    Analyse daily visitor ticket transaction data for the Roman Baths (Heritage Services, Bath and North
+                    East
+                    Somerset Council) covering April 2025 and April 2026, to identify key patterns in visitor behaviour,
+                    explore possible drivers behind year-on-year changes, and provide recommendations for further
+                    investigation. The dataset covered approximately 2,100 rows across both years, segmented by ticket
+                    type,
+                    visitor type, purchase channel, individual vs group attendance, and paying vs free admission. The
+                    analysis
+                    was delivered as a five-slide PowerPoint presentation, a Python analytical script producing three
+                    publication-quality charts, and a Power BI visualisation guide.
+                </p>
+                <ol class="hanging-indent">
+                    <li><strong>Visitor Behaviour Analysis:</strong> Identified key demand patterns across the month
+                        including
+                        the impact of Easter calendar shift, visitor type breakdown, weekday vs weekend distribution,
+                        and
+                        day-of-week demand changes between 2025 and 2026.</li>
+                    <li><strong>Commercial Performance:</strong> Surfaced a 5.9% footfall decline alongside a 4.6%
+                        revenue
+                        increase, driven by an 11.1% rise in revenue per visitor — and explored three possible
+                        explanations
+                        for the yield improvement.</li>
+                    <li><strong>Campaign Assessment:</strong> Evaluated the Spring 2026 Easter Egg Trail family campaign
+                        by
+                        comparing Easter week family uplift (+15.2%) against full-month family attendance (-16.4%),
+                        drawing
+                        the distinction between timing concentration and net-new demand generation.</li>
+                </ol>
+
+                <h3>Methodology</h3>
+                <ol>
+                    <li><strong>Data Preparation and Exploration</strong>
+                        <ul>
+                            <li>Source: Excel dataset loaded into Python using pandas. Date column parsed to extract
+                                Year and
+                                Day of Month fields for year-on-year and daily-level analysis.</li>
+                            <li>Identified and flagged a data quality anomaly: the Web purchase channel recorded 38,186
+                                visitors in April 2025 but only 343 in April 2026 — a near-total collapse almost
+                                certainly
+                                caused by a booking system reclassification rather than a real behaviour change, as
+                                Walk-Up
+                                numbers nearly doubled in the same period.</li>
+                            <li>Identified 32 rows with negative Qty and Gross values (524 visitor cancellations,
+                                £12,419
+                                reversed revenue), all in April 2026 and all within group ticket types. Flagged as
+                                booking
+                                cancellation or amendment entries consistent with standard ticketing system behaviour,
+                                and
+                                noted as a potential contributing factor to the group visitor decline.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Key Metrics Calculated</strong>
+                        <ul>
+                            <li><code>Revenue per Visitor</code> = Total Gross / Total Qty — primary commercial
+                                efficiency
+                                metric. Rose from £21.58 (2025) to £23.97 (2026), a gain of 11.1%.</li>
+                            <li><code>Easter Week Filter</code> — date range filters applied separately for each year to
+                                produce a like-for-like holiday comparison: 18–21 April 2025 and 3–6 April 2026.</li>
+                            <li><code>Family Easter Share</code> = Family Qty (Easter window) / Total Qty (Easter
+                                window) —
+                                used to assess campaign concentration effect vs overall family volume change.</li>
+                            <li><code>YoY Change %</code> = (2026 value - 2025 value) / 2025 value — applied across all
+                                headline metrics for consistent comparison.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Analysis Structure</strong>
+                        <ul>
+                            <li>Yearly totals: visitors, revenue, and revenue per visitor aggregated by year using
+                                groupby and sum.</li>
+                            <li>Visitor type breakdown: Qty and Gross grouped by Year and Visitor Type (Adult, Child,
+                                Family, Senior, Student) using pivot tables.</li>
+                            <li>Easter window analysis: data filtered to specific date ranges per year to compare
+                                holiday
+                                performance and family segment behaviour.</li>
+                            <li>Segment revenue per head: Individual vs Group revenue per visitor calculated for both
+                                years
+                                to separate volume decline from yield changes in the group segment.</li>
+                            <li>Paying vs free split: decline rates compared across paying and free visitor categories
+                                to
+                                assess whether mix shift contributed to the revenue per visitor increase.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Charts Produced (matplotlib)</strong>
+                        <ul>
+                            <li>Figure 1 — Executive Dashboard: four KPI tiles (visitors, revenue, revenue per visitor,
+                                advance bookings) with YoY delta indicators, daily visitor trend line (2025 vs 2026)
+                                with
+                                Easter windows shaded, and visitor type grouped bar chart.</li>
+                            <li>Figure 2 — Purchase Behaviour: purchase channel comparison (flagging Web anomaly),
+                                Individual
+                                vs Group volumes with revenue per head annotation, and weekday vs weekend distribution.
+                            </li>
+                            <li>Figure 3 — Easter Campaign: family share comparison (full April vs Easter week, both
+                                years)
+                                and Easter week head-to-head across total visitors, family visitors, and revenue per
+                                head.
+                            </li>
+                        </ul>
+                    </li>
+                    <li><strong>Key Analytical Findings</strong>
+                        <ul>
+                            <li>Total visitors fell 5.9% (92,643 to 87,193) while revenue rose 4.6% (£1.999M to
+                                £2.090M).
+                                Revenue per visitor increased 11.1%, driven by a combination of possible price
+                                increases,
+                                ticket mix shift, and a reduction in the free visitor share (free visitors fell 8.4% vs
+                                5.7% for paying visitors).</li>
+                            <li>Easter timing was the primary structural driver of the changed monthly demand curve.
+                                Easter
+                                fell 15 days earlier in 2026, concentrating peak demand in the first week and leaving a
+                                softer remainder of the month. Easter week total visitors were broadly stable (+2.0%),
+                                confirming that underlying holiday demand held.</li>
+                            <li>The Easter Egg Trail campaign produced a 15.2% family uplift during Easter week (3,871
+                                to
+                                4,458), but full-month family attendance fell 16.4%. The campaign concentrated family
+                                visits into the holiday window rather than generating net-new family demand for the
+                                month.</li>
+                            <li>Group visitors declined 14.3% (20,605 to 17,659) — the largest proportional fall of any
+                                segment — and cannot be explained by Easter timing alone. Group revenue per head rose
+                                7.8%, confirming a volume problem rather than a value problem.</li>
+                            <li>Thursday became the busiest weekday in April 2026, overtaking Tuesday — a shift
+                                explained
+                                by Easter week falling on Wednesday to Saturday and generating peak mid-week demand in
+                                the
+                                first week of the month.</li>
+                            <li>Advance bookings held almost flat year-on-year (-0.9%) while total visitors fell 5.9%,
+                                meaning advance bookers represented a growing share of 2026 visitors — a planful,
+                                reachable segment with strong CRM potential.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Conclusion</h3>
+                <ol>
+                    <li><strong>Outcome</strong>
+                        <ul>
+                            <li>Delivered a five-slide PowerPoint presentation structured for a senior non-technical
+                                audience, covering headline findings, key patterns, possible drivers, three
+                                recommendations
+                                for further investigation, and strategic opportunities grounded in the data.</li>
+                            <li>Identified three prioritised recommendations: audit the purchase channel data anomaly
+                                before
+                                drawing any channel strategy conclusions, quantify the true ROI of the Easter Egg Trail
+                                campaign using attribution and spend data, and investigate the root cause of the group
+                                visitor decline to determine whether it is a calendar effect or a structural trend.</li>
+                            <li>Demonstrated that revenue and footfall can move in opposite directions — and that the
+                                11.1% revenue per visitor increase, while commercially encouraging, requires
+                                investigation
+                                before it can be treated as a sustained improvement rather than a one-year mix effect.
+                            </li>
+                            <li>Produced a Power BI dashboard specification covering a three-page report structure, DAX
+                                measures, data model recommendations, colour standards, and slicer configuration — ready
+                                for implementation.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Next Steps</strong>
+                        <ul>
+                            <li>Overlay visitor postcode and origin data to understand domestic vs international mix and
+                                identify which catchment areas are growing or declining.</li>
+                            <li>Integrate daily weather data to separate weather-driven footfall variation from genuine
+                                behavioural trends — particularly relevant for the post-Easter period where 2026 saw a
+                                softer pattern.</li>
+                            <li>Build a repeat visit and loyalty tracking capability to determine whether the site
+                                retains
+                                visitors year-on-year or is entirely dependent on first-time visits.</li>
+                            <li>Introduce dynamic pricing by demand band, informed by the observed weekday vs weekend
+                                volume differential and the confirmed pricing headroom from rising revenue per visitor.
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Relevant Files</h3>
+                <ol>
+                    <li><strong>Dataset</strong>
+                        <p class="justified-text"><a
+                                href="Documents/Projects/BNES/BNES_Visitor_Insights_Analyst_Data_for_Assessment_final.xlsx"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+                    <li><strong>Python Script</strong>
+                        <p class="justified-text"><a
+                                href="Documents/Projects/BNES/BNES_Visitor_Insight_Analyst_Analysis_Vyom_Khanna.py"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+                    <li><strong>Presentation</strong>
+                        <p class="justified-text"><a
+                                href="Documents/Projects/BNES/BNES_Visitor_Insight_Assessment_Vyom_Khanna.pdf"
+                                target="_blank">Click to Preview</a></p>
+                    </li>
+                </ol>
+            </div>
+
+            <div id="BFC_Applicant_Data_Analysis" class="box">
+                <h3><u>Freelance Project 12: B&FC Applicant Data Analysis</u></h3>
+
+                <h3>Objective</h3>
+                <p class="justified-text">
+                    Perform a preliminary analysis of college applicant data as part of a selection process assessment
+                    for Blackpool and The Fylde College. The dataset covers 7,240 applicant records across 2018 and
+                    2019, spanning applications, enrolments, and student outcomes. Power BI delivers a 4-page
+                    interactive dashboard covering application trends, enrolment analysis, data quality issues, and
+                    an executive summary. Accent colours: <b>#CC0000</b> (B&FC red) and <b>#555555</b> (dark grey).
+                </p>
+
+                <ol class="hanging-indent">
+                    <li><strong>Data Quality Audit:</strong> Identified 8 data quality issues across structure,
+                        completeness, and consistency — including 427 enrolled students with no course recorded,
+                        inflated Excel used range causing null row imports, and 4 undocumented progress codes absent
+                        from the reference sheet.</li>
+                    <li><strong>Business Intelligence Model:</strong> Delivered a 4-page Power BI dashboard with a
+                        dedicated Date Table, Age Group sort column, and 10+ DAX measures organised into a dedicated
+                        <code>_Measures</code> table — built on a 7,240-row applicant dataset with a linked Progress
+                        Codes reference table.
+                    </li>
+                </ol>
+
+                <h3>Methodology</h3>
+                <ol>
+                    <li><strong>Data Ingestion and Source Investigation</strong>
+                        <ul>
+                            <li>Loaded two sheets from an Excel workbook into Power BI: <code>applications 01</code>
+                                (7,240 rows, 21 columns) and <code>Progress codes</code> (reference table).</li>
+                            <li><strong>Source Issues Identified and Resolved:</strong></li>
+                            <ul>
+                                <li><strong>Inflated Used Range:</strong> Excel registered empty cells below row 7,240
+                                    as part of the used range — causing Power BI to import hundreds of null rows.
+                                    Resolved by deleting phantom rows in Excel before re-importing.</li>
+                                <li><strong>Header Row as Data:</strong> Progress codes sheet had column headers
+                                    stored as data values. Resolved using Use First Row as Headers in Power Query.</li>
+                                <li><strong>Timestamp Mismatch:</strong> <code>Application received</code> contained
+                                    full timestamps (e.g. 07:08:27) while the Date Table generated date-only values,
+                                    breaking the relationship. Resolved by applying Transform &gt; Date Only in
+                                    Power Query.</li>
+                            </ul>
+                        </ul>
+                    </li>
+
+                    <li><strong>Data Cleaning and Preparation (Power Query)</strong>
+                        <ul>
+                            <li>Set correct data types across all 21 columns — date, whole number, and text.</li>
+                            <li><strong>Engineered Columns:</strong></li>
+                            <ul>
+                                <li><code>Application Year</code> and <code>Application Month</code> extracted from
+                                    <code>Application received</code>
+                                </li>
+                                <li><code>Postcode Flag</code> — identifies blank or whitespace-only postcodes</li>
+                                <li><code>Age Group Sort</code> — numeric sort order (1–5) mapped to age group
+                                    labels to enforce correct axis ordering: Under 16 → 16 → 17-18 → 19-23 → 24+</li>
+                            </ul>
+                            <li>Applied Remove Blank Rows as a defensive step to guard against future source file
+                                issues.</li>
+                        </ul>
+                    </li>
+
+                    <li><strong>Power BI Modelling and DAX</strong>
+                        <ul>
+                            <li>Base table: <b>applications 01</b> (application grain: Applicant Code, Age Group,
+                                Application received, Course Code, Curriculum Area, Course Level, Course Type,
+                                Enrolment flags, Progress Codes, Postcode, Town).</li>
+                            <li>Date Table built in DAX using <code>CALENDAR()</code> with Year, Quarter, Month,
+                                and Month Name columns. Marked as Date Table with a one-to-many relationship to
+                                <code>applications 01[Application received]</code> — required for time intelligence
+                                to evaluate correctly.
+                            </li>
+                            <li>Relationship created between <code>Progress codes[Progress code]</code> and
+                                <code>applications 01[Progress code - application]</code> to enable descriptive
+                                status labels in visuals.
+                            </li>
+                            <li>All analytical logic kept in <b>DAX measures rather than calculated columns</b>
+                                to avoid model bloat.</li>
+                            <li>Dedicated <code>_Measures</code> table with 10+ measures covering applications,
+                                enrolment, pass rate, and data quality.</li>
+                            <li><strong>Core DAX KPIs:</strong></li>
+                            <ul>
+                                <li><code>Total Applications</code>, <code>Total Enrolled</code>,
+                                    <code>Total Not Enrolled</code>, <code>Enrolment Rate %</code>
+                                </li>
+                                <li>Enrolment: <code>Enrolled to Applied %</code>,
+                                    <code>Enrolled to Different %</code>, <code>Pass Rate %</code>
+                                </li>
+                                <li>Data Quality: <code>Enrolled No Course</code>, <code>Missing Postcodes</code>,
+                                    <code>Missing Town</code>, <code>Missing App Record Updated</code>,
+                                    <code>Not Specified App Type</code>, <code>Not Specified App Type %</code>,
+                                    <code>Missing App Updated %</code>
+                                </li>
+                            </ul>
+                        </ul>
+                    </li>
+
+                    <li><strong>Dashboard Pages and Visuals</strong>
+                        <ul>
+                            <li>Colour scheme: <b>#CC0000</b> B&FC red and <b>#555555</b> dark grey. Canvas
+                                background: <b>#FFFFFF</b>. Slicers on each page (Year, Course type applied to).
+                            </li>
+                            <li>Four pages built, each answering a defined analytical question:
+                                <ol>
+                                    <li><strong>Summary (TL;DR)</strong> — What is the headline story? Paragraph
+                                        summary, 6 KPI cards (Total Applications, Enrolment Rate %, Top Curriculum
+                                        Area, Top Age Group, Top Course Type, Data Quality Issues count), and
+                                        6 key bullet insights covering peak application month, level distribution,
+                                        channel conversion, and outcome data caveats.</li>
+                                    <li><strong>Application Overview</strong> — What does the application landscape
+                                        look like? Bar chart (Applications by Age Group — custom sorted), horizontal
+                                        bar (Applications by Curriculum Area with data labels), donut (Applications
+                                        by Course Level), donut (Applications by Course Type: FE / HE / WB), line
+                                        chart (Monthly Application Trend 2018–2019), horizontal bar (Applications
+                                        by Submission Channel).</li>
+                                    <li><strong>Enrolment Analysis</strong> — Who is enrolling and where are the
+                                        drop-offs? Four KPI cards (Total Enrolled, Enrolment Rate %, Enrolled to
+                                        Applied %, Pass Rate % with caveat footnote), horizontal bar (Enrolments
+                                        by Curriculum Area), stacked bar (Course Match Rate by Level — Enrolled to
+                                        Applied % vs Enrolled to Different %), bar chart (Enrolment Rate by
+                                        Submission Channel), bar chart (Enrolment Rate by Age Group). Tile slicers
+                                        for Year (2018 / 2019) and Course Type (FE / HE / WB).</li>
+                                    <li><strong>Data Quality Issues</strong> — What data problems exist and how
+                                        severe are they? Six KPI cards (Enrolled No Course: 427, Missing Postcodes:
+                                        59, Missing Town: 82, Missing App Record Updated: 1,988, Not Specified App
+                                        Type: 1,527, Not Specified App Type %: 21%), stacked bar (Pass/Fail
+                                        Coverage — 135 with outcome vs 7,105 without), hard-coded table of 4
+                                        undocumented progress codes (INFO2, INHSAPP, 1BOOKRET, WPISSUED).</li>
+                                </ol>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Key Findings</h3>
+                <ul>
+                    <li>49% of applications resulted in enrolment — just under half of all applicants do not
+                        convert, with Learner Portal (the largest channel) converting at only 47%.</li>
+                    <li>Society, Health &amp; Childhood is the dominant curriculum area with 2,349 applications
+                        (32% of total), followed by Leadership &amp; Management at 1,954.</li>
+                    <li>73% of applications are for Further Education courses — HE and Work-Based Learning account
+                        for the remaining 27% combined.</li>
+                    <li>The 24+ age group accounts for 41% of all applications but Under-16 enrolment rate is just
+                        9% — significantly below all other cohorts and warranting further investigation.</li>
+                    <li>Application volumes peak sharply in October 2019 at 1.2K — approximately double the monthly
+                        average — indicating a strong seasonal pattern tied to academic year start.</li>
+                    <li>Pass rate appears high at 86% but is based on only 135 recorded outcomes from 3,537 enrolled
+                        students — insufficient for reliable reporting and likely a data extract timing issue.</li>
+                </ul>
+
+                <h3>Data Quality Issues Identified</h3>
+                <ul>
+                    <li><b>Enrolled No Course (High):</b> 427 enrolled students have no course recorded in
+                        <code>Course applicant enrolled to</code> — affects enrolment reporting and downstream
+                        funding calculations.
+                    </li>
+                    <li><b>Inflated Excel Used Range (High):</b> Source file registered empty cells below row 7,240
+                        as used — caused Power BI to import hundreds of null rows across all 21 columns.</li>
+                    <li><b>Missing Application Record Updated (Medium):</b> 1,988 records (27.5%) have no update
+                        date — limits audit trail and application progress tracking.</li>
+                    <li><b>Blank or Malformed Postcodes (Medium):</b> 60 records have blank or incorrectly
+                        formatted postcodes — limits any geographic or catchment area analysis.</li>
+                    <li><b>Undocumented Progress Codes (Medium):</b> Four codes (INFO2, INHSAPP, 1BOOKRET,
+                        WPISSUED) appear in the data but are absent from the reference sheet — cannot be
+                        interpreted without documentation.</li>
+                    <li><b>Not Specified Application Type (Medium):</b> 1,527 records (21%) have application type
+                        recorded as "not specified" — limits channel attribution analysis.</li>
+                    <li><b>Missing Town (Low):</b> 82 records have no town value recorded.</li>
+                    <li><b>Sparse Pass/Fail Data (Low):</b> Only 135 of 3,537 enrolled students have an outcome
+                        recorded — likely a timing issue with the data extract rather than a systemic problem.</li>
+                </ul>
+
+                <h3>Recommendations</h3>
+                <ul>
+                    <li><b>Remediate the 427 enrolment records with no course:</b> Cross-reference against the
+                        student MIS to populate missing course codes — affects both reporting accuracy and ESFA
+                        funding calculations.</li>
+                    <li><b>Standardise Application Type at source:</b> Introduce a mandatory dropdown field in the
+                        application system to eliminate the 21% "not specified" gap.</li>
+                    <li><b>Document undocumented progress codes:</b> Formally define and add INFO2, INHSAPP,
+                        1BOOKRET, and WPISSUED to the reference table to enable accurate status reporting.</li>
+                    <li><b>Investigate Under-16 enrolment rate:</b> At 9%, this cohort converts significantly
+                        below all other age groups — understanding whether this is policy or process will inform
+                        targeted engagement strategies.</li>
+                </ul>
+
+                <h3>Next Steps</h3>
+                <ul>
+                    <li>Connect Power BI directly to the student MIS (e.g. ProSolution / Tribal SITS) to remove
+                        manual Excel dependency and enable scheduled refresh.</li>
+                    <li>Enrich the dataset with attendance, prior attainment, and funding source fields to enable
+                        retention risk modelling and widening participation reporting.</li>
+                    <li>Build a predictive enrolment likelihood model using logistic regression on age group, course
+                        type, application channel, and application timing once data quality is resolved.</li>
+                    <li>Implement Row-Level Security using <code>USERPRINCIPALNAME()</code> so curriculum area
+                        managers access only their own data when published to Power BI Service.</li>
+                </ul>
+
+                <h3>Relevant Files</h3>
+                <ol>
+                    <li><strong>.pbix Dashboard</strong>
+                        <p class="justified-text">
+                            <a href="Documents/Projects/B&FC/Vyom_Khanna_B&FC_Dashboard.pbix" target="_blank">Click to
+                                Preview</a>
+                        </p>
+                    </li>
+                    <li><strong>Presentation</strong>
+                        <p class="justified-text">
+                            <a href="Documents/Projects/B&FC/Vyom_Khanna_B&FC_Analysis.pdf" target="_blank">Click to
+                                Preview</a>
+                        </p>
+                    </li>
+                    <li><strong>Dataset</strong>
+                        <p class="justified-text">
+                            <a href="Documents/Projects/B&FC/B&FC_Dataset.xlsx" target="_blank">Click to Preview</a>
+                        </p>
+                    </li>
+                </ol>
+            </div>
+
+            <div id="TidalSense" class="box">
+                <h3><u>Freelance Project 13: TidalSense – N-Tidal Clinical Study Analysis</u></h3>
+
+                <h3>Objective</h3>
+                <p class="justified-text">
+                    Analyse operational and hardware telemetry data from a 30-day clinical study of the TidalSense
+                    N-Tidal
+                    diagnostic handset, deployed across 10 GP practices in a defined region. Each practice was issued
+                    two
+                    handsets to conduct respiratory tests on patients as part of normal clinical workflow. The dataset
+                    covered
+                    8,678 test records from the software table and 3,426 telemetry logs from the hardware table,
+                    spanning
+                    firmware versions, battery readings, modem signal strength, error flags, and diagnostic outcomes.
+                    The
+                    deliverable was a study health report for a non-technical clinical lead and a fault investigation
+                    for the
+                    data and clinical science teams.
+                </p>
+                <ol class="hanging-indent">
+                    <li><strong>Study Health Report:</strong> Summarised test volumes, error rates, and diagnostic
+                        outcomes
+                        across all 10 practices over the 30-day period, identifying notable patterns in daily activity,
+                        weekend testing, and practice-level performance variation.</li>
+                    <li><strong>Fault Investigation:</strong> Identified six issues across device hardware, firmware
+                        deployment, and study protocol compliance, each with a root cause assessment and a concrete
+                        recommendation for the clinical and engineering teams.</li>
+                </ol>
+
+                <h3>Methodology</h3>
+                <ol>
+                    <li><strong>Data Quality and Cleaning</strong>
+                        <ul>
+                            <li>Software table was fully clean with no missing values or duplicate rows.</li>
+                            <li>Hardware telemetry table required four fixes before analysis: 33 exact duplicate rows
+                                removed
+                                (same handset, same timestamp, double-sent by the pipeline), 8 rows with completely
+                                empty
+                                message bodies dropped, 102 rows with a missing component label recovered by inferring
+                                the
+                                component from the message content (voltage implied battery, signal_strength implied
+                                modem,
+                                firmware_version implied firmware), and the empty status string issue noted — most
+                                readings
+                                carried a blank status rather than OK or CRITICAL, so voltage and signal values were
+                                used
+                                directly throughout the fault analysis.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Software Table Analysis</strong>
+                        <ul>
+                            <li>Derived helper columns: date, weekday, is_weekend flag, and a combined any_error flag
+                                aggregating all four error types (hardware error, software error, user error,
+                                miscalibration)
+                                into a single boolean for practice-level comparison.</li>
+                            <li>Computed error rates and positive diagnosis rates per practice, per handset, and over
+                                time to
+                                identify outliers and trends.</li>
+                            <li>Compared test volumes and error rates before and after the firmware 2.0.1 release on 28
+                                April
+                                to assess the update impact across practices.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Hardware Table Analysis</strong>
+                        <ul>
+                            <li>Parsed JSON message strings into Python dictionaries and split the table into three
+                                component
+                                dataframes: firmware (version per boot), modem (status, signal strength), and battery
+                                (status,
+                                voltage).</li>
+                            <li>Tracked firmware version history per handset by sorting telemetry entries
+                                chronologically and
+                                identifying each handset's last known version and whether it appeared in the 2.0.1
+                                recipient
+                                list.</li>
+                            <li>Identified CRITICAL status events per handset and cross-referenced signal and voltage
+                                values
+                                at those events against the study-wide averages to quantify severity.</li>
+                            <li>Detected telemetry dropout on handset-00005 by comparing boot IDs present in the
+                                software
+                                table against those in the hardware table, and flagged out-of-hours log timestamps as an
+                                additional anomaly on that device.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Key Findings</strong>
+                        <ul>
+                            <li>PRC-007 had an overall error rate of 49.8% versus 13.3% for all other practices
+                                combined.
+                                Miscalibration alone was 30.5% at PRC-007 against a peer average of 1.7%.</li>
+                            <li>Handsets 13 and 14 at PRC-007 had average battery voltage of 3.58V against a study
+                                average of
+                                3.82V, with handset 13 declining to 3.09V by the final day of the study. Both handsets
+                                had an
+                                average modem signal of 6.2 against a study average of 21.6, with 25 CRITICAL modem
+                                alerts
+                                each.</li>
+                            <li>Handsets 13 and 14 did not receive firmware 2.0.1, which was successfully deployed to
+                                all
+                                other 18 handsets on 28 April. Persistent low signal was the likely cause of the failed
+                                over-the-air update.</li>
+                            <li>Handset-00005 stopped transmitting telemetry after 15 April but continued to run tests
+                                for
+                                the remaining 21 days of the study, leaving 316 tests with no hardware health data and
+                                an
+                                unverifiable firmware state.</li>
+                            <li>All 280 weekend tests in the dataset belonged to PRC-009 exclusively. No other practice
+                                ran
+                                any weekend activity. The same regular administrators conducted these sessions,
+                                suggesting an
+                                undisclosed weekend clinic rather than a data error.</li>
+                            <li>Three firmware log records across handsets 6, 15, and 18 contained a null firmware
+                                version
+                                field, attributed to a telemetry pipeline timing issue at boot.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Conclusion</h3>
+                <ol>
+                    <li><strong>Outcome</strong>
+                        <ul>
+                            <li>Delivered two structured Python notebooks covering the full analysis pipeline from raw
+                                data
+                                to findings, and a short written report for a non-technical clinical lead.</li>
+                            <li>Identified that PRC-007's error rate was driven by hardware degradation and a missed
+                                firmware
+                                update rather than user technique, a distinction with direct implications for how the
+                                practice
+                                is supported and whether its results are clinically valid.</li>
+                            <li>Demonstrated that PRC-009's inflated test volume was a protocol compliance issue rather
+                                than
+                                genuine additional throughput, and that stripping weekend tests brought the practice in
+                                line
+                                with peers.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Next Steps</strong>
+                        <ul>
+                            <li>Implement automated firmware lag alerting so any handset running more than one version
+                                behind
+                                the current release triggers a support ticket without manual review.</li>
+                            <li>Add a telemetry continuity check to the pipeline that flags any handset where hardware
+                                logs
+                                stop while test records continue, catching dropout scenarios like handset-00005 in near
+                                real
+                                time.</li>
+                            <li>Investigate whether firmware 2.0.1 contains calibration fixes relevant to the
+                                miscalibration
+                                rates observed, and reassess PRC-007 results once updated handsets are redeployed.</li>
+                            <li>Formalise the data quality checks applied here (duplicate removal, null component
+                                recovery,
+                                empty message handling) into a standing pre-processing step for future study pipelines.
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Relevant Files</h3>
+                <ol>
+                    <li><strong>Part 1 Notebook: Study Health Report</strong>
+                        <p class="justified-text">
+                            <a href="Documents/Projects/TidelSense/Vyom_Khanna_Q1_Health_Report.ipynb" target="_blank">Click to
+                                Preview</a>
+                        </p>
+                    </li>
+                    <li><strong>Part 2 Notebook: Fault Investigation</strong>
+                        <p class="justified-text">
+                            <a href="Documents/Projects/TidelSense/Vyom_Khanna_Q2_Fault_Investigation.ipynb"
+                                target="_blank">Click to Preview</a>
+                        </p>
+                    </li>
+                    <li><strong>Clinical Report</strong>
+                        <p class="justified-text">
+                            <a href="Documents/Projects/TidelSense/Vyom_Khanna_TidalSense_Clinical_Report.pdf"
+                                target="_blank">Click to Preview</a>
+                        </p>
+                    </li>
+                </ol>
+            </div>
+
             <div id="Predictive_Model" class="box">
-                <h3><u>Academic Project 1: Predicting London Bike Usage Using Machine Learning -
-                        Python</u>
+                <h3><u>Academic Project 1: Predicting London Bike Usage Using Machine Learning</u>
                 </h3>
 
                 <h3>Objective</h3>
