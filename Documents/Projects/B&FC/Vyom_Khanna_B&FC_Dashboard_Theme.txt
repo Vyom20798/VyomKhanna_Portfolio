@@ -1,0 +1,45 @@
+{
+  "name": "BFC Theme",
+  "dataColors": [
+    "#CC0000",
+    "#555555",
+    "#2D2D2D",
+    "#E8A0A0",
+    "#999999",
+    "#F2F2F2",
+    "#8B0000",
+    "#CCCCCC"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#2D2D2D",
+  "tableAccent": "#CC0000",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "fontFamily": [{ "value": "Arial" }],
+        "fontSize": [{ "value": 11 }],
+        "color": [{ "value": { "solid": { "color": "#2D2D2D" } } }]
+      }
+    },
+    "card": {
+      "*": {
+        "calloutValue": [{
+          "color": { "solid": { "color": "#CC0000" } },
+          "fontSize": 28,
+          "fontBold": true
+        }],
+        "categoryLabels": [{
+          "color": { "solid": { "color": "#555555" } },
+          "fontSize": 11
+        }]
+      }
+    },
+    "title": {
+      "*": {
+        "color": [{ "value": { "solid": { "color": "#2D2D2D" } } }],
+        "fontSize": [{ "value": 12 }],
+        "fontBold": [{ "value": true }]
+      }
+    }
+  }
+}
