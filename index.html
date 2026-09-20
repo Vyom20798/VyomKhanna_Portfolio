@@ -2483,6 +2483,60 @@
 </ol>`, files: []
       },
 
+{id:'spotlight-sub',cat:'company',title:'B2C Subscription Performance Dashboard',company:'SpotlightSports Group',tools:['Snowflake SQL','Looker Studio','Google Sheets'],
+ summary:'Five-section SLT subscription dashboard covering conversion, retention, onboarding, engagement and audience across 75+ metrics, graining weekly, monthly, quarterly and yearly.',
+ impact:'SLT, B2C and Exec dashboards completed and adopted as the primary daily business report shared across the organisation.',
+ body:`<h3>Objective</h3>
+<p>Design and deliver a comprehensive B2C subscription performance dashboard for the Senior Leadership Team at SpotlightSports Group, giving SLT, B2C and Exec teams a single source of truth across all subscription health metrics. The dashboard was structured across five sections, each covering a distinct dimension of the subscription lifecycle, with all metrics graining at weekly, monthly, quarterly and yearly level.</p>
+<h3>Dashboard Structure</h3>
+<ol>
+<li><strong>SLT and Exec Summary:</strong> High-level headline KPIs covering total subscribers, total revenue, overall churn rate, and top-line conversion performance for senior leadership consumption without technical interpretation.</li>
+<li><strong>Conversion:</strong> Freemium to premium conversion rate, customer journey funnel from visit through freemium to paywall to subscriber, conversion rate by product, acquisition channel breakdown, and trial-to-paid performance.</li>
+<li><strong>Retention:</strong> Churn rate, win-back rate, renewal rate, lapsed subscriber trends, and retention cohort analysis across product lines.</li>
+<li><strong>Onboarding:</strong> Favourite product over the last 28 days, early engagement signals post-sign-up, onboarding completion rates, and entitlement usage in the first subscription window.</li>
+<li><strong>Audience and Engagement:</strong> Total reach, active subscriber counts, engagement frequency, favourite product trends over time, and audience segmentation by behaviour.</li>
+</ol>
+<h3>Methodology</h3>
+<ol>
+<li><strong>Requirement Gathering</strong>
+<ul>
+<li>Initiated a structured requirement gathering process with each stakeholder group: SLT, B2C, and the Exec team.</li>
+<li>Created a Google Sheets tracker covering every metric definition, the source it would be pulled from, the grain required, and sign-off status per team.</li>
+<li>Aligned metric definitions and data sources with the respective product, data, and finance teams before any build began.</li>
+<li>Prioritised SLT, B2C and Exec dashboards as the first to be completed given their business-critical visibility.</li>
+</ul>
+</li>
+<li><strong>Data Layer</strong>
+<ul>
+<li>Built Snowflake SQL views as a semantic layer to consolidate subscriber, churn, revenue, and engagement data into clean, consistent reporting tables.</li>
+<li>Revenue figures were calculated as prorated values aligned with how the finance team calculates subscription revenue, ensuring consistency between the dashboard and financial reporting.</li>
+</ul>
+</li>
+<li><strong>Dashboard Build</strong>
+<ul>
+<li>Delivered in Looker Studio connected to Snowflake, with each of the five sections structured as a dedicated dashboard page.</li>
+<li>Each page carried between 15 and 20 metrics, designed for self-service consumption by non-technical stakeholders.</li>
+</ul>
+</li>
+</ol>
+<h3>Challenges and Trade-offs</h3>
+<ul>
+<li><strong>New product packs mid-build:</strong> The business introduced new subscription packs partway through delivery, requiring several dashboards to be rebuilt so existing charts did not break against the new data structure.</li>
+<li><strong>New entitlements delayed onboarding and engagement sections:</strong> New entitlements tied to the new packs were not delivered until the beginning of October, pushing the start of those two dashboard sections late. The business was aware of this dependency and the delay was communicated and accepted.</li>
+<li><strong>New Subscription Director:</strong> A newly hired Subscription Director reviewed the completed conversion dashboard and requested a significant rebuild aligned to his own reporting preferences. This was accommodated and re-delivered.</li>
+<li><strong>Evolving requirements post sign-off:</strong> The business continued to change metric definitions and scope after initial sign-off, leading to rework cycles. All changes were tracked in the Google Sheets tracker and communicated transparently to stakeholders, with the delays attributed to the requirement changes rather than delivery.</li>
+<li><strong>New data team:</strong> The wider data team was relatively new and still building familiarity with some foundational data concepts, which required additional alignment effort during the metric definition and source mapping stages.</li>
+</ul>
+<h3>Outcome</h3>
+<ul>
+<li>SLT, B2C and Exec dashboards completed and adopted as the primary daily business report shared across the organisation.</li>
+<li>All five dashboard sections delivered covering 75+ metrics across conversion, retention, onboarding, engagement and audience.</li>
+<li>Google Sheets metric tracker served as a living data dictionary and single source of truth for metric definitions, adopted beyond the dashboard project as a reference for the wider data team.</li>
+<li>Despite significant mid-flight scope changes and external dependencies, delivery was completed and the dashboards became a central part of the business's daily operational rhythm.</li>
+</ul>`,
+ files:[]},      
+
+
       {
         id: 'crm', cat: 'company', title: 'CRM Dashboard: Customer Satisfaction & Retention', company: 'Care Health Insurance', tools: ['SQL', 'Qlik ETL', 'Power BI', 'DAX'],
         summary: 'Interactive CRM dashboard monitoring NPS, service performance, and retention trends - directly informing a 15-20% retention uplift.',
@@ -3271,6 +3325,58 @@
 <li>Helped store and area management engage with product data more confidently, building analytical capability in a retail environment where data literacy was still developing.</li>
 </ul>`, files: []
       },
+
+{id:'spotlight-etl',cat:'company',title:'Reverse ETL: CRM Audience Segmentation Pipeline',company:'SpotlightSports Group',tools:['Snowflake SQL','Segment','Braze','Reverse ETL'],
+ summary:'Built and maintained four reverse ETL models pushing subscriber, freemium, lapsed and anonymous user attributes from Snowflake through Segment into Braze for CRM win-back and reacquisition campaigns.',
+ impact:'New CRM attributes enabled the marketing team to run personalised win-back campaigns targeting lapsed subscribers lost over the preceding three years.',
+ body:`<h3>Objective</h3>
+<p>Design and maintain a reverse ETL pipeline that moved enriched user attributes from Snowflake through Segment into Braze, enabling the CRM and marketing teams to build personalised, data-driven campaigns without needing direct access to the data warehouse.</p>
+<h3>Architecture</h3>
+<p>The pipeline covered four audience models, each representing a distinct subscriber state:</p>
+<ul>
+<li><strong>Subscribers:</strong> Active paying users with current entitlements and product engagement signals.</li>
+<li><strong>Freemium Users:</strong> Registered users on the free tier, targeted for conversion campaigns.</li>
+<li><strong>Lapsed Users:</strong> Previously paying subscribers who had churned, targeted for win-back campaigns.</li>
+<li><strong>Anonymous Users:</strong> Unregistered visitors with behavioural signals, targeted for acquisition.</li>
+</ul>
+<p>Data flow: <strong>Snowflake</strong> (transformation and enrichment layer) to <strong>Segment</strong> (customer data platform) to <strong>Braze</strong> (CRM and campaign execution).</p>
+<h3>Methodology</h3>
+<ol>
+<li><strong>Requirement Gathering</strong>
+<ul>
+<li>Met with the CRM team to understand which new attributes they needed and how they intended to use them in campaign targeting.</li>
+<li>CRM team provided metric definitions; translated these into SQL logic within Snowflake and confirmed the calculation approach with the team before build.</li>
+</ul>
+</li>
+<li><strong>Snowflake Development</strong>
+<ul>
+<li>Wrote and tested SQL in Snowflake to compute the new attributes against the relevant audience tables.</li>
+<li>Updated the production tables directly once logic was validated, ensuring the attributes would flow through Segment into Braze without pipeline disruption.</li>
+<li>Key attributes added included favourite product (top product engaged with over a defined window), top three products engaged with, other products engaged with, and engagement recency signals.</li>
+</ul>
+</li>
+<li><strong>Favourite Product Calculation</strong>
+<ul>
+<li>Defined favourite product as the product with the highest engagement count for a given user over the lookback window, using a ranked window function to identify the top product per user.</li>
+<li>Documented the calculation methodology clearly for the CRM team so they understood what the attribute represented and how to use it responsibly in campaign targeting.</li>
+<li>Extended the logic to surface the top three products and a separate field for all other products engaged with, giving the CRM team a richer segmentation capability.</li>
+</ul>
+</li>
+<li><strong>Segment and Braze Integration</strong>
+<ul>
+<li>Once Snowflake production tables were updated, the new attributes propagated through Segment automatically as part of the existing reverse ETL sync.</li>
+<li>Confirmed attribute availability in Braze with the CRM team and supported them in verifying the values against expected user behaviour before campaign launch.</li>
+</ul>
+</li>
+</ol>
+<h3>Outcome</h3>
+<ul>
+<li>Four reverse ETL models maintained and extended with new CRM-ready attributes across all four audience states.</li>
+<li>CRM team gained access to favourite product, top three products, and engagement recency signals directly within Braze for campaign targeting.</li>
+<li>Attributes were used to build personalised win-back campaigns targeting lapsed subscribers lost over the preceding three years, enabling re-acquisition outreach tailored to each user's historical product preferences.</li>
+<li>Established a repeatable process for CRM attribute requests: definition meeting, SQL development in Snowflake, production table update, Segment propagation, Braze verification.</li>
+</ul>`,
+ files:[]},
 
       // INDEPENDENT (14)
       {
@@ -4341,6 +4447,7 @@
       'fraud': ['Fraud detection logic design using composite keys and priority ordering', 'Feature engineering for predictive modelling (duplicate flags, frequency counts, hospital risk scores)', 'Machine learning model selection, training and evaluation (AUC, Precision, Recall)', 'Translating model outputs into a daily operational worklist for non-technical teams', 'Balancing precision and recall trade-offs in a high-stakes fraud prevention context'],
       'incentive': ['Role-based access control and stakeholder-specific views', 'DAX tier classification logic (Bronze, Silver, Gold) tied to payroll', 'Designing for 100% accuracy requirements in a payroll context', 'Automated PDF exports embedded into recurring business processes (weekly huddles, month-end reviews)', 'UAT and sign-off process management with HR and Sales leadership'],
       'etl-opt': ['ETL lineage documentation and architecture assessment', 'Performance optimisation: upstream column migration, parallel task scheduling, incremental loading', 'File-based trigger mechanisms to prevent race conditions across overlapping pipelines', 'T-1 logic implementation for validated daily data delivery', 'Automated data validation (row count, null audit, referential integrity checks) with audit dashboards'],
+      'spotlight-sub': ['Structured requirement gathering with a Google Sheets metric tracker as a living data dictionary', 'Stakeholder management across SLT, B2C, Exec, product, finance and data teams simultaneously', 'Managing mid-flight scope changes and evolving requirements after sign-off', 'Snowflake SQL semantic layer design for consistent multi-dashboard metric consumption', 'Prorated revenue calculation aligned to finance team methodology', 'Communicating delays and trade-offs transparently while maintaining stakeholder confidence'],
       'renewal': ['Defending data-driven findings under strong stakeholder pushback with additional evidence', 'Root cause attribution across multiple non-renewal drivers', 'Data storytelling: translating segmentation analysis into a clear 3-minute narrative for Sales teams', 'Cross-referencing CRM call data to validate communication-gap hypothesis', 'Securing stakeholder buy-in and converting resistance into daily operational adoption'],
       'poundland-loss': ['Designing for non-technical retail users with no analytics background', 'Loss categorisation and shrinkage pattern analysis by time window and department', 'Translating operational retail data into actionable management reporting', 'Building a repeatable weekly reporting cycle from informal manual tracking'],
       'poundland-mi': ['Area-wide benchmarking across multiple stores on standardised KPIs', 'SQL aggregation of inconsistent multi-store source data (naming, week numbering, cost categorisation)', 'Dual output design: Power BI for interactive analysis, Excel for offline upward sharing', 'Designing for Area Manager use during weekly reviews and store visit preparation'],
