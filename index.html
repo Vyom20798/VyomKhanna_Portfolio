@@ -1633,20 +1633,10 @@
           </div>
           <span class="tl-badge contract">Contract</span>
           <ul class="tl-bullets">
-            <li>Engineered Snowflake SQL tables and scripts to define and segment CRM audiences, enabling reverse ETL
-              into Braze for the CRM and marketing teams to execute win-back campaigns and subscriber reacquisition
-              initiatives.</li>
-            <li>Built a subscriber, churn and revenue performance dashboard in Looker Studio using Snowflake SQL views
-              as a semantic layer, designed as leadership's single source of truth for stakeholder consumption without
-              technical interpretation.</li>
-            <li>Developed app-based article performance scorecard views across multiple content verticals, tracking
-              delivery progress and reporting status updates to stakeholders.</li>
-            <li>Designed a customer journey funnel dashboard tracking user progression from visit to freemium, paywall
-              and subscriber stages, identifying drop-off between visit-to-freemium and freemium-to-paywall as the
-              primary conversion leakage points, giving SLT visibility to inform content strategy, pricing decisions and
-              new subscription plan development.</li>
-            <li>Maintained a shared tracker for delivery visibility across metric definition and sign-off workstreams,
-              covering dependencies and stakeholder milestones, proactively surfacing blockers.</li>
+            <li>Engineered Snowflake SQL tables and scripts to define and segment CRM audiences, enabling reverse ETL into Braze for the CRM and marketing teams to execute win-back campaigns and subscriber reacquisition initiatives.</li>
+            <li>Built a subscriber, churn, onboarding and revenue performance dashboard in Looker Studio, underpinned by Snowflake SQL table as a semantic layer, serving as the leadership team's single source of truth, designed for stakeholder consumption without requiring technical interpretation.</li>
+            <li>Developed app-based article performance scorecard views across multiple content verticals, tracking delivery progress and reporting status updates to stakeholders.</li>
+            <li>Built dbt models on Snowflake with incremental load strategies, staging-to-mart architecture, ref() dependency management, and built-in data quality tests across subscription and transaction data.</li>
           </ul>
         </div>
 
@@ -1663,11 +1653,14 @@
             <li>Designed a Power BI dashboard across 24,000 properties and 15,000 repair jobs, built on a Kimball star
               schema and centralised DAX table with postcode-level and EPC-based transformations for compliance and cost
               analysis.</li>
+            <li>Refactored SQL logic into a dbt staging and presentation layer, standardising column naming, enforcing data types and deduplicating records, cutting downstream DAX complexity and improving refresh performance.</li>
             <li>Surfaced £52K in potential annual contractor savings and flagged 7,600 EPC D-or-below properties as the
               primary Decent Homes 2 compliance risk, feeding directly into Tenant Satisfaction Measure reporting.</li>
             <li>Established a data dictionary covering KPI definitions, DAX calculations, source tables, data grain and
               known limitations, serving as the single reference for cross-departmental disputes and compliance audits.
             </li>
+            <li>Refactored SQL logic into a dbt staging and presentation layer, standardising column naming, enforcing data types and deduplicating records, cutting downstream DAX complexity and improving refresh performance.</li>
+            <li>Mentored non-technical business users through Power BI adoption and junior analysts in SQL and DAX, producing plain-language user guides and hands-on walkthroughs.</li>
           </ul>
         </div>
 
@@ -1689,6 +1682,7 @@
             <li>Presented Python predictive model outputs incorporating historical demand signals and weather variables
               to operational planning teams, enabling the fleet team to act on forward-looking demand signals without
               needing technical interpretation.</li>
+            <li>Maintained a shared tracker for delivery visibility across metric definition and sign-off workstreams, covering dependencies and stakeholder milestones, proactively surfacing blockers.</li>
           </ul>
         </div>
 
@@ -1722,14 +1716,10 @@
           </div>
           <span class="tl-badge contract">Contract</span>
           <ul class="tl-bullets">
-            <li>Delivered an On-The-Book vs Forecast revenue dashboard across cities, identifying a 25% revenue gap
-              driven entirely by volume shortfall and surfacing day-of-week variance indicating a corporate demand
-              profile.</li>
-            <li>Documented ETL flow across all pipelines using a Bronze/Silver/Gold layered architecture, raw ingestion
-              through cleansed transformation to curated presentation layers, enabling faster debugging, audit-readiness
-              and transparent handover.</li>
-            <li>Optimised an underperforming Power BI dashboard by migrating calculated columns upstream into SQL,
-              reducing report load time from 5 minutes to 30 seconds.</li>
+            <li>Optimised an underperforming Power BI dashboard by migrating calculated columns upstream into SQL, reducing report load time from 5 minutes to 30 seconds.</li>
+            <li>Transformed raw transactional data into business-ready fact and conformed dimension tables, enabling consistent KPIs and cross-functional reporting, cutting ad hoc reporting by 25%.</li>
+            <li>Delivered an On-The-Book vs Forecast revenue dashboard across cities, identifying a 25% revenue gap driven entirely by volume shortfall and surfacing day-of-week variance indicating a corporate demand profile.</li>
+            <li>Documented ETL flow across Bronze/Silver/Gold pipeline layers, enabling faster debugging, audit-readiness and transparent handover.</li>
           </ul>
         </div>
 
@@ -1747,9 +1737,9 @@
             which the below analytics work was delivered.</p>
           <ul class="tl-bullets">
             <li>Built a loss-prevention dashboard tracking shrinkage by category, time of day and department, giving
-              management a ranked view of avoidable losses to prioritise intervention.</li>
-            <li>Produced area-wide MI packs consolidating like-for-like sales, labour cost % and stock availability
-              across the South East region, with report guides for non-technical staff.</li>
+              management a ranked view of avoidable losses to prioritise intervention.</li>   
+            <li>Restructured store-level extracts into a centralised dbt transformation layer, standardising KPI definitions and eliminating duplicate aggregation logic across area and store reporting.</li>            <li>Produced area-wide MI packs consolidating like-for-like sales, labour cost % and stock availability
+              across the South East region (90 Stores), with report guides for non-technical staff.</li>
             <li>Delivered SKU-level performance reports analysing units per transaction, basket behaviour and category
               trends, enabling data-led ranging and shelf allocation decisions.</li>
           </ul>
@@ -1810,7 +1800,7 @@
           </div>
           <span class="tl-badge perm">Permanent</span>
           <ul class="tl-bullets">
-            <li>Streamlined ERP reporting by building a batch-based Python-MySQL data pipeline to automate extraction,
+            <li>Streamlined ERP reporting by building a batch-based Pyspark data pipeline to automate extraction,
               cleaning and visualisation preparation, reducing processing time by 20%.</li>
             <li>Supported the preparation of reporting datasets by structuring transactional data into fact and
               dimension tables for operational KPI analysis.</li>
