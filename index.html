@@ -1634,54 +1634,41 @@
           <span class="tl-badge contract">Contract</span>
           <ul class="tl-bullets">
             <li>Engineered Snowflake SQL tables and scripts to define and segment CRM audiences, enabling reverse ETL into Braze for the CRM and marketing teams to execute win-back campaigns and subscriber reacquisition initiatives.</li>
-            <li>Built a subscriber, churn, onboarding and revenue performance dashboard in Looker Studio, underpinned by Snowflake SQL table as a semantic layer, serving as the leadership team's single source of truth, designed for stakeholder consumption without requiring technical interpretation.</li>
+            <li>Built a subscriber, churn and revenue Looker Studio dashboard on a Snowflake SQL semantic layer, adopted as the leadership team's single source of truth for performance monitoring.</li>
             <li>Developed app-based article performance scorecard views across multiple content verticals, tracking delivery progress and reporting status updates to stakeholders.</li>
-            <li>Built dbt models on Snowflake with incremental load strategies, staging-to-mart architecture, ref() dependency management, and built-in data quality tests across subscription and transaction data.</li>
-          </ul>
-        </div>
-
-        <div class="timeline-item">
-          <div class="tl-header">
-            <div>
-              <div class="tl-role">BI Developer</div>
-              <div class="tl-company">GreensquareAccord · Birmingham, UK</div>
-            </div>
-            <span class="tl-dates">Jan 2026 – Mar 2026</span>
-          </div>
-          <span class="tl-badge contract">Contract</span>
-          <ul class="tl-bullets">
-            <li>Designed a Power BI dashboard across 24,000 properties and 15,000 repair jobs, built on a Kimball star
-              schema and centralised DAX table with postcode-level and EPC-based transformations for compliance and cost
-              analysis.</li>
-            <li>Refactored SQL logic into a dbt staging and presentation layer, standardising column naming, enforcing data types and deduplicating records, cutting downstream DAX complexity and improving refresh performance.</li>
-            <li>Surfaced £52K in potential annual contractor savings and flagged 7,600 EPC D-or-below properties as the
-              primary Decent Homes 2 compliance risk, feeding directly into Tenant Satisfaction Measure reporting.</li>
-            <li>Established a data dictionary covering KPI definitions, DAX calculations, source tables, data grain and
-              known limitations, serving as the single reference for cross-departmental disputes and compliance audits.
-            </li>
-            <li>Refactored SQL logic into a dbt staging and presentation layer, standardising column naming, enforcing data types and deduplicating records, cutting downstream DAX complexity and improving refresh performance.</li>
-            <li>Mentored non-technical business users through Power BI adoption and junior analysts in SQL and DAX, producing plain-language user guides and hands-on walkthroughs.</li>
-          </ul>
+            <li>Built dbt models on Snowflake with incremental load strategies, staging-to-mart architecture, ref() dependency management, and built-in data quality tests across subscription and transaction data.</li>          </ul>
         </div>
 
         <div class="timeline-item">
           <div class="tl-header">
             <div>
               <div class="tl-role">Analytics Engineer</div>
+              <div class="tl-company">GreensquareAccord · Birmingham, UK</div>
+            </div>
+            <span class="tl-dates">Jan 2026 – Mar 2026</span>
+          </div>
+          <span class="tl-badge contract">Contract</span>
+          <ul class="tl-bullets">
+            <li>Designed a Power BI dashboard across 24,000 properties and 15,000 repair jobs on a Kimball star schema and centralised DAX table with postcode-level and EPC-based transformations for compliance and cost analysis.</li>
+            <li>Surfaced £52K in potential annual contractor savings and flagged 7,600 EPC D-or-below properties as the primary Decent Homes 2 compliance risk, feeding directly into Tenant Satisfaction Measure reporting.</li>
+            <li>Established a data dictionary covering KPI definitions, DAX calculations, source tables, data grain and known limitations.</li>
+            <li>Refactored SQL into a dbt staging and presentation layer, enforcing data types, deduplicating records and adding not_null and unique tests, cutting downstream DAX complexity and improving Power BI performance.</li>
+            <li>Mentored non-technical business users through Power BI adoption and junior analysts in SQL and DAX, producing plain-language user guides and hands-on walkthroughs.</li>          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="tl-header">
+            <div>
+              <div class="tl-role">Data Engineer</div>
               <div class="tl-company">Avis Budget Finance · Bracknell, UK</div>
             </div>
             <span class="tl-dates">Oct 2025 – Dec 2025</span>
           </div>
           <span class="tl-badge contract">Contract</span>
           <ul class="tl-bullets">
-            <li>Built a machine learning demand forecasting model for car allocation across airport locations,
-              engineering features from weather, vehicle type and location data, evaluating Linear Regression, Random
-              Forest and XGBoost.</li>
-            <li>Delivered fleet distribution recommendations from model outputs, identifying key demand drivers by
-              location and vehicle type to reduce misallocation risk and support operational planning.</li>
-            <li>Presented Python predictive model outputs incorporating historical demand signals and weather variables
-              to operational planning teams, enabling the fleet team to act on forward-looking demand signals without
-              needing technical interpretation.</li>
+            <li>Built a machine learning forecasting model for car allocation across airport locations, engineering features from weather, vehicle type and location data, evaluating Linear Regression, Random Forest and XGBoost.</li>
+            <li>Delivered fleet distribution recommendations from model outputs, identifying key demand drivers by location and vehicle type to reduce misallocation risk and support operational planning.</li>
+            <li>Presented Python predictive model outputs incorporating historical demand signals and weather variables to operational planning teams, enabling the fleet team to act on forward-looking demand signals without needing technical interpretation.</li>
             <li>Maintained a shared tracker for delivery visibility across metric definition and sign-off workstreams, covering dependencies and stakeholder milestones, proactively surfacing blockers.</li>
           </ul>
         </div>
@@ -1689,7 +1676,7 @@
         <div class="timeline-item">
           <div class="tl-header">
             <div>
-              <div class="tl-role">Market Insight Analyst</div>
+              <div class="tl-role">Business Intelligence Analyst</div>
               <div class="tl-company">Oodle Car Finance · Manchester, UK</div>
             </div>
             <span class="tl-dates">Jul 2025 – Oct 2025</span>
@@ -1709,7 +1696,7 @@
         <div class="timeline-item">
           <div class="tl-header">
             <div>
-              <div class="tl-role">Insight Analyst</div>
+              <div class="tl-role">Business Intelligence Developer</div>
               <div class="tl-company">Frasers Hospitality · London, UK</div>
             </div>
             <span class="tl-dates">Mar 2025 – Jun 2025</span>
@@ -1719,8 +1706,7 @@
             <li>Optimised an underperforming Power BI dashboard by migrating calculated columns upstream into SQL, reducing report load time from 5 minutes to 30 seconds.</li>
             <li>Transformed raw transactional data into business-ready fact and conformed dimension tables, enabling consistent KPIs and cross-functional reporting, cutting ad hoc reporting by 25%.</li>
             <li>Delivered an On-The-Book vs Forecast revenue dashboard across cities, identifying a 25% revenue gap driven entirely by volume shortfall and surfacing day-of-week variance indicating a corporate demand profile.</li>
-            <li>Documented ETL flow across Bronze/Silver/Gold pipeline layers, enabling faster debugging, audit-readiness and transparent handover.</li>
-          </ul>
+            <li>Documented ETL flow across Bronze/Silver/Gold pipeline layers, enabling faster debugging, audit-readiness and transparent handover.</li>          </ul>
         </div>
 
         <div class="timeline-item">
@@ -1736,12 +1722,10 @@
             Assistant role, I undertook a 3-month (Nov 2024 – Feb 2025) internal data project for Poundland, during
             which the below analytics work was delivered.</p>
           <ul class="tl-bullets">
-            <li>Built a loss-prevention dashboard tracking shrinkage by category, time of day and department, giving
-              management a ranked view of avoidable losses to prioritise intervention.</li>   
-            <li>Restructured store-level extracts into a centralised dbt transformation layer, standardising KPI definitions and eliminating duplicate aggregation logic across area and store reporting.</li>            <li>Produced area-wide MI packs consolidating like-for-like sales, labour cost % and stock availability
-              across the South East region (90 Stores), with report guides for non-technical staff.</li>
-            <li>Delivered SKU-level performance reports analysing units per transaction, basket behaviour and category
-              trends, enabling data-led ranging and shelf allocation decisions.</li>
+            <li>Built a loss-prevention Power BI dashboard tracking shrinkage by category, time of day and department, giving management a ranked view of avoidable losses to prioritise intervention.</li>
+            <li>Built a centralised dbt transformation layer across 90-store extract feeds, standardising KPI definitions and eliminating duplicate aggregation logic to produce a single consistent reporting base for area and store MI.</li>
+            <li>Produced area-wide MI packs consolidating like-for-like sales, labour cost % and stock availability across the South East region (90 Stores), with report guides for non-technical staff.</li>
+            <li>Delivered SKU-level performance reports analysing units per transaction, basket behaviour and category trends, enabling data-led ranging and shelf allocation decisions.</li>
           </ul>
         </div>
 
@@ -1800,9 +1784,7 @@
           </div>
           <span class="tl-badge perm">Permanent</span>
           <ul class="tl-bullets">
-            <li>Streamlined ERP reporting by building a batch-based Pyspark data pipeline to automate extraction,
-              cleaning and visualisation preparation, reducing processing time by 20%.</li>
-            <li>Supported the preparation of reporting datasets by structuring transactional data into fact and
+            <li>Streamlined ERP reporting by building a batch-based PySpark data pipeline to automate extraction, cleaning and visualisation preparation, reducing processing time by 20%.</li>            <li>Supported the preparation of reporting datasets by structuring transactional data into fact and
               dimension tables for operational KPI analysis.</li>
             <li>Automated Excel and SQL reports to track production KPIs, efficiency, downtime and defects, for faster
               performance monitoring.</li>
